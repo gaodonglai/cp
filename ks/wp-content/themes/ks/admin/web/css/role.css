@@ -1,0 +1,58 @@
+#accordion {
+    background: #fff;
+}
+.ui-accordion-header {
+    padding: 10px;margin: 0; border-bottom: 1px solid #ccc;
+}
+.ui-accordion-content p {
+    margin: 0;padding: 10px;color: #302B2B;
+}
+.ui-accordion-content p span {
+    width: 500px; display: inline-block;position: relative; padding: 5px 0;
+}
+.ui-accordion-content p b {
+    font-weight: normal; margin-left: 30px;
+}
+.ui-accordion-content p input {
+    position: absolute;left: 0;
+}
+.delect-role{
+    float: right;font-size: 22px;cursor: pointer;padding-left: 5px;width: 20px;
+}
+
+/*add*/
+#role_form {
+    background: #fff;
+    padding: 10px;
+}
+
+#role_form p {
+    margin: 0;
+}
+.role_add {
+    border-bottom: 1px solid #ccc;
+}
+.role_add span {
+    display: inline-block;width: 100%;padding: 5px 0;
+}
+.role_adda_qx {
+    width: 70px;min-height: 100px;display: inline-block;float: left;font-weight: bold;padding-top: 5px;
+}
+.ckssa {
+    width: 100%;display: inline-block;margin-top: 50px;text-align: center;
+}
+.role_adda_right {
+    display: inline-block;width: 90%;float: left;
+}
+.role_adda {
+    padding-top: 30px;border: normal;
+}
+.role_adda_right b {
+    width: 500px;display: inline-block;font-weight: normal;position: relative;text-indent: 30px;padding: 5px 0;
+}
+.role_adda_right b input {
+    position: absolute;left: 0;
+}
+#ckss {
+    width: 100px;height: 40px;background: #0073AA;border: none;color: #Fff;border-radius: 5px;cursor: pointer;
+}
