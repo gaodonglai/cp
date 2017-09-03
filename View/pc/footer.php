@@ -22,7 +22,7 @@
     <div class="pop_box_wp">
         <div class="p_b_bd">
             <div class="img_logo_wp">
-                <img src="View/pc/image/logokuai3.png" alt="">
+                <img src="image/logokuai3.png" alt="">
             </div>
             <div class="t_boxc">
                 <div class="login_box">
@@ -92,10 +92,10 @@
                     <div class="other_login_wp" id="tl_div" style="">
                         <span class="tit">其他登录</span>
                         <div class="other_login" id="tl_icons">
-                            <a id="icon_qq" title="QQ" class="login_img" target="_blank" href="javascript:void(0)"><img id="img_qq" alt="QQ" src="View/pc/image/qq.png"></a>
-                            <a id="icon_weixin" title="微信" class="login_img" target="_blank" href="javascript:void(0)"><img id="img_weixin" alt="微信" src="View/pc/image/weixin.png"></a>
-                            <a id="icon_sina" title="新浪微博" class="login_img" target="_blank" href="javascript:void(0)"><img id="img_sina" alt="新浪微博" src="View/pc/image/sina.png"></a>
-                            <a id="icon_alipay" title="支付宝" class="login_img" target="_blank" href="javascript:void(0)"><img id="img_alipay" alt="支付宝" src="View/pc/image/alipay.png"></a>
+                            <a id="icon_qq" title="QQ" class="login_img" target="_blank" href="javascript:void(0)"><img id="img_qq" alt="QQ" src="image/qq.png"></a>
+                            <a id="icon_weixin" title="微信" class="login_img" target="_blank" href="javascript:void(0)"><img id="img_weixin" alt="微信" src="image/weixin.png"></a>
+                            <a id="icon_sina" title="新浪微博" class="login_img" target="_blank" href="javascript:void(0)"><img id="img_sina" alt="新浪微博" src="image/sina.png"></a>
+                            <a id="icon_alipay" title="支付宝" class="login_img" target="_blank" href="javascript:void(0)"><img id="img_alipay" alt="支付宝" src="image/alipay.png"></a>
                         </div>
                         <div class="other_login2" id="tl_icons2_" style="display: none;">
                             <a id="icon_xiaomi" title="小米" class="login_link" target="_blank" href="javascript:void(0)">小米</a>

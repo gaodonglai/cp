@@ -36,14 +36,15 @@ function display_show($pageName){
 
 function get_header_front( $name = null ) {
 
-    do_action( 'get_header', $name );
+    $terminal = is_mobile() ? 'mobile' : 'pc';
+
 
     $templates = array();
     $name = (string) $name;
     if ( '' !== $name ) {
-        $templates = "header-{$name}.php";
+        $templates = 'View'.DS.$terminal.DS."header-{$name}.php";
     }else{
-        $templates = 'header.php';
+        $templates = 'View'.DS.$terminal.DS.'header.php';
     }
 
     include MAIN_PATH . DS . $templates;
@@ -52,15 +53,14 @@ function get_header_front( $name = null ) {
 
 function get_footer_front( $name = null ) {
 
-    do_action( 'get_footer', $name );
+    $terminal = is_mobile() ? 'mobile' : 'pc';
 
-    $templates = array();
     $name = (string) $name;
     if ( '' !== $name ) {
-        $templates = "footer-{$name}.php";
+        $templates = 'View'.DS.$terminal.DS."footer-{$name}.php";
+    }else{
+        $templates    = 'View'.DS.$terminal.DS.'footer.php';
     }
-
-    $templates    = 'footer.php';
 
     include MAIN_PATH . DS . $templates;
 }

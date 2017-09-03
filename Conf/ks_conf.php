@@ -18,7 +18,7 @@ include_once MAIN_PATH . DS .'ks/wp-load'.EXT;
 /*根据自己页面做相应的功能概述*/
 
 /*公共函数*/
-include_once MAIN_PATH . DS .'functions'.EXT;
+include_once MAIN_PATH .DS .'Conf'. DS .'functions'.EXT;
 
 //包含目录
 $include_dir = [
