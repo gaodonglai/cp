@@ -11,7 +11,7 @@
 ?>
 <div class="personal_main_left">
     <div class="sonal_main_lef_header">
-        <p class="lef_header_a"><a href="###"><span><img src="View/pc/image/headerk3.png" alt=""></span><b>小屁孩啊-NB</b></a></p>
+        <p class="lef_header_a"><a href="###"><span><img src="<?=_get_home_url()?>/View/pc/image/headerk3.png" alt=""></span><b>小屁孩啊-NB</b></a></p>
         <p class="lef_header_b">安全等级
             <span>低</span>
         </p>
