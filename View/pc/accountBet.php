@@ -18,7 +18,7 @@
     <div class="personal_main_right">
 
         <!--我的投注-->
-        <div class="personal_main_macen personal_main_active" id="persona2-b">
+        <div class="personal_main_macen">
             <div class="per_main_rig_top">
                 <h4>我的投注</h4>
             </div>

@@ -17,7 +17,7 @@
     ?>
     <div class="personal_main_right">
 
-        <div class="personal_main_macen personal_main_active" id="persona4-d">
+        <div class="personal_main_macen">
             <div class="per_main_rig_top">
                 <h4>立即充值</h4>
             </div>
@@ -38,16 +38,16 @@
                     <div class="table_betting_main tab_Recharge" id="Recharge_tab3">
                         <dl class="auto_in_tab">
                             <dt>尊敬的用户，平台充值系统已升级，请按以下充值流程进行操作：</dt>
-                            <dd><img src="image/cz_bank.png" class="cz_bank">绑定本人银行卡</dd>
-                            <dd><img src="image/cz_jt.png"  class="cz_jt"></dd>
-                            <dd><img src="image/cz_zz.png" class="cz_bank">使用已选择的银行卡充值</dd>
-                            <dd><img src="image/cz_jt.png"  class="cz_jt"></dd>
-                            <dd><img src="image/cz_auto.png" class="cz_bank">系统自动入账</dd>
+                            <dd><img src="View/pc/image/cz_bank.png" class="cz_bank">绑定本人银行卡</dd>
+                            <dd><img src="View/pc/image/cz_jt.png"  class="cz_jt"></dd>
+                            <dd><img src="View/pc/image/cz_zz.png" class="cz_bank">使用已选择的银行卡充值</dd>
+                            <dd><img src="View/pc/image/cz_jt.png"  class="cz_jt"></dd>
+                            <dd><img src="View/pc/image/cz_auto.png" class="cz_bank">系统自动入账</dd>
                         </dl>
                         <div class="blankRemittance">
                             <div class="blankRemittance_bg">
                                 <ul>
-                                    <li><img src="image/icon_h_recharge.png"  class="icon_h_recharge"><span class="h_title">充值提醒</span></li>
+                                    <li><img src="View/pc/image/icon_h_recharge.png"  class="icon_h_recharge"><span class="h_title">充值提醒</span></li>
                                     <li class="word">
                                         <p>抱歉，当前账户暂时未绑定银行卡，请添加银行卡后进行充值。</p>
                                     </li>

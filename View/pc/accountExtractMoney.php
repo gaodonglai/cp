@@ -17,7 +17,7 @@
     ?>
     <div class="personal_main_right">
 
-        <div class="personal_main_macen personal_main_active" id="persona6-f">
+        <div class="personal_main_macen">
             <div class="per_main_rig_top">
                 <h4>提现申请</h4>
             </div>
@@ -29,11 +29,11 @@
                 <div class="basic_information">
                     <div class="table_betting_main table_betting_active Withdrawals_bind_main" id="Withdrawals_binding1">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>暂不支持信用卡和微信提现，目前仅支持储蓄卡和支付宝提现。</p>
-                        <form action="" class="basic_information_form Withdrawals_bind_form">
+                        <form action="" class="basic_information_form Withdrawals_bind_form registerform">
                             <ul>
                                 <li class="basic_information_a">
                                     <label for="">银行卡号：</label>
-                                    <select name="bankother" class="loginValue" onchange="selectInput(this);">
+                                    <select name="bankother" class="loginValue">
                                         <option data-msg="6217003890002717564" value="274014">中国建设银行尾号：7564</option>
                                         <option data-msg="6217003890002717564" value="274014">中国农业银行尾号：7564</option>
                                         <option data-msg="6217003890002717564" value="274014">中国招商银行尾号：7564</option>
@@ -45,25 +45,26 @@
                                 </li>
                                 <li class="basic_information_d">
                                     <label for="">提现金额(￥)：</label>
-                                    <input type="text" name="money" value=""  required="required">
-                                    <span class="color_red_mdcc">最少提现金额为￥100</span>
+                                    <input type="number" name="money" value="" datatype="n3-11" nullmsg="请输入提现金额" errormsg="最少提现金额为￥100"//>
+                                    <span class="Validform_checktip">最少提现金额为￥100</span>
                                 </li>
                                 <li class="basic_information_e">
                                     <label for="">交易密码：</label>
-                                    <input type="password" name="pwdtrade" value=""  required="required">
+                                    <input type="password" name="pwdtrade" value=""  datatype="*5-15" nullmsg="请填写密码！" errormsg="密码范围在5~15位之间！"/>
+                                    <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_c">
                                     <label for="">到账时间：</label>
                                     <div class="basic_information_c_main">
-                                        <label class="basic_radio_label">
-                                            <input class="mui-checkbox checkbox-s checkbox-orange"  id="type-1" type="radio" name="paymentype" value = "2" />
-                                            <i class="iconfont checkbox-i">&#xe628;</i> 极速提现（9:00——18:00时间段 1时内到账，其他时间段 12小时内到账）
-                                        </label>
-                                        <label class="basic_radio_label">
-                                            <input class="mui-checkbox checkbox-s checkbox-orange" id="type-2" type="radio" name="paymentype" value = "1" checked="1"/>
-                                            快速提现	（正常24小时内到账，具体到账时间因收款银行略有不同，节假日会略有延迟）
-                                            <i class="iconfont checkbox-i">&#xe628;</i>
-                                        </label>
+                                    <label class="basic_radio_label">
+                                        <input class="mui-checkbox checkbox-s checkbox-orange"  id="type-1" type="radio" name="paymentype" value = "2" />
+                                        <i class="iconfont checkbox-i">&#xe628;</i> 极速提现（9:00——18:00时间段 1时内到账，其他时间段 12小时内到账） 
+                                    </label>
+                                    <label class="basic_radio_label">
+                                        <input class="mui-checkbox checkbox-s checkbox-orange" id="type-2" type="radio" name="paymentype" value = "1" checked="1"/>
+                                         快速提现   （正常24小时内到账，具体到账时间因收款银行略有不同，节假日会略有延迟）
+                                        <i class="iconfont checkbox-i">&#xe628;</i>
+                                    </label>
                                     </div>
                                 </li>
                                 <li class="basic_information_i">
@@ -116,11 +117,12 @@
                     </div>
                     <div class="table_betting_main  Withdrawals_bind_main" id="Withdrawals_binding2">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>暂不支持信用卡和微信提现，目前仅支持储蓄卡和支付宝提现。</p>
-                        <form action="" class="basic_information_form Withdrawals_bind_form">
+                        <form action="" class="basic_information_form Withdrawals_bind_form registerform">
                             <ul>
                                 <li class="basic_information_a">
                                     <label for="">支付宝账号：</label>
-                                    <input type="text" name="money" value=""  required="required">
+                                    <input type="text" name="money" value=""  nullmsg="请输入支付宝账号" datatype="*4-18" errormsg="至少6个字符,最多18个字符！">
+                                    <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_b">
                                     <label for="">可用人民币：</label>
@@ -128,12 +130,13 @@
                                 </li>
                                 <li class="basic_information_d">
                                     <label for="">提现金额(￥)：</label>
-                                    <input type="text" name="money" value=""  required="required">
-                                    <span class="color_red_mdcc">最少提现金额为￥100</span>
+                                    <input type="number" name="money" value="" datatype="n3-11" nullmsg="请输入提现金额" errormsg="最少提现金额为￥100"/>
+                                    <span class="Validform_checktip">最少提现金额为￥100</span>
                                 </li>
                                 <li class="basic_information_e">
                                     <label for="">交易密码：</label>
-                                    <input type="password" name="pwdtrade" value=""  required="required">
+                                    <input type="password" name="pwdtrade" value=""  datatype="*5-15" nullmsg="请输入交易密码" errormsg="密码范围在5~15位之间！"/>
+                                    <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_c">
                                     <label for="">到账时间：</label>

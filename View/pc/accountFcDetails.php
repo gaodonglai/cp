@@ -18,7 +18,7 @@
     <div class="personal_main_right">
 
         <!--资金明细-->
-        <div class="personal_main_macen personal_main_active" id="persona3-c">
+        <div class="personal_main_macen">
             <div class="per_main_rig_top">
                 <h4>资金明细</h4>
             </div>
