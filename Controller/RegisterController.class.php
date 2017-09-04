@@ -89,6 +89,12 @@ class Register
 
     }
 
+    /**
+     * 获取随机数
+     */
+    public function getRandCode(){
+        echo get_rand_code();
+    }
 
 
 

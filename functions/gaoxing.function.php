@@ -54,3 +54,12 @@ function wpDecode($parameter, $sigParameter){
     }
 
 }
+
+/**
+ * 获取随机验证码
+ */
+function get_rand_code(){
+    require_once( MAIN_PATH.'/Conf/libraries/CkCode.class.php');
+    $code = new CkCode();
+    return $code->code();
+}

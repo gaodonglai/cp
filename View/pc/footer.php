@@ -71,7 +71,7 @@
 							</div>
 							<div class="in_box">
 								<input type="number" value="" autocomplete="off" placeholder="输入右边的验证码" datatype="n1-4"   class="in_txt" id="al_p" errormsg="请输入验证码"/>
-								<a href="javascript:void(0)" title="图片验证码" class="verify_btn" id="ml_gc">图片验证码</a>
+								<a href="javascript:void(0)" title="图片验证码" class="verify_btn" id="ml_gc"><img src="<?=_get_home_url('register/getRandCode')?>" onclick="jQuery(this).attr('src','<?=_get_home_url('register/getRandCode')?>?'+ new Date().getTime())" /></a>
 								<span class="Validform_checktip"></span>
 							</div>
 							<div class="pay_btn"><a id="al_submit" class="" title="登录" href="javascript:void(0)">注册</a></div>
