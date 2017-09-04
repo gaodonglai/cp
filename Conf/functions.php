@@ -8,6 +8,8 @@
 
 date_default_timezone_set('PRC');   //设置时区(中国标准时间)
 
+session_start();
+
 //个性化函数
 function individuationFunctions(){
     $arr_submenu = glob(MAIN_PATH . "/functions/*.function.php");

@@ -25,16 +25,15 @@ class Register
      * 注册录入
      */
     function entering(){
-        $_POST['user_name'] = '15388234018';
-        $_POST['user_pass'] = '940423';
-        $_POST['user_rePass'] = '940423';
+
 
         $user_name = $_POST["user_name"];
         $user_pass = $_POST["user_pass"];
         $user_rePass = $_POST["user_rePass"];
+        $rand_code = $_POST["rand_code"];
 
 
-        if( empty($user_name) || empty($user_pass) || empty($user_rePass) ){
+        if( empty($user_name) || empty($user_pass) || empty($user_rePass) || empty($rand_code) ){
             exit(json_encode(array('status'=>'n','content'=>'参数为空')));
         }
 
@@ -46,15 +45,13 @@ class Register
             exit(json_encode(array('status'=>'n','content'=>'两次输入密码不一致')));
         }
 
+
+        if($_SESSION['rand_code'] != $rand_code){
+            exit(json_encode(array('status'=>'n','content'=>'验证码错误')));
+        }
+
         //判断是否是邮箱
-        if(preg_match( '/^\w[_\-\.\w]+@\w+\.([_-\w]+\.)*\w{2,4}$/', $user_name )){
-
-            $pattern = "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i";
-            //判断邮箱是否正确
-            if( !preg_match( $pattern, $user_name ) ){
-                exit(json_encode(array('status'=>'n','content'=>'邮箱不正确')));
-            }
-
+        if(preg_match( "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i", $user_name )){
             $key = 'email';//附加
         }else if( preg_match( '/^\+?\d{11}$/', $user_name) ){//判断是否是手机号
             //判断手机是否正确
@@ -76,7 +73,7 @@ class Register
 
         $table = $wpdb->prefix.'account';
 
-        $result = $wpdb->query("INSERT INTO `$table`( `user_name`, `password`, `reg_time`, `$key` ) VALUES ($user_name,'".wpEncrypt($user_pass)."',".time().",$user_name)");
+        $result = $wpdb->query("INSERT INTO `$table`( `user_name`, `password`, `reg_time`, `$key` ) VALUES ('$user_name','".wpEncrypt($user_pass)."',".time().",'$user_name')");
 
         if($result){
             exit(json_encode(array('status'=>'y','content'=>'注册成功')));

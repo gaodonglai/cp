@@ -7,6 +7,7 @@
  */
 
 ?>
+
 <footer>
     <div class="lottery_footer">
         <p><a href="javascript:void(0)">帮助中心</a></p>
@@ -56,25 +57,25 @@
 					</div>
 					<!--注册-->
 					<div class="login_tab register_tab">
-						<form action="" class="form_register registerform">
+						<form action="<?=_get_home_url('register/entering')?>" class="postAjax form_register">
 							<div class="in_box">
-								<input type="number" value="" autocomplete="off" placeholder="常用手机号或邮箱" datatype="*6-18" class="in_txt" id="al_u" errormsg="账号至少6个字符,最多18个字符！">
+								<input type="number" value="" autocomplete="off" name="user_name" placeholder="常用手机号或邮箱" datatype="*6-18" class="in_txt" id="al_u" errormsg="账号至少6个字符,最多18个字符！">
 								<span class="Validform_checktip"></span>
 							</div>
 							<div class="in_box">
-									<input type="password" value="" name="password" class="in_txt" placeholder="设置密码"  datatype="*6-18" errormsg="密码至少6个字符,最多18个字符！" />
+									<input type="password" value="" name="user_pass" class="in_txt" placeholder="设置密码"  datatype="*6-18" errormsg="密码至少6个字符,最多18个字符！" />
 									<span class="Validform_checktip"></span>
 							</div>
 							<div class="in_box">
-								<input type="password" value="" name="repassword" class="in_txt"  recheck="password" placeholder="再次确认" datatype="*6-18" errormsg="两次输入的密码不一致！" />
+								<input type="password" value="" name="user_rePass" class="in_txt"  recheck="user_pass" placeholder="再次确认" datatype="*6-18" errormsg="两次输入的密码不一致！" />
 								<span class="Validform_checktip"></span>
 							</div>
 							<div class="in_box">
-								<input type="number" value="" autocomplete="off" placeholder="输入右边的验证码" datatype="n1-4"   class="in_txt" id="al_p" errormsg="请输入验证码"/>
+								<input type="number" value="" name="rand_code" autocomplete="off" placeholder="输入右边的验证码" datatype="n1-4"   class="in_txt" id="al_p" errormsg="请输入验证码"/>
 								<a href="javascript:void(0)" title="图片验证码" class="verify_btn" id="ml_gc"><img src="<?=_get_home_url('register/getRandCode')?>" onclick="jQuery(this).attr('src','<?=_get_home_url('register/getRandCode')?>?'+ new Date().getTime())" /></a>
 								<span class="Validform_checktip"></span>
 							</div>
-							<div class="pay_btn"><a id="al_submit" class="" title="登录" href="javascript:void(0)">注册</a></div>
+							<div class="pay_btn"><a id="al_submit" class="" title="登录" href="javascript:;"><button>注册</button></a></div>
 						</form>
 					</div>
 					<p class="pay_b_logo pay_b_logoa" style=""><a href="javascript:void(0)" title="" class="text_cite_a">注册帐号</a></p>
@@ -88,10 +89,11 @@
 <!--遮罩层-->
 <div class="mask-re"></div>
 </body>
-<script src="<?=_get_home_url()?>View/pc/js/jquery2.1.1.min.js"></script>
+
 <!-- Swiper JS -->
 <script src="<?=_get_home_url()?>View/pc/js/swiper.jquery.min.js"></script>
 <!--表单验证插件-->
 <script src="<?=_get_home_url()?>View/pc/js/Validform_v5.3.2_min.js"></script>
 <script src="<?=_get_home_url()?>View/pc/js/public.js"></script>
+<script src="<?=_get_home_url()?>View/pc/js/cookie.url.config.js"></script>
 </html>

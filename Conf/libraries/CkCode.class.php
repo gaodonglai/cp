@@ -14,7 +14,7 @@ class CkCode{
      * @param int $_rnd_code 表示的位数
      */
     public function code($num=4,$w=60,$h=20) {
-        session_start();
+
         $code = "";
         for ($i = 0; $i < $num; $i++) {
             $code .= rand(0, 9);
