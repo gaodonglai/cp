@@ -58,7 +58,7 @@
 					<div class="login_tab register_tab">
 						<form action="" class="form_register registerform">
 							<div class="in_box">
-								<input type="number" value="" autocomplete="off" placeholder="常用手机号或邮箱" datatype="*6-18" class="in_txt" id="al_u" errormsg="账号至少6个字符,最多18个字符！">
+								<input type="text" value="" autocomplete="off" placeholder="常用手机号或邮箱" datatype="*6-18" class="in_txt" id="al_u" errormsg="账号至少6个字符,最多18个字符！">
 								<span class="Validform_checktip"></span>
 							</div>
 							<div class="in_box">
@@ -93,5 +93,10 @@
 <script src="<?=_get_home_url()?>View/pc/js/swiper.jquery.min.js"></script>
 <!--表单验证插件-->
 <script src="<?=_get_home_url()?>View/pc/js/Validform_v5.3.2_min.js"></script>
+<!--城市三级联动-->
+<script src="<?=_get_home_url()?>View/pc/js/distpicker.data.js"></script>
+<script src="<?=_get_home_url()?>View/pc/js/distpicker.js"></script>
+<!--倒计时-->
+<script src="<?=_get_home_url()?>View/pc/js/flipclock.min.js"></script>
 <script src="<?=_get_home_url()?>View/pc/js/public.js"></script>
 </html>

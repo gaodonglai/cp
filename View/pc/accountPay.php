@@ -12,11 +12,10 @@
 <!--个人中心内容-->
 <main class="personal_main">
     <?php
-
     include VIEW_PC.'accountSidebar.php';
     ?>
     <div class="personal_main_right">
-
+        <!--立即充值-->
         <div class="personal_main_macen">
             <div class="per_main_rig_top">
                 <h4>立即充值</h4>
@@ -64,7 +63,5 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </main>

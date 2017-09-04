@@ -18,7 +18,6 @@
     include VIEW_PC.'accountSidebar.php';
     ?>
     <div class="personal_main_right">
-
         <!--我的账户-->
         <div class="personal_main_macen">
             <div class="per_main_rig_top">
