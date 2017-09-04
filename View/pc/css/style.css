@@ -162,10 +162,10 @@ header{
   background: url(../image/indexbg2.jpg) center center / cover no-repeat;
 }
 .home-swiper .swiper-container  .swiper-slide:nth-of-type(2){
-  background: url(../image/indexbg2.jpg) center center / cover no-repeat;
+  background: url(../image/indexbg1.jpg) center center / cover no-repeat;
 }
 .home-swiper .swiper-container  .swiper-slide:nth-of-type(3){
-  background: url(../image/indexbg2.jpg) center center / cover no-repeat;
+  background: url(../image/indexbg3.jpg) center center / cover no-repeat;
 }
 .home-swiper .swiper-container .swiper-pagination{
   bottom: 95px;
