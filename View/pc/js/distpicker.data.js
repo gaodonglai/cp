@@ -7,7 +7,6 @@
  *
  * Date: 2016-06-01T15:05:52.606Z
  */
-
 (function (factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as anonymous module.

@@ -16,7 +16,6 @@
     include VIEW_PC.'accountSidebar.php';
     ?>
     <div class="personal_main_right">
-
         <!--我的投注-->
         <div class="personal_main_macen">
             <div class="per_main_rig_top">
@@ -171,10 +170,9 @@
                         </table>
                         <hr class="style12">
                     </div>
+                    <p class="color_red_mddd bg_tishi"><i class="iconfont"></i>温馨提示：投注记录最多只保留7天。</p>
                 </div>
             </div>
         </div>
-
-
     </div>
 </main>

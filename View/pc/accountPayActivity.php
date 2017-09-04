@@ -16,7 +16,7 @@
     include VIEW_PC.'accountSidebar.php';
     ?>
     <div class="personal_main_right">
-
+        <!--优惠活动申请-->
         <div class="personal_main_macen">
             <div class="per_main_rig_top">
                 <h4>优惠活动申请</h4>
@@ -28,7 +28,5 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </main>

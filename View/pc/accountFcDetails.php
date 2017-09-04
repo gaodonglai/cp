@@ -16,7 +16,6 @@
     include VIEW_PC.'accountSidebar.php';
     ?>
     <div class="personal_main_right">
-
         <!--资金明细-->
         <div class="personal_main_macen">
             <div class="per_main_rig_top">
@@ -195,7 +194,5 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </main>

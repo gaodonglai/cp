@@ -16,7 +16,7 @@
     include VIEW_PC.'accountSidebar.php';
     ?>
     <div class="personal_main_right">
-
+        <!--提现申请-->
         <div class="personal_main_macen">
             <div class="per_main_rig_top">
                 <h4>提现申请</h4>
@@ -190,7 +190,5 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </main>

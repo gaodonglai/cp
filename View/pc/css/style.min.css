@@ -109,6 +109,15 @@ html{
   color: #e31e27;
   font-size: 12px;
   text-align: center;
+  padding:10px 20px;
+}
+.bg_tishi{
+  border: 1px solid #f8e2b9;
+  background: #fffdeb;
+  padding: 10px 20px;
+}
+.basic_information .bg_tishi{
+  padding:10px 20px;
 }
 /*登录框注册*/
 .pop_box{
