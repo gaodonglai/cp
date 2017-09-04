@@ -28,16 +28,16 @@
         <div class="lottery_logo"><a href="javascript:void(0)"></a></div>
         <div class="lottery_nav_center">
             <ul>
-                <li class="loactive"><a href="index.html"><i class="iconfont">&#xe61d;</i><span>首页</span></a></li>
+                <li class="loactive"><a href="<?=_get_home_url()?>"><i class="iconfont">&#xe61d;</i><span>首页</span></a></li>
                 <li><a href=""><i class="iconfont">&#xe76d;</i><span>游戏规则</span></a></li>
                 <li><a href=""><i class="iconfont">&#xe700;</i><span>优惠活动</span></a></li>
                 <li><a href=""><i class="iconfont">&#xe661;</i><span>走势图</span></a></li>
                 <li><a href=""><i class="iconfont">&#xe631;</i><span>合作代理</span></a></li>
                 <li><a href=""><i class="iconfont">&#xe66d;</i><span>交易记录</span></a></li>
                 <li><a href=""><i class="iconfont">&#xe64c;</i><span>消费送彩金</span></a></li>
-                <li><a href=""><i class="iconfont">&#xe68f;</i><span>充值</span></a></li>
-                <li><a href=""><i class="iconfont">&#xe71c;</i><span>取款</span></a></li>
-                <li class="lottery_balance">|<a href="">余额：<span>7377.00</span>元<i class="iconfont">&#xe600;</i></a></li>
+                <li><a href="<?=_get_home_url('account/pay')?>"><i class="iconfont">&#xe68f;</i><span>充值</span></a></li>
+                <li><a href="<?=_get_home_url('account/extractMoney')?>"><i class="iconfont">&#xe71c;</i><span>取款</span></a></li>
+				<li class="lottery_balance"><a href="">| 余额：<span>7377.00</span>元<i class="iconfont">&#xe600;</i></a></li>
             </ul>
         </div>
         <div class="lottery_Personal">

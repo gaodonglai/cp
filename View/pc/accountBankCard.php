@@ -16,8 +16,8 @@
     include VIEW_PC.'accountSidebar.php';
     ?>
     <div class="personal_main_right">
-
-        <div class="personal_main_macen personal_main_active" id="persona8-h">
+        <!--银行卡管理-->
+        <div class="personal_main_macen">
             <div class="per_main_rig_top">
                 <h4>银行卡管理</h4>
             </div>
@@ -29,11 +29,11 @@
                 <div class="basic_information">
                     <div class="table_betting_main table_betting_active Bank_card_bind_main" id="Bank_card_binding1">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>暂不支持支付宝和信用卡，请填写实名认证的银行卡账户信息。</p>
-                        <form action="" class="basic_information_form">
+                        <form action="" class="basic_information_form registerform">
                             <ul>
                                 <li class="basic_information_a">
                                     <label for="">选择银行：</label>
-                                    <select name="bankother" class="loginValue" onchange="selectInput(this);">
+                                    <select name="bankother" class="loginValue" nullmsg="请选择银行" datatype="*"">
                                         <option value="">请选择银行</option>
                                         <option value="中国工商银行">中国工商银行</option>
                                         <option value="中国建设银行">中国建设银行</option>
@@ -52,34 +52,39 @@
                                         <option value="华夏银行">华夏银行</option>
                                         <option value="1">其他</option>
                                     </select>
+                                    <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_b">
                                     <label for="">银行名称：</label>
-                                    <input type="text" name="bank" value=""  required="required">
+                                    <input type="text" name="bank" value=""  datatype="s4-18"  errormsg="至少4个字符,最多18个字符！"/>
+                                    <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_c">
                                     <label for="">开户城市：</label>
                                     <div id="distpicker4" data-toggle="distpicker" class="province-city" >
-                                        <select name="province"></select>
-                                        <select name="city"></select>
+                                      <select name="province"></select>
+                                      <select name="city"></select>
                                     </div>
                                 </li>
                                 <li class="basic_information_d">
                                     <label for="">开户支行：</label>
-                                    <input type="text" name="subbank" value=""  required="required">
-                                    <span class="color_red_mdcc">请填写详细的支行名称</span>
+                                    <input type="text" name="subbank" value=""  datatype="s4-18"  errormsg="至少4个字符,最多18个字符！"/>
+                                    <span class="Validform_checktip">请填写详细的支行名称</span>
                                 </li>
                                 <li class="basic_information_e">
                                     <label for="">银行卡户名：</label>
-                                    <input type="text" name="Name" value=""  required="required">
+                                    <input type="text" name="Name" value="" datatype="s4-18"  errormsg="至少4个字符,最多18个字符！"/ >
+                                    <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_f">
                                     <label for="">银行卡号：</label>
-                                    <input type="text" name="account" value=""  required="required">
+                                    <input type="number" name="account" value="" datatype="n1-19"  errormsg="银行卡格式不正确！"/  >
+                                    <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_g">
                                     <label for="">确认卡号：</label>
-                                    <input type="text" name="reaccount" value=""  required="required">
+                                    <input type="number" name="account" value="" datatype="n1-19"  errormsg="银行卡格式不正确！"/  >
+                                    <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_h codeverify_btn">
                                     <label for="">手机验证：</label>
@@ -153,7 +158,5 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </main>

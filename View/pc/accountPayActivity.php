@@ -17,7 +17,7 @@
     ?>
     <div class="personal_main_right">
 
-        <div class="personal_main_macen personal_main_active" id="persona5-e">
+        <div class="personal_main_macen">
             <div class="per_main_rig_top">
                 <h4>优惠活动申请</h4>
             </div>

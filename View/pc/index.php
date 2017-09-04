@@ -19,8 +19,8 @@
                             <p>余额：<span>7956.00</span> 元</p>
                         </div>
                         <div class="details_botton">
-                            <a href="javascript:void(0)"><i class="iconfont">&#xe64c;</i>充值</a>
-                            <a href="javascript:void(0)"><i class="iconfont">&#xe71c;</i>取款</a>
+                            <a href="<?=_get_home_url('account/pay')?>"><i class="iconfont">&#xe64c;</i>充值</a>
+                            <a href="<?=_get_home_url('account/extractMoney')?>"><i class="iconfont">&#xe71c;</i>取款</a>
                         </div>
                         <div class="details_main">
                             <p class="details_main_p"><a href="#item-1" class="details_main_pa details_active">客户端下载</a><a href="#item-2" class="details_main_pb">常见问题</a></p>
@@ -44,12 +44,10 @@
                     </div>
                 </div>
             </div>
-            <!--  <div class="swiper-slide">
-
+            <div class="swiper-slide">
             </div>
             <div class="swiper-slide">
-
-            </div> -->
+            </div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
@@ -65,7 +63,7 @@
     <div class="lottery_main_conent">
         <div class="lottery_main_left">
             <div class="lottery_main_dice">
-                <div class="lottery_madice_top"><img src="View/pc/image/k3icon.png" alt=""><span>北京快三</span></div>
+                <div class="lottery_madice_top"><img src="View/pc/image/BJK3.png" alt=""><span>北京快三</span></div>
                 <div class="lottery_madice_main">
                     <p>期号：第<span>86405</span>期</p>
                     <p class="lottery_madice_mshuang">和值:<span>5</span>形态:<span>小</span>|<span>单</span></p>
