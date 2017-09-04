@@ -26,7 +26,7 @@ define('DB_NAME', 'ks');
 define('DB_USER', 'root');
 
 /** MySQL数据库密码 */
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', '');
 
 /** MySQL主机 */
 define('DB_HOST', 'localhost');
