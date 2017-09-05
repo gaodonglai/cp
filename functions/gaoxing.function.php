@@ -54,7 +54,10 @@ function wpDecode($parameter,$sigParameter){
 
 }
 
-
+/**
+ * 获取用户二维码
+ * @param $url
+ */
 function phpqrcode($url){
     include MAIN_PATH . DS . 'Conf' . DS .'libraries'.DS .'phpqrcode'.DS .'phpqrcode.php';
     QRcode::png($url);

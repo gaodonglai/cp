@@ -30,6 +30,7 @@
             <li><a href="<?=_get_home_url('account/extractMoney')?>" <?=FUNFCTIO_NAME == 'extractMoney' ? 'class="left-nav-active"' : ''?>><i class="iconfont">&#xe627;</i>提现申请</a></li>
             <li><a href="<?=_get_home_url('account/passwordUp')?>" <?=FUNFCTIO_NAME == 'passwordUp' ? 'class="left-nav-active"' : ''?>><i class="iconfont">&#xe653;</i>密码修改</a></li>
             <li><a href="<?=_get_home_url('account/bankCard')?>" <?=FUNFCTIO_NAME == 'bankCard' ? 'class="left-nav-active"' : ''?>><i class="iconfont">&#xe65e;</i>绑银行卡</a></li>
+            <li><a href="<?=_get_home_url('account/distribution')?>" <?=FUNFCTIO_NAME == 'distribution' ? 'class="left-nav-active"' : ''?>><i class="iconfont">&#xe65e;</i>分销管理</a></li>
         </ul>
     </div>
 </div>

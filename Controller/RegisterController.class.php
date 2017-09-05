@@ -37,8 +37,8 @@ class Register
             exit(json_encode(array('status'=>'n','info'=>'参数为空')));
         }
 
-        if($user_pass < 6){
-            exit(json_encode(array('status'=>'n','info'=>'用户密码位数不能少于6位')));
+        if(preg_match("/^[\w-\.]{6,16}$/",$user_pass)){
+            exit(json_encode(array('status'=>'n','info'=>'用户密码位数不正确')));
         }
 
         if($user_pass !== $user_rePass){
@@ -96,13 +96,7 @@ class Register
         echo get_rand_code();
     }
 
-    /**
-     * 二维码
-     */
-    public function qrcode(){
-        phpqrcode('http://www.baidu.com');
 
-    }
 
 
 

@@ -134,7 +134,28 @@ class Account
     }
 
 
+    /**
+     *分销商管理
+     */
+    function  distribution(){
+        define("FUNFCTIO_NAME",__FUNCTION__);
 
+        get_header_front();
+
+        display_show('accountDistribution');
+
+        get_footer_front();
+    }
+
+
+    /*********************************************************用户功能方法***************************************************************/
+    /**
+     * 二维码
+     */
+    public function qrcode(){
+        phpqrcode('http://www.baidu.com');
+
+    }
 
 
 }
