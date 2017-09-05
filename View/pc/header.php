@@ -38,12 +38,34 @@
                 <li><a href=""><i class="iconfont">&#xe64c;</i><span>消费送彩金</span></a></li>
                 <li><a href="<?=_get_home_url('account/pay')?>"><i class="iconfont">&#xe68f;</i><span>充值</span></a></li>
                 <li><a href="<?=_get_home_url('account/extractMoney')?>"><i class="iconfont">&#xe71c;</i><span>取款</span></a></li>
-				<li class="lottery_balance"><a href="">| 余额：<span>7377.00</span>元<i class="iconfont">&#xe600;</i></a></li>
+				<?php
+                            if(get_user_info()){
+                                ?>
+                                <li class="lottery_balance"><a href=""> 余额：<span><?=get_user_info()->user_money?></span>元<i class="iconfont">&#xe600;</i></a></li>
+                            <?php
+                            }
+
+
+
+
+                            ?>
             </ul>
         </div>
         <div class="lottery_Personal">
             <div class="Login-registration">
-                <a class="box_formlo login-ina" href="javascript:void(0)">登录</a><a class="box_formlo registr_ina" href="javascript:void(0)">注册</a>
+                <?php
+                if(get_user_info()){
+                    ?>
+                    <a class="" href="<?=_get_home_url('login/logout')?>">登出</a>
+                    <?php
+                }else{
+                    ?>
+                    <a class="box_formlo login-ina" href="javascript:void(0)">登录</a>
+                    <a class="box_formlo registr_ina" href="javascript:void(0)">注册</a>
+                <?php
+                }
+                ?>
+
             </div>
             <div class="login-in">
                 <span>zk你好</span>

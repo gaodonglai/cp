@@ -14,6 +14,9 @@ class Account
     function __construct()
     {
         //如果没有登录跳转到登录页面
+        if(!get_user_info()){
+            redirect(_get_home_url());
+        }
 
     }
 
@@ -81,6 +84,8 @@ class Account
      */
     function my(){
         define("FUNFCTIO_NAME",__FUNCTION__);
+
+
 
         get_header_front();
 

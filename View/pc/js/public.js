@@ -181,7 +181,6 @@
 		});	
 	}
 
-
      $(document).on('submit','.postAjax',function(){
 
          var _this = $(this);

@@ -6,12 +6,43 @@
  * Time: 22:50
  */
 
-date_default_timezone_set('PRC');   //设置时区(中国标准时间)
+//date_default_timezone_set('PRC');   //设置时区(中国标准时间)
 
 session_start();
 
+/**
+ * 获取用户信息
+ * @return mixed
+ */
+function get_user_info(){
+    global $wpdb,$user_info;
+    if($user_info){
+        return $user_info;
+    }else{
+        $user_id = $_SESSION['user_id'];
+        if($user_id){
+            $user_info = $wpdb->get_row("SELECT * FROM `{$wpdb->prefix}account` WHERE user_id = {$user_id}");
+            return $user_info;
+        }else{
+            return false;
+        }
+    }
+
+}
+
+/**
+ * 页面重定向
+ * @param $url 页面链接
+ */
+function redirect($url){
+
+    header("Location: $url");
+    exit();
+}
+
+
 //个性化函数
-function individuationFunctions(){
+function individu_ation_functions(){
     $arr_submenu = glob(MAIN_PATH . "/functions/*.function.php");
 
     if (!empty($arr_submenu)) {
@@ -20,9 +51,7 @@ function individuationFunctions(){
         }
     }
 }
-individuationFunctions();
-
-
+individu_ation_functions();
 
 /**
  * 显示页面

@@ -37,13 +37,13 @@
 				<div class="login_bd_bg">
 					<!--登录-->
 					<div class="login_tab login_taba login_tab_active" id="login-1">
-						<form action="" class="form_logoin registerform">
+						<form action="<?=_get_home_url('login/login')?>" class="postAjax form_logoin">
 							<div class="in_box">
-								<input type="text" value="" placeholder="请输您的帐号" class="in_txt" datatype="*6-18" errormsg="账号至少6个字符,最多18个字符！" />
+								<input type="text" value="" name="user_name" placeholder="请输您的帐号" class="in_txt" datatype="*6-18" errormsg="账号至少6个字符,最多18个字符！" />
 								<span class="Validform_checktip"></span>
 							</div>
 							<div class="in_box">
-								<input type="password" value="" placeholder="密码" class="in_txt" id="al_p" datatype="*6-18" errormsg="密码至少6个字符,最多18个字符" />
+								<input type="password" value="" name="user_pass" placeholder="密码" class="in_txt" id="al_p" datatype="*6-18" errormsg="密码至少6个字符,最多18个字符" />
 								<span class="Validform_checktip"></span>
 							</div>
 							<div class="in_box in_boxa">
@@ -52,14 +52,14 @@
 								</label>
 								<a href="javascript:void(0)" title="忘记密码？" target="_blank" class="text_cite">忘记密码？</a>
 							</div>
-							<div class="pay_btn"><a id="al_submit" class="" title="登录" href="javascript:void(0)">登录</a></div>
+							<div class="pay_btn"><a id="al_submit" class="" title="登录" href="javascript:void(0)"><button>登录</button></a></a></div>
 						</form>
 					</div>
 					<!--注册-->
 					<div class="login_tab register_tab">
 						<form action="<?=_get_home_url('register/entering')?>" class="postAjax form_register">
 							<div class="in_box">
-								<input type="number" value="" autocomplete="off" name="user_name" placeholder="常用手机号或邮箱" datatype="*6-18" class="in_txt" id="al_u" errormsg="账号至少6个字符,最多18个字符！">
+								<input type="text" value="" autocomplete="off" name="user_name" placeholder="常用手机号或邮箱" datatype="*" class="in_txt" id="al_u" errormsg="账号至少6个字符,最多18个字符！">
 								<span class="Validform_checktip"></span>
 							</div>
 							<div class="in_box">
@@ -89,7 +89,7 @@
 <!--遮罩层-->
 <div class="mask-re"></div>
 </body>
-<script src="<?=_get_home_url()?>View/pc/js/jquery2.1.1.min.js"></script>
+
 <!-- Swiper JS -->
 <script src="<?=_get_home_url()?>View/pc/js/swiper.jquery.min.js"></script>
 <!--表单验证插件-->
@@ -99,6 +99,7 @@
 <script src="<?=_get_home_url()?>View/pc/js/distpicker.js"></script>
 <!--倒计时-->
 <script src="<?=_get_home_url()?>View/pc/js/flipclock.min.js"></script>
+<script src="<?=_get_home_url()?>View/pc/js/cookie.url.config.js"></script>
 <script src="<?=_get_home_url()?>View/pc/js/public.js"></script>
 </html>
 
