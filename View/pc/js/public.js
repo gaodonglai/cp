@@ -20,38 +20,12 @@
 	});
 	/*登录框*/
 	$(".box_formlo").click(function(){
-		$(".pop_box").addClass("pop_login");
+		$(".pop_boxa").addClass("pop_login");
 		$(".mask-re").addClass("mask-reb");
-		$(".pay_b_logoa").show();
-		$(".pay_b_logob").hide();
-	});
-	$(".registr_ina").click(function(){
-		$(".register_tab").show();
-		$(".login_box_registera").show();
-		$(".login_taba").hide();
-		$(".pay_b_logoa").hide();
-		$(".pay_b_logob").show();
 	});
 	$(".p_b_close").click(function(){
 		$(".pop_box").removeClass("pop_login");
 		$(".mask-re").removeClass("mask-reb");
-		$(".login_tab_active").show();
-		$(".register_tab").hide();
-		$(".login_box_registera").hide();
-	});
-	$(".text_cite_a").on("click",function(){
-		$(".register_tab").show();
-		$(".login_box_registera").show();
-		$(".pay_b_logoa").hide();
-		$(".pay_b_logob").show();
-		$(".login_tab_active").hide();
-	});
-	$(".text_cite_b").on("click",function(){
-		$(".register_tab").hide();
-		$(".login_box_registera").hide();
-		$(".pay_b_logoa").show();
-		$(".pay_b_logob").hide();
-		$(".login_tab_active").show();
 	});
 	/*投注筛选*/
 	var fActive;

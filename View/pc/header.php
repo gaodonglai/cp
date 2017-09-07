@@ -62,7 +62,7 @@
                     ?>
                      <div class="Login-registration">
                     <a class="box_formlo login-ina" href="javascript:void(0)">登录</a>
-                    <a class="box_formlo registr_ina" href="javascript:void(0)">注册</a>
+                    <a class="registr_ina" href="<?=_get_home_url('register')?>">注册</a>
                       </div>
                 <?php
                 }
