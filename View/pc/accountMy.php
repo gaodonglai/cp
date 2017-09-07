@@ -26,43 +26,33 @@
             <div class="per_main_rig_main">
                 <p class="rig_main_zla active_zla">基本信息</p>
                 <div class="basic_information">
-                    <form action="" class="basic_information_form registerform">
+                    <form action="<?=_get_home_url('account/updateAccount')?>" class="postAjax basic_information_form">
                         <ul>
                             <li class="basic_information_a">
                                 <label for="">用户名：</label>
-                                <input type="text" readonly="readonly" name="name" value="lenghanweizz" >
+                                <input type="text" disabled="disabled" name="name" value="<?=get_user_info()->user_name?>" >
                                 <span class="Prompt_header" />不能修改</span>
                                 <span class="color_red_mdcc">可以用于登陆，请牢记！</span>
                             </li>
                             <li class="basic_information_b">
                                 <label for="">姓名：</label>
-                                <input type="text" value="" name="name"  datatype="s4-8"  errormsg="昵称至少4个字符,最多8个字符！" />
+                                <input type="text" value="<?=get_user_info()->nick_name?>" name="nick_name"  datatype="s4-8"  errormsg="昵称至少4个字符,最多8个字符！" />
                                 <span class="Validform_checktip"></span>
                             </li>
-                            <li class="basic_information_c">
-                                <label for="">性别：</label>
-                                <label class="basic_radio_label">
-                                    <input class="mui-checkbox checkbox-s checkbox-orange"  id="sex" type="radio" name="sex" value = "男" checked />
-                                    <i class="iconfont checkbox-i">&#xe628;</i>男
-                                </label>
-                                <label class="basic_radio_label">
-                                    <input class="mui-checkbox checkbox-s checkbox-orange" id="sex" type="radio" name="sex" value = "女" />女
-                                    <i class="iconfont checkbox-i">&#xe628;</i>
-                                </label>
-                            </li>
+
                             <li class="basic_information_d">
                                 <label for="">手机：</label>
-                                <input type="number" name="tel" value="" id="phone"  datatype="m" errormsg="请输入您的手机号码！"/>
+                                <input type="number" name="mobile_phone" value="<?=get_user_info()->mobile_phone?>" id="phone"  datatype="m" errormsg="请输入您的手机号码！"/>
                                 <span class="Validform_checktip"></span>
                             </li>
                             <li class="basic_information_e">
                                 <label for="">QQ：</label>
-                                <input type="number" name="qq" value=""   datatype="n6-11" errormsg="请输入您的QQ号码！"/>
+                                <input type="number" name="qq" value="<?=get_user_info()->qq?>"   datatype="n6-11" errormsg="请输入您的QQ号码！"/>
                                 <span class="Validform_checktip"></span>
                             </li>
                             <li class="basic_information_f">
                                 <label for="">Email：</label>
-                                <input type="text" name="email" value=""   datatype="e" errormsg="请输入您的Email！"/>
+                                <input type="text" name="email" value="<?=get_user_info()->email?>"   datatype="e" errormsg="请输入您的Email！"/>
                                 <span class="Validform_checktip"></span>
                             </li>
                             <li class="basic_information_g">

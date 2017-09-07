@@ -29,21 +29,21 @@
                 <div class="basic_information">
                     <div class="table_betting_main table_betting_active password_modify" id="password_modify_binding1">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>为确保您的账户安全，请牢记您的登录密码且不要轻易泄露给他人</p>
-                        <form action="" class="basic_information_form  password_modify_form registerform" >
+                        <form action="<?=_get_home_url('account/updatePassword')?>" class="postAjax basic_information_form  password_modify_form" >
                             <ul>
                                 <li class="basic_information_a"> 
                                     <label for="">登录密码：</label>
-                                    <input type="password" name="oldpwd" value="" datatype="*5-15" nullmsg="请输入登录密码" errormsg="密码范围在5~15位之间！"/>
+                                    <input type="password" name="password" value="" datatype="*5-15" nullmsg="请输入登录密码" errormsg="密码范围在5~15位之间！"/>
                                     <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_b">
                                     <label for="">新登录密码：</label>
-                                    <input type="password" value="" name="password" nullmsg="请输入新的登录密码"  datatype="*6-18" errormsg="密码至少6个字符,最多18个字符！" />
+                                    <input type="password" value="" name="new_password" nullmsg="请输入新的登录密码"  datatype="*6-18" errormsg="密码至少6个字符,最多18个字符！" />
                                     <span class="Validform_checktip">密码至少6个字符,最多18个字符！</span>
                                 </li>
                                 <li class="basic_information_c">
                                     <label for="">再次输入新密码：</label>
-                                    <input type="password" value="" name="repassword"  recheck="password" nullmsg="请输入新的登录密码" datatype="*6-18" errormsg="两次输入的密码不一致！" />
+                                    <input type="password" value="" name="re_new_password"  recheck="new_password" nullmsg="请输入新的登录密码" datatype="*6-18" errormsg="两次输入的密码不一致！" />
                                     <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_i">

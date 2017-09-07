@@ -13,8 +13,9 @@ class Account
 {
     function __construct()
     {
+        $this->user_info = get_user_info();
         //如果没有登录跳转到登录页面
-        if(!get_user_info()){
+        if(!$this->user_info){
             redirect(_get_home_url());
         }
 
@@ -85,8 +86,6 @@ class Account
     function my(){
         define("FUNFCTIO_NAME",__FUNCTION__);
 
-
-
         get_header_front();
 
         display_show('accountMy');
@@ -138,6 +137,22 @@ class Account
      *分销商管理
      */
     function  distribution(){
+        //获取用户分享链接
+        $user_id = $this->user_info->user_id;
+        $model = new \Model\Account();
+        $get_link_info = $model->getAccountLinkShare($user_id);
+
+        print_r($get_link_info);
+
+
+
+
+
+
+
+
+
+
         define("FUNFCTIO_NAME",__FUNCTION__);
 
         get_header_front();
@@ -147,15 +162,112 @@ class Account
         get_footer_front();
     }
 
-
-    /*********************************************************用户功能方法***************************************************************/
+    /*********************************************************开始：用户功能方法***************************************************************/
     /**
-     * 二维码
+     * 获取我的分享
      */
-    public function qrcode(){
-        phpqrcode('http://www.baidu.com');
+    public function getMyShare(){
+
+        $user_id = $this->user_info->user_id;
+        $model = new \Model\Account();
+        $get_link_info = $model->getAccountLinkShare($user_id);
+
+        $valid_time = 30;//有效分钟数
+
+        //如果用户分享链接信息为空，创建一条
+        if(empty($get_link_info)){
+
+            $set_link_info = $model->setAccountLinkShare($user_id,$valid_time);
+
+            if($set_link_info){
+                exit(json_encode(array('status'=>'r','info'=>'创建成功')));
+            }else{
+
+            }
+
+        }else{
+
+            $end_time = $get_link_info->end_time;
+            //如果有效时间小于当前时间重新创建
+            if($end_time < time()){
+                $up_link_info = $model->updateAccountLinkShare($user_id,$valid_time);
+                if($up_link_info){
+                    exit(json_encode(array('status'=>'r','info'=>'更新成功')));
+                }
+            }
+
+
+        }
 
     }
+
+    /**
+     * 更新用户信息
+     */
+    public function updateAccount(){
+        $email = $_POST['email'];
+        $mobile_phone = $_POST['mobile_phone'];
+        if($email){
+            if(!preg_match( "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i", $email )){
+                exit(json_encode(array('status'=>'n','info'=>'邮箱格式不正确')));
+            }
+        }
+        if($mobile_phone){
+            if( !preg_match("/^1[34578]\d{9}$/", $mobile_phone) ){
+                exit(json_encode(array('status'=>'n','info'=>'手机号不正确')));
+            }
+        }
+
+
+        unset($_POST['user_name']);
+        $user_id = $this->user_info->user_id;
+        $model = new \Model\Account();
+        $result = $model->updateAccountInfo('account',$_POST,array('user_id'=>$user_id));
+        if($result){
+            exit(json_encode(array('status'=>'y','info'=>'更新成功')));
+        }
+    }
+
+    /**
+     * 更新用户信息
+     */
+    public function updatePassword(){
+        $password = $_POST['password'];
+        $new_password = $_POST['new_password'];
+        $re_new_password = $_POST['re_new_password'];
+
+        if(empty($password) || empty($new_password) || empty($re_new_password)){
+            exit(json_encode(array('status'=>'n','info'=>'密码为空')));
+        }
+
+        if(!preg_match("/^[\w-\.]{6,16}$/",$password) || !preg_match("/^[\w-\.]{6,16}$/",$new_password)){
+            exit(json_encode(array('status'=>'n','info'=>'用户密码位数不正确')));
+        }
+
+        if($new_password !== $re_new_password){
+            exit(json_encode(array('status'=>'n','info'=>'两次输入密码不一致')));
+        }
+
+
+        if(wpDecode($password,$this->user_info->password)){
+
+            $user_id = $this->user_info->user_id;
+            $model = new \Model\Account();
+            $result = $model->updateAccountInfo('account',array('password'=>wpEncrypt($new_password)),array('user_id'=>$user_id));
+            if($result){
+                $login = new Login();
+                $login->logout();   //注销用户
+                exit(json_encode(array('status'=>'r','info'=>'密码修改成功','url'=>_get_home_url())));
+            }
+        }else{
+            exit(json_encode(array('status'=>'n','info'=>'原密码不正确')));
+        }
+
+
+
+    }
+
+    /*********************************************************结束：用户功能方法***************************************************************/
 
 
 }

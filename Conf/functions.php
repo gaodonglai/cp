@@ -31,6 +31,14 @@ function get_user_info(){
 }
 
 /**
+ * 用户id
+ * @return mixed
+ */
+function get_user_id(){
+    return $_SESSION['user_id'];
+}
+
+/**
  * 页面重定向
  * @param $url 页面链接
  */

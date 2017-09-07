@@ -18,7 +18,11 @@ class Register
      * 用户注册页面
      */
     function main(){
+        get_header_front();
 
+        display_show('register');
+
+        get_footer_front();
     }
 
     /**
@@ -37,7 +41,7 @@ class Register
             exit(json_encode(array('status'=>'n','info'=>'参数为空')));
         }
 
-        if(preg_match("/^[\w-\.]{6,16}$/",$user_pass)){
+        if(!preg_match("/^[\w-\.]{6,16}$/",$user_pass)){
             exit(json_encode(array('status'=>'n','info'=>'用户密码位数不正确')));
         }
 
