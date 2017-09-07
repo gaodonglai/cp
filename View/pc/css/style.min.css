@@ -154,6 +154,14 @@ html{
   color: #646464;
   height: auto;
 }
+.pop_box_wp .qrcode_clock{
+  margin:0 auto;
+  width: 340px;
+}
+.card_status{
+  display: block;
+  padding:20px 40px;
+}
 .p_b_bd {
     padding: 33px 0 10px 0;  
 }
@@ -170,7 +178,7 @@ html{
   width: 50%;
   float: left;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 140px;
 }
 .pop_boxbimg img:nth-of-type(2){
   width: 100%;
