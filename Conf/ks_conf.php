@@ -69,6 +69,10 @@ if(isset( $_SERVER['PATH_INFO'] ) ){
 
     $class = '\Controller\\'.$classNmae;	//命名空间加载
 
+    if(!class_exists($class)){
+        exit;
+    }
+
     $query =  new $class();//实例化类
 
     if(empty($funcName)){

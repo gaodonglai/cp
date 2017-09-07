@@ -127,20 +127,7 @@
 	$('#distpicker4').distpicker({
 		placeholder: false
 	});
-	/*倒计时*/
-	var clock;
-		clock = $('.clock').FlipClock({
-		clockFace: 'HoilyCounter',
-		autoStart: false,
-		callbacks: {
-			stop: function() {
-			$('.message').html('The clock has stopped!')
-			}
-		}
-	});
-	clock.setTime(5000);
-	clock.setCountdown(true);
-	clock.start();
+
 	/*复制链接*/
 	var clipboard = new Clipboard('.input-group-pr');
     clipboard.on('success', function(e) {

@@ -137,36 +137,46 @@ class Account
      *分销商管理
      */
     function  distribution(){
+
+        //获取分享信息
+        $this->getMyShare();
         //获取用户分享链接
         $user_id = $this->user_info->user_id;
         $model = new \Model\Account();
         $get_link_info = $model->getAccountLinkShare($user_id);
 
-        print_r($get_link_info);
+        $residue_time = $get_link_info->end_time - time();
+
+        $distri_url = _get_home_url('regiter?code='.$get_link_info->reg_code);
 
 
-
-
-
-
-
-
-
+        $args = array(
+            'distri_url'=>$distri_url,
+            'residue_time'=>$residue_time
+        );
 
         define("FUNFCTIO_NAME",__FUNCTION__);
 
         get_header_front();
 
-        display_show('accountDistribution');
+        display_show('accountDistribution',$args);
 
         get_footer_front();
+    }
+
+    /**
+     * 用户二维码
+     */
+    public function myQrCode(){
+        $url = $_GET['url'];
+        phpqrcode($url);
     }
 
     /*********************************************************开始：用户功能方法***************************************************************/
     /**
      * 获取我的分享
      */
-    public function getMyShare(){
+    private function getMyShare(){
 
         $user_id = $this->user_info->user_id;
         $model = new \Model\Account();
@@ -180,7 +190,9 @@ class Account
             $set_link_info = $model->setAccountLinkShare($user_id,$valid_time);
 
             if($set_link_info){
-                exit(json_encode(array('status'=>'r','info'=>'创建成功')));
+
+                return true;
+                //exit(json_encode(array('status'=>'r','info'=>'创建成功')));
             }else{
 
             }
@@ -192,7 +204,8 @@ class Account
             if($end_time < time()){
                 $up_link_info = $model->updateAccountLinkShare($user_id,$valid_time);
                 if($up_link_info){
-                    exit(json_encode(array('status'=>'r','info'=>'更新成功')));
+                    return true;
+                    //exit(json_encode(array('status'=>'r','info'=>'更新成功')));
                 }
             }
 

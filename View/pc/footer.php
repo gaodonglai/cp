@@ -97,8 +97,6 @@
 <!--城市三级联动-->
 <script src="<?=_get_home_url()?>View/pc/js/distpicker.data.js"></script>
 <script src="<?=_get_home_url()?>View/pc/js/distpicker.js"></script>
-<!--倒计时-->
-<script src="<?=_get_home_url()?>View/pc/js/flipclock.min.js"></script>
 <!--复制文本插件-->
 <script src="<?=_get_home_url()?>View/pc/js/clipboard.min.js"></script>
 <script src="<?=_get_home_url()?>View/pc/js/cookie.url.config.js"></script>

@@ -33,14 +33,15 @@
                         <div class="clock qrcode_clock"></div>
                         <div class="copy_text">
                             <p>我的链接</p>
-                            <input type="text" id="foo" readonly="readonly"  value="www.baidu.com">
+                            <input type="text" id="foo" readonly="readonly"  value="<?=$distri_url?>">
                             <span class="input-group-btn">
                             <button class="input-group-pr" type="button" data-clipboard-action="copy" data-clipboard-target="#foo">复制</button>
                             </span>
                         </div>
                         <div class="copy_text copy_text_img">
                             <p>我的二维码</p>
-                            <img src="<?=_get_home_url()?>/View/pc/image/QR_code.png" alt="" class="qrcode" >
+                            <iframe style="width:140px;height:140px" frameborder="0" scrolling="no" src="<?=_get_home_url('account/myQrCode?url='.$distri_url)?>"></iframe>
+
                             <p class="color_red_mddd">鼠标右键单击二维码图片复制</p>
                         </div>
                         <p class="zhuangyai">我的名片状态：<span class="color_red_mddd">已失效</span>。重新打开页面后自动刷新</p>
@@ -291,3 +292,26 @@
         </div>
     </div>
 </main>
+
+<!--倒计时-->
+<script src="<?=_get_home_url()?>View/pc/js/flipclock.min.js"></script>
+<script>
+    /*倒计时*/
+    var clock;
+    clock = $('.clock').FlipClock({
+        clockFace: 'HoilyCounter',
+        autoStart: false,
+        callbacks: {
+            stop: function() {
+                $('.message').html('The clock has stopped!')
+            }
+        },
+        onStop: function() {
+            // Do something
+        }
+    });
+    clock.setTime(<?=$residue_time?>);
+    clock.setCountdown(true);
+    clock.start();
+</script>
+

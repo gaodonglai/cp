@@ -60,7 +60,12 @@ function wpDecode($parameter,$sigParameter){
  */
 function phpqrcode($url){
     include MAIN_PATH . DS . 'Conf' . DS .'libraries'.DS .'phpqrcode'.DS .'phpqrcode.php';
-    QRcode::png($url);
+
+    $errorCorrectionLevel = 'L';    //容错级别
+    $matrixPointSize = 4;           //生成图片大小
+    //生成二维码图片
+    $QR = QRcode::png($url,false,$errorCorrectionLevel, $matrixPointSize, 2);
+
 }
 
 

@@ -65,13 +65,29 @@ individu_ation_functions();
  * 显示页面
  * @param $pageName 页面名称
  */
-function display_show($pageName){
+function display_show($pageName,$args=array()){
     $equipment = is_mobile() ? VIEW_MOBILE : VIEW_PC;
     $file = $equipment . $pageName .EXT;
-    if(is_file($file))
+
+    if(is_file($file)){
+        if(is_array($args)){
+            if(!empty($args)){
+                //对象属性装换为数组
+                foreach($args as $key => $value){
+                    $arr[$key] = $value;
+                }
+                extract($arr);//生成变量
+            }
+        }
+
+
         include $file;
+    }
+
 
 }
+
+
 
 function get_header_front( $name = null ) {
 
