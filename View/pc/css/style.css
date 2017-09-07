@@ -1155,6 +1155,17 @@ hr.style12 {
     padding: 10px;
     font-size: 16px;
 }
+.bank_manage .item .head span i{
+  color: #666;
+  margin-left: 10px;
+  font-size: 20px;
+}
+.bank_manage .item .head  .zhifubao i{
+  color: #3C98E3
+}
+.bank_manage .item .head  .weixina i{
+  color: #5DE466;
+}
 .bank_manage .item .body {
     padding: 20px 0 20px 20px;
     position: relative;
@@ -1202,7 +1213,7 @@ hr.style12 {
 }
 .copy_text{
   width: 300px;
-  height: 200px;
+  height: 230px;
   border: 1px solid #DED5D1;
   background: #fdfcfa;
   float: left;
@@ -1217,13 +1228,14 @@ hr.style12 {
   width: 200px;
   height: 32px;
   border: 1px solid #D5D5D5;
-  margin: 30px 0 30px;
+  margin: 50px 0 30px;
   padding-left: 10px;
 }
 .basic_information .zhuangyai{
   margin-top: 50px;
   float: left;
   font-size: 14px;
+  width: 100%;
 }
 .title p{
   padding: 0;

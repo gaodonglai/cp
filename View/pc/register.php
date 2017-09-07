@@ -20,7 +20,7 @@
 					</h3>
 				</div>
                 <div class="clock qrcode_clock"></div>
-                <span class="color_red_mddd card_status">请在有效的时间内完成注册，如果无法完成请向来源者重新索取注册页面方式。</span>
+                <span class="color_red_mddd card_statusa">请在有效的时间内完成注册，如果无法完成请向来源者重新索取注册页面方式。</span>
 
 				<div class="login_bd_bg">
 					<!--注册-->

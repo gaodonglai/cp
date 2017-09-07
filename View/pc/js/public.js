@@ -66,7 +66,7 @@
 	$(".take_bank_manage").on("click",function(){
 		$(".bank_manage").removeClass("bank_manage_active");
 		$(".take_bank_manage").text("设为默认帐户");
-		$(this).text("默认用户");
+		$(this).text("默认账户");
 		$(this).parents(".bank_manage").addClass("bank_manage_active");
 		$(this).parents(".bank_manage").prependTo(".Bank_card_bind_mainbb");
 	});

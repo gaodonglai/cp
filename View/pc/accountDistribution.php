@@ -12,11 +12,10 @@
 <!--个人中心内容-->
 <main class="personal_main">
     <?php
-
     include VIEW_PC.'accountSidebar.php';
     ?>
     <div class="personal_main_right">
-        <!--银行卡管理-->
+        <!--分销管理-->
         <div class="personal_main_macen">
             <div class="per_main_rig_top">
                 <h4>分销管理</h4>
@@ -44,7 +43,7 @@
 
                             <p class="color_red_mddd">鼠标右键单击二维码图片复制</p>
                         </div>
-                        <p class="zhuangyai">我的名片状态：<span class="color_red_mddd card_status">正常</span>。重新打开页面后自动刷新</p>
+                        <p class="zhuangyai">我的名片状态：<span class="color_red_mddd card_status">正常</span>。<button class="modify_sub">点击刷新</button></p>
                     </div>
                     <div class="table_betting_main table_capital_main" id="distr_card_binding2">
                         <div class="Accordion_Record">
