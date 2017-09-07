@@ -44,7 +44,7 @@
 
                             <p class="color_red_mddd">鼠标右键单击二维码图片复制</p>
                         </div>
-                        <p class="zhuangyai">我的名片状态：<span class="color_red_mddd">已失效</span>。重新打开页面后自动刷新</p>
+                        <p class="zhuangyai">我的名片状态：<span class="color_red_mddd card_status">正常</span>。重新打开页面后自动刷新</p>
                     </div>
                     <div class="table_betting_main table_capital_main" id="distr_card_binding2">
                         <div class="Accordion_Record">
@@ -297,21 +297,19 @@
 <script src="<?=_get_home_url()?>View/pc/js/flipclock.min.js"></script>
 <script>
     /*倒计时*/
-    var clock;
-    clock = $('.clock').FlipClock({
+    var clock = $('.clock').FlipClock({
         clockFace: 'HoilyCounter',
         autoStart: false,
         callbacks: {
             stop: function() {
-                $('.message').html('The clock has stopped!')
+                $('.card_status').html('已失效')
             }
         },
-        onStop: function() {
-            // Do something
-        }
     });
-    clock.setTime(<?=$residue_time?>);
     clock.setCountdown(true);
+    clock.setTime(<?=$residue_time?>);
     clock.start();
+
+
 </script>
 
