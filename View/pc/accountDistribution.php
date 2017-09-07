@@ -40,7 +40,7 @@
                         </div>
                         <div class="copy_text copy_text_img">
                             <p>我的二维码</p>
-                            <iframe style="width:140px;height:140px" frameborder="0" scrolling="no" src="<?=_get_home_url('account/myQrCode?url='.$distri_url)?>"></iframe>
+                            <iframe style="width:140px;height:140px" frameborder="0" scrolling="no" src="<?=_get_home_url('account/myQrCode?code='.$distri_url)?>"></iframe>
 
                             <p class="color_red_mddd">鼠标右键单击二维码图片复制</p>
                         </div>

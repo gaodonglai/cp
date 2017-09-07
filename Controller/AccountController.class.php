@@ -147,7 +147,7 @@ class Account
 
         $residue_time = $get_link_info->end_time - time();
 
-        $distri_url = _get_home_url('regiter?code='.$get_link_info->reg_code);
+        $distri_url = _get_home_url('register?code='.$get_link_info->reg_code);
 
 
         $args = array(
@@ -168,7 +168,7 @@ class Account
      * 用户二维码
      */
     public function myQrCode(){
-        $url = $_GET['url'];
+        $url = $_GET['code'];
         phpqrcode($url);
     }
 
@@ -182,7 +182,7 @@ class Account
         $model = new \Model\Account();
         $get_link_info = $model->getAccountLinkShare($user_id);
 
-        $valid_time = 30;//有效分钟数
+        $valid_time = 1;//有效分钟数
 
         //如果用户分享链接信息为空，创建一条
         if(empty($get_link_info)){

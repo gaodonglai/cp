@@ -18,10 +18,21 @@ class Register
      * 用户注册页面
      */
     function main(){
+
+        //如果没有登录跳转到登录页面
+        if(get_user_info()){
+            redirect(_get_home_url());
+        }
+
+        $get_link_info = $this->getLinkShare();//判断注册资格
+
+        $residue_time = $get_link_info->end_time - time();
+        $args = array(
+            'residue_time'=>$residue_time
+        );
+
         get_header_front();
-
-        display_show('register');
-
+        display_show('register',$args);
         get_footer_front();
     }
 
@@ -29,7 +40,6 @@ class Register
      * 注册录入
      */
     function entering(){
-
 
         $user_name = $_POST["user_name"];
         $user_pass = $_POST["user_pass"];
@@ -70,6 +80,8 @@ class Register
             exit(json_encode(array('status'=>'n','info'=>'用户名格式不正确')));
         }
 
+        $this->getLinkShare();//判断注册资格
+
 
         //echo wpDecode(1234567,wpEncrypt(1234567));
 
@@ -100,7 +112,28 @@ class Register
         echo get_rand_code();
     }
 
+    private function getLinkShare(){
 
+        $code = $_REQUEST['code'];
+        if(empty($code)){
+            exit();
+        }
+        $mode = new \Model\Register();
+        $get_link_info  = $mode->getAccountLinkShare($code);
+        if(empty($get_link_info)){
+            header("Content-Type: text/html;charset=utf-8");
+            die('页面不存在,请按正规途径获取。');
+        }
+
+        $end_time = $get_link_info->end_time;
+        //如果有效时间小于当前时间重新创建
+        if($end_time < time()){
+            header("Content-Type: text/html;charset=utf-8");
+            die('页面已失效,请重新向来源者获取。');
+        }
+
+        return $get_link_info;
+    }
 
 
 
