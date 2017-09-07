@@ -22,12 +22,12 @@
                 <h4>提现申请</h4>
             </div>
             <div class="per_main_rig_main">
-                <p class="rig_main_zla active_zla Withdrawals_bind">
+                <p class="rig_main_zla active_zla rig_main_capital">
                     <a class="betting_top-active" href="#Withdrawals_binding1">银行卡提现</a>
                     <a href="#Withdrawals_binding2">支付宝提现</a>
                 </p>
                 <div class="basic_information">
-                    <div class="table_betting_main table_betting_active Withdrawals_bind_main" id="Withdrawals_binding1">
+                    <div class="table_betting_main table_betting_active table_capital_main" id="Withdrawals_binding1">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>暂不支持信用卡和微信提现，目前仅支持储蓄卡和支付宝提现。</p>
                         <form action="" class="basic_information_form Withdrawals_bind_form registerform">
                             <ul>
@@ -115,7 +115,7 @@
                         </table>
                         <hr class="style12">
                     </div>
-                    <div class="table_betting_main  Withdrawals_bind_main" id="Withdrawals_binding2">
+                    <div class="table_betting_main  table_capital_main Withdrawals_bind_main" id="Withdrawals_binding2">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>暂不支持信用卡和微信提现，目前仅支持储蓄卡和支付宝提现。</p>
                         <form action="" class="basic_information_form Withdrawals_bind_form registerform">
                             <ul>

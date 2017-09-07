@@ -252,7 +252,7 @@ html{
     margin: 26px 0 10px 0;
     position: relative;
 }
-.pay_btn a {
+.pay_btn button{
     position: relative;
     display: inline-block;
     font: 18px/45px \5FAE\8F6F\96C5\9ED1;
@@ -262,9 +262,10 @@ html{
     text-align: center;
     background: #e31e27;
     border-radius: 3px;
+    border:none;
 }
 .basic_information_h button:active,
-.pay_btn a:active,
+.pay_btn button:active,
 .verify_btn:active,
 .modify_sub:active{
     background: #14bff1;

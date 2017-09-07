@@ -30,47 +30,46 @@
         <div class="lottery_nav_center">
             <ul>
                 <li class="loactive"><a href="<?=_get_home_url()?>"><i class="iconfont">&#xe61d;</i><span>首页</span></a></li>
-                <li><a href=""><i class="iconfont">&#xe76d;</i><span>游戏规则</span></a></li>
+                <li><a href=""><i class="iconfont">&#xe76d;</i><span>购彩大厅</span></a></li>
                 <li><a href=""><i class="iconfont">&#xe700;</i><span>优惠活动</span></a></li>
                 <li><a href=""><i class="iconfont">&#xe661;</i><span>走势图</span></a></li>
-                <li><a href=""><i class="iconfont">&#xe631;</i><span>合作代理</span></a></li>
-                <li><a href=""><i class="iconfont">&#xe66d;</i><span>交易记录</span></a></li>
-                <li><a href=""><i class="iconfont">&#xe64c;</i><span>消费送彩金</span></a></li>
+                <li><a href="<?=_get_home_url('account/distribution')?>"><i class="iconfont">&#xe631;</i><span>分销中心</span></a></li>
+                <li><a href="<?=_get_home_url('account/fcDetails')?>"><i class="iconfont">&#xe64c;</i><span>交易记录</span></a></li>
+                <li><a href="<?=_get_home_url('account/my')?>"><i class="iconfont">&#xe607;</i><span>个人中心</span></a></li>
                 <li><a href="<?=_get_home_url('account/pay')?>"><i class="iconfont">&#xe68f;</i><span>充值</span></a></li>
                 <li><a href="<?=_get_home_url('account/extractMoney')?>"><i class="iconfont">&#xe71c;</i><span>取款</span></a></li>
 				<?php
-                            if(get_user_info()){
-                                ?>
-                                <li class="lottery_balance"><a href=""> 余额：<span><?=get_user_info()->user_money?></span>元<i class="iconfont">&#xe600;</i></a></li>
-                            <?php
-                            }
-
-
-
-
-                            ?>
+                if(get_user_info()){
+                    ?>
+                    <li class="lottery_balance"><a href="">余额：<span><?=get_user_info()->user_money?></span>元<i class="iconfont">&#xe600;</i></a></li>
+                <?php
+                }
+                ?>
             </ul>
         </div>
         <div class="lottery_Personal">
-            <div class="Login-registration">
+           
                 <?php
                 if(get_user_info()){
                     ?>
-                    <a class="" href="<?=_get_home_url('login/logout')?>">登出</a>
+                    
+                      <div class="login-in">
+                        <span><a href="<?=_get_home_url('account/my')?>"><?php echo get_user_info()->user_name?></a></span>
+                        <span><a class="" href="<?=_get_home_url('login/logout')?>"><i class="iconfont">&#xe621;</i></a></span>
+                    </div>
                     <?php
                 }else{
                     ?>
+                     <div class="Login-registration">
                     <a class="box_formlo login-ina" href="javascript:void(0)">登录</a>
                     <a class="box_formlo registr_ina" href="javascript:void(0)">注册</a>
+                      </div>
                 <?php
                 }
                 ?>
 
-            </div>
-            <div class="login-in">
-                <span>zk你好</span>
-                <span><i class="iconfont">&#xe621;</i></span>
-            </div>
+          
+          
         </div>
     </nav>
 </header>

@@ -52,7 +52,7 @@
 								</label>
 								<a href="javascript:void(0)" title="忘记密码？" target="_blank" class="text_cite">忘记密码？</a>
 							</div>
-							<div class="pay_btn"><a id="al_submit" class="" title="登录" href="javascript:void(0)"><button>登录</button></a></a></div>
+							<div class="pay_btn"><button id="al_submit" class="" title="登录">登录</button></div>
 						</form>
 					</div>
 					<!--注册-->
@@ -99,6 +99,8 @@
 <script src="<?=_get_home_url()?>View/pc/js/distpicker.js"></script>
 <!--倒计时-->
 <script src="<?=_get_home_url()?>View/pc/js/flipclock.min.js"></script>
+<!--复制文本插件-->
+<script src="<?=_get_home_url()?>View/pc/js/clipboard.min.js"></script>
 <script src="<?=_get_home_url()?>View/pc/js/cookie.url.config.js"></script>
 <script src="<?=_get_home_url()?>View/pc/js/public.js"></script>
 </html>

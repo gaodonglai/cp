@@ -15,8 +15,8 @@
                 <div class="text-swiper">
                     <div class="details_main_center">
                         <div class="details_top">
-                            <p><span>zhangkui</span></p>
-                            <p>余额：<span>7956.00</span> 元</p>
+                            <p><span><i class="iconfont">&#xe607;</i>账号：尚未登录</span></p>
+                            <p><i class="iconfont">&#xe605;</i>余额：<span>7956.00</span> 元</p>
                         </div>
                         <div class="details_botton">
                             <a href="<?=_get_home_url('account/pay')?>"><i class="iconfont">&#xe64c;</i>充值</a>
@@ -44,10 +44,10 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide">
+           <!-- <div class="swiper-slide">
             </div>
             <div class="swiper-slide">
-            </div>
+            </div>-->
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>

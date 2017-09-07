@@ -22,12 +22,12 @@
                 <h4>密码修改</h4>
             </div>
             <div class="per_main_rig_main">
-                <p class="rig_main_zla active_zla password_modify_hed">
+                <p class="rig_main_zla active_zla rig_main_capital">
                     <a class="betting_top-active" href="#password_modify_binding1">修改登录密码</a>
                     <a href="#password_modify_binding2">修改交易密码</a>
                 </p>
                 <div class="basic_information">
-                    <div class="table_betting_main table_betting_active password_modify" id="password_modify_binding1">
+                    <div class="table_betting_main table_betting_active table_capital_main" id="password_modify_binding1">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>为确保您的账户安全，请牢记您的登录密码且不要轻易泄露给他人</p>
                         <form action="<?=_get_home_url('account/updatePassword')?>" class="postAjax basic_information_form  password_modify_form" >
                             <ul>
@@ -53,7 +53,7 @@
                             </ul>
                         </form>
                     </div>
-                    <div class="table_betting_main password_modify" id="password_modify_binding2">
+                    <div class="table_betting_main table_capital_main" id="password_modify_binding2">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>为确保您的账户财产安全，请牢记您的交易密码且不要轻易泄漏给他人</p>
                         <form action="" class="basic_information_form  password_modify_form registerform" >
                             <ul>
