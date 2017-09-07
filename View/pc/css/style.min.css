@@ -131,6 +131,17 @@ html{
   width: 420px;
   margin-top: -273px;
   z-index: 999;
+}
+.pop_boxb{
+  max-width: 1200px;
+  margin:100px auto;
+  height: auto;
+  overflow: hidden;
+  background: #fff;
+  border:1px solid #ddd;
+  border-radius: 5px;
+}
+.pop_boxa{
   display: none;
 }
 .pop_login{
@@ -154,6 +165,23 @@ html{
 .img_logo_wp img {
   display: block;
   width: 100%;
+}
+.pop_boxbimg{
+  width: 50%;
+  float: left;
+  text-align: center;
+  margin-top: 50px;
+}
+.pop_boxbimg img:nth-of-type(2){
+  width: 100%;
+  margin-left:40px;
+  margin-top: 20px;
+}
+.pop_boxb .pop_box_wp{
+  float: left;
+  border: 1px solid #ddd;
+  margin: 40px 0;
+  margin-left: 80px;
 }
 .t_boxc{
   width: 420px;
@@ -185,29 +213,13 @@ html{
   border-top: 1px solid #e31e27;
   vertical-align: top;
 }
-.login_box_registera{
-  display: none;
-   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.login_box h3 .login_box_register{
+.login_box h3{
   width: 100%;
   background: #fff;
 }
 .login_bd_bg{
   padding: 0 50px 0px;
   color: #969696;
-}
-.login_taba{
-  display: none;
-}
-.register_tab{
-  display: none;
-}
-.login_tab_active{
-  display: block;
 }
 .in_box {
     position: relative;
@@ -251,6 +263,9 @@ html{
 .pay_btn {
     margin: 26px 0 10px 0;
     position: relative;
+}
+.pop_boxb .pay_btn{
+  margin: 0px 0 30px 0;
 }
 .pay_btn button{
     position: relative;
@@ -311,9 +326,6 @@ html{
 }
 .in_box .Validform_checktip{
   float: none;
-}
-.registerform .in_box{
-  margin-bottom: 0;
 }
 .p_b_close {
     width: 15px;
