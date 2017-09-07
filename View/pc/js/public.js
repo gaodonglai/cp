@@ -53,7 +53,6 @@
 		$(".pay_b_logob").hide();
 		$(".login_tab_active").show();
 	});
-
 	/*投注筛选*/
 	var fActive;
 	function filterscreen(screen){
@@ -79,41 +78,14 @@
 		$(".rig_main_zlabett a").removeClass("betting_top-active");
 		$(this).addClass("betting_top-active");
 	});
-	/*资金明细*/
+	/*个人中心选项卡*/
 	$(".rig_main_capital a").on("click",function(){
 		$(".rig_main_capital a").removeClass("betting_top-active");
 		$(this).addClass("betting_top-active");
 		$(".table_capital_main").fadeOut(300);
 		$(this.hash).delay(300).fadeIn();
 	});
-	/*立即充值*/
-	$(".Recharge_header a").on("click",function(){
-		$(".Recharge_header a").removeClass("betting_top-active");
-		$(this).addClass("betting_top-active");
-		$(".tab_Recharge").fadeOut(300);
-		$(this.hash).delay(300).fadeIn();
-	});
-	/*提现申请*/
-	$(".Withdrawals_bind a").on("click",function(){
-		$(".Withdrawals_bind a").removeClass("betting_top-active");
-		$(this).addClass("betting_top-active");
-		$(".Withdrawals_bind_main").fadeOut(300);
-		$(this.hash).delay(300).fadeIn();
-	});
-	/*密码修改*/
-	$(".password_modify_hed a").on("click",function(){
-		$(".password_modify_hed a").removeClass("betting_top-active");
-		$(this).addClass("betting_top-active");
-		$(".password_modify").fadeOut(300);
-		$(this.hash).delay(300).fadeIn();
-	});
 	/*绑定银行卡*/
-	$(".Bank_card_bind a").on("click",function(){
-		$(".Bank_card_bind a").removeClass("betting_top-active");
-		$(this).addClass("betting_top-active");
-		$(".Bank_card_bind_main").fadeOut(300);
-		$(this.hash).delay(300).fadeIn();
-	});
 	$(".delete").on("click",function(){
 		$(this).parents(".bank_manage").remove();
 	});
@@ -169,6 +141,15 @@
 	clock.setTime(5000);
 	clock.setCountdown(true);
 	clock.start();
+	/*复制链接*/
+	var clipboard = new Clipboard('.input-group-pr');
+    clipboard.on('success', function(e) {
+    	alert("链接已复制到剪贴板中");
+        console.log(e);
+    });
+    clipboard.on('error', function(e) {
+        console.log(e);
+    });
 	/*返回顶部*/
 	showScroll();
 	function showScroll(){
@@ -180,7 +161,7 @@
 			$("html,body").animate({scrollTop:0},200);	
 		});	
 	}
-
+	/*全局提交表单*/
      $(document).on('submit','.postAjax',function(){
 
          var _this = $(this);

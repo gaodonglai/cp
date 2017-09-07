@@ -21,20 +21,20 @@
                 <h4>立即充值</h4>
             </div>
             <div class="per_main_rig_main">
-                <p class="rig_main_zla active_zla Recharge_header">
+                <p class="rig_main_zla active_zla rig_main_capital Recharge_header">
                     <a class="betting_top-active" href="#Recharge_tab1">支付宝微信扫码充值</a>
                     <a href="#Recharge_tab2">QQ钱包充值</a>
                     <a href="#Recharge_tab3">银行卡充值</a>
                     <a href="#Recharge_tab4">大额人工服务充值</a>
                 </p>
                 <div class="basic_information">
-                    <div class="table_betting_main table_betting_active tab_Recharge" id="Recharge_tab1">
+                    <div class="table_betting_main table_betting_active table_capital_main" id="Recharge_tab1">
                         <p>支付宝微信扫码充值</p>
                     </div>
-                    <div class="table_betting_main tab_Recharge" id="Recharge_tab2">
+                    <div class="table_betting_main table_capital_main" id="Recharge_tab2">
                         <p>QQ钱包充值</p>
                     </div>
-                    <div class="table_betting_main tab_Recharge" id="Recharge_tab3">
+                    <div class="table_betting_main table_capital_main" id="Recharge_tab3">
                         <dl class="auto_in_tab">
                             <dt>尊敬的用户，平台充值系统已升级，请按以下充值流程进行操作：</dt>
                             <dd><img src="View/pc/image/cz_bank.png" class="cz_bank">绑定本人银行卡</dd>
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="table_betting_main tab_Recharge" id="Recharge_tab4">
+                    <div class="table_betting_main table_capital_main" id="Recharge_tab4">
                         <p>大额人工服务充值</p>
                     </div>
                 </div>

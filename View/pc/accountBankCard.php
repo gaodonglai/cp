@@ -22,12 +22,12 @@
                 <h4>银行卡管理</h4>
             </div>
             <div class="per_main_rig_main">
-                <p class="rig_main_zla active_zla Bank_card_bind">
+                <p class="rig_main_zla active_zla rig_main_capital">
                     <a class="betting_top-active" href="#Bank_card_binding1">绑定新的银行卡</a>
                     <a href="#Bank_card_binding2">已绑定的银行卡</a>
                 </p>
                 <div class="basic_information">
-                    <div class="table_betting_main table_betting_active Bank_card_bind_main" id="Bank_card_binding1">
+                    <div class="table_betting_main table_betting_active table_capital_main" id="Bank_card_binding1">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>暂不支持支付宝和信用卡，请填写实名认证的银行卡账户信息。</p>
                         <form action="" class="basic_information_form registerform">
                             <ul>
@@ -99,7 +99,7 @@
                             </ul>
                         </form>
                     </div>
-                    <div class="table_betting_main Bank_card_bind_main Bank_card_bind_main Bank_card_bind_mainbb" id="Bank_card_binding2">
+                    <div class="table_betting_main table_capital_main  Bank_card_bind_mainbb" id="Bank_card_binding2">
                         <div class="bank_manage bank_manage_active">
                             <div class="item">
                                 <div class="head">
