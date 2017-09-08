@@ -872,6 +872,15 @@ footer{
     font-size: 14px;
     margin:0 10px;
 }
+.basic_information .text_alingaa{
+  clear: both;
+  padding-left: 10px;
+}
+.shuaxin{
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+}
 .fonttextmddd{
   font-size: 18px;
 }
@@ -952,6 +961,7 @@ hr.style12 {
 .table_capital_main{
   position: relative;
   min-height: 300px;
+  overflow: hidden;
 }
 .capital_table{
   padding: 20px 20px 0 20px;
@@ -1117,6 +1127,9 @@ hr.style12 {
 }
 .Bank_card_bind_main{
   position: relative;
+}
+.bank_manage{
+  float: left;
 }
 .bank_manage .item {
     width: 378px;

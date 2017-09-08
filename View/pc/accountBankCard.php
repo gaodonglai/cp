@@ -39,7 +39,7 @@
                                     <select name="bank_card" class="loginValue" nullmsg="请选择银行" datatype="*"">
                                         <option value="">请选择银行</option>
                                     <?php
-                                    foreach ($back_array as $key=>$item) {
+                                    foreach ($bank as $key=>$item) {
                                         ?><option value="<?=$key?>"><?=$item?></option><?php
                                     }
                                     ?>
@@ -205,9 +205,8 @@
                                 </div>
                             </div>
                         </div>-->
-
-
                     </div>
+                     <p class="text_alingaa"><a class="modify_sub shuaxin" href="">刷新</a></p>
                 </div>
             </div>
         </div>
