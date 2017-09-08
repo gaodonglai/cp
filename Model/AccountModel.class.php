@@ -69,13 +69,49 @@ class Account
 
 
     /**
-     * 更新用户信息
+     * 更新信息
      * @param $data_array
      * @param $where_clause
      * @return mixed
      */
     public function updateAccountInfo($table,$data_array,$where_clause){
         return $this->wpdb->update($this->table.$table,$data_array,$where_clause);
+
+    }
+
+
+    /**
+     * 插入信息
+     * @param $data_array
+     * @param $where_clause
+     * @return mixed
+     */
+    public function insertAccountInfo($table,$data_array){
+        return $this->wpdb->insert($this->table.$table,$data_array);
+
+    }
+
+    /**
+     * 查询银行卡数量
+     * @param $data_array
+     * @param $where_clause
+     * @return mixed
+     */
+    public function getBankCardCount($user_id,$type){
+
+        return $this->wpdb->get_var("SELECT COUNT(*) FROM `{$this->table}card_binding` WHERE `user_id`={$user_id} and `card_type`='{$type}'");
+
+    }
+
+    /**
+     * 查询银行信息
+     * @param $data_array
+     * @param $where_clause
+     * @return mixed
+     */
+    public function getBankCardAll($user_id){
+
+        return $this->wpdb->get_results("SELECT * FROM `{$this->table}card_binding` WHERE `user_id`={$user_id}");
 
     }
 

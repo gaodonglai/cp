@@ -11,6 +11,14 @@ namespace Controller;
 
 class Account
 {
+
+    public $bank = array('1'=>'中国工商银行','2'=>'中国建设银行','3'=>'中国农业银行','4'=>'中国邮政储蓄银行'
+    ,'5'=>'交通银行','6'=>'招商银行','7'=>'中国银行','8'=>'中国光大银行',
+        '9'=>'中信银行','10'=>'浦发银行','11'=>'中国民生银行','12'=>'兴业银行',
+        '13'=>'平安银行','14'=>'广发银行','15'=>'华夏银行'
+    );
+
+
     function __construct()
     {
         $this->user_info = get_user_info();
@@ -18,6 +26,8 @@ class Account
         if(!$this->user_info){
             redirect(_get_home_url('?show=login'));
         }
+
+        $this->model = new \Model\Account();
 
     }
 
@@ -45,11 +55,25 @@ class Account
      *银行卡管理
      */
     function bankCard(){
+
+        $args = array(
+            'back_array' =>$this->bank
+        );
+
+        $user_id = $this->user_info->user_id;
+        $content  = $this->model->getBankCardAll($user_id);
+
+        $args = array(
+            'bank'=>$this->bank,
+            'content'=>$content
+        );
+
+
         define("FUNFCTIO_NAME",__FUNCTION__);
 
         get_header_front();
 
-        display_show('accountBankCard');
+        display_show('accountBankCard',$args);
 
         get_footer_front();
     }
@@ -142,8 +166,8 @@ class Account
         $this->getMyShare();
         //获取用户分享链接
         $user_id = $this->user_info->user_id;
-        $model = new \Model\Account();
-        $get_link_info = $model->getAccountLinkShare($user_id);
+
+        $get_link_info = $this->model->getAccountLinkShare($user_id);
 
         $residue_time = $get_link_info->end_time - time();
 
@@ -179,15 +203,15 @@ class Account
     private function getMyShare(){
 
         $user_id = $this->user_info->user_id;
-        $model = new \Model\Account();
-        $get_link_info = $model->getAccountLinkShare($user_id);
+
+        $get_link_info = $this->model->getAccountLinkShare($user_id);
 
         $valid_time = 1;//有效分钟数
 
         //如果用户分享链接信息为空，创建一条
         if(empty($get_link_info)){
 
-            $set_link_info = $model->setAccountLinkShare($user_id,$valid_time);
+            $set_link_info = $this->model->setAccountLinkShare($user_id,$valid_time);
 
             if($set_link_info){
 
@@ -202,7 +226,7 @@ class Account
             $end_time = $get_link_info->end_time;
             //如果有效时间小于当前时间重新创建
             if($end_time < time()){
-                $up_link_info = $model->updateAccountLinkShare($user_id,$valid_time);
+                $up_link_info = $this->model->updateAccountLinkShare($user_id,$valid_time);
                 if($up_link_info){
                     return true;
                     //exit(json_encode(array('status'=>'r','info'=>'更新成功')));
@@ -234,8 +258,8 @@ class Account
 
         unset($_POST['user_name']);
         $user_id = $this->user_info->user_id;
-        $model = new \Model\Account();
-        $result = $model->updateAccountInfo('account',$_POST,array('user_id'=>$user_id));
+
+        $result = $this->model->updateAccountInfo('account',$_POST,array('user_id'=>$user_id));
         if($result){
             exit(json_encode(array('status'=>'y','info'=>'更新成功')));
         }
@@ -265,8 +289,8 @@ class Account
         if(wpDecode($password,$this->user_info->password)){
 
             $user_id = $this->user_info->user_id;
-            $model = new \Model\Account();
-            $result = $model->updateAccountInfo('account',array('password'=>wpEncrypt($new_password)),array('user_id'=>$user_id));
+
+            $result = $this->model->updateAccountInfo('account',array('password'=>wpEncrypt($new_password)),array('user_id'=>$user_id));
             if($result){
                 $login = new Login();
                 $login->logout();   //注销用户
@@ -274,6 +298,61 @@ class Account
             }
         }else{
             exit(json_encode(array('status'=>'n','info'=>'原密码不正确')));
+        }
+
+
+
+    }
+
+    /**
+     * 绑定银行卡
+     */
+    public function setBankCard(){
+
+        foreach ($_POST as $item) {
+            if(empty($item)){
+                exit(json_encode(array('status'=>'n','info'=>'有空值')));
+            }
+        }
+        $type = $_POST['type'];
+        $user_id = $this->user_info->user_id;
+
+        $get_content = $this->model->getBankCardCount($user_id,$type);//查询数量
+
+        if($type == 'bank'){
+            if($get_content == 2){
+                exit(json_encode(array('status'=>'n','info'=>'不能再添加了')));
+            }
+            $bank_account = $_POST['bank_account'];
+            $bank_card = $_POST['bank_card'];
+            $bank_name = $_POST['bank_name'];
+
+            $args = array('user_id'=>$user_id,'account_number'=>$bank_account,'opening_bank'=>$bank_card,'card_state'=>'y','time'=>date('Y-m-d H:i:s'),'account_name'=>$bank_name,'card_type'=>$type);
+
+        }else if($type == 'alipay'){
+            if($get_content == 1){
+                exit(json_encode(array('status'=>'n','info'=>'不能再添加了')));
+            }
+
+            $alipay_account = $_POST['alipay_account'];
+            $alipay_name = $_POST['alipay_name'];
+            $args = array('user_id'=>$user_id,'account_number'=>$alipay_account,'account_name'=>$alipay_name,'card_type'=>$type,'card_state'=>'y','time'=>date('Y-m-d H:i:s'));
+
+        }else if($type == 'wechat'){
+            if($get_content == 1){
+                exit(json_encode(array('status'=>'n','info'=>'不能再添加了')));
+            }
+            $wechat_account = $_POST['wechat_account'];
+            $args = array('user_id'=>$user_id,'account_number'=>$wechat_account,'card_type'=>$type,'card_state'=>'y','time'=>date('Y-m-d H:i:s'));
+        }
+
+        if($args){
+
+            $result = $this->model->insertAccountInfo('card_binding',$args);
+
+            if($result){
+                exit(json_encode(array('status'=>'y','info'=>'添加成功')));
+            }
         }
 
 

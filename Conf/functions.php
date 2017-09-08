@@ -6,7 +6,7 @@
  * Time: 22:50
  */
 
-//date_default_timezone_set('PRC');   //设置时区(中国标准时间)
+date_default_timezone_set('PRC');   //设置时区(中国标准时间)
 
 session_start();
 
