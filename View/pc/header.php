@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="<?=_get_home_url()?>View/pc/css/style.min.css">
     <link rel="stylesheet" href="<?=_get_home_url()?>View/pc/css/style.css">
     <script src="<?=_get_home_url()?>View/pc/js/jquery2.1.1.min.js"></script>
+    <script src="<?=_get_home_url()?>View/pc/js/publics.js"></script>
     <script>
         $(document).ready(function() {
             <?php

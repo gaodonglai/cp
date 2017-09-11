@@ -205,8 +205,9 @@
                                 </div>
                             </div>
                         </div>-->
+                        <p class="text_alingaa"><a class="modify_sub shuaxin" href="javascript:history.go(0);">刷新</a></p>
                     </div>
-                     <p class="text_alingaa"><a class="modify_sub shuaxin" href="">刷新</a></p>
+
                 </div>
             </div>
         </div>
@@ -214,24 +215,12 @@
 </main>
 
 <script>
-
-    $.getUrlParam = function(name) {
-        var reg = new RegExp("(^|&)" + name + "_([^&]*)(&|$)");
-        var r = window.location.hash.substr(1).match(reg);
-        if(r != null) return unescape(r[2]);
-        return null;
-    }
-    var url_status = $.getUrlParam('Bank');
-
-    if(url_status){
-        $(".rig_main_capital a").removeClass("betting_top-active");
-        $('.'+url_status).addClass("betting_top-active");
-        $(".table_capital_main").removeClass("table_betting_active");
-        $(".brigtinh_main_cen").fadeOut(300);
-        $('#Bank_'+url_status).delay(300).fadeIn();
-    }
-
-
-
-
+var url_status = $.getUrlParam('Bank');
+if(url_status){
+    $(".rig_main_capital a").removeClass("betting_top-active");
+    $('.'+url_status).addClass("betting_top-active");
+    $(".table_capital_main").removeClass("table_betting_active");
+    $(".brigtinh_main_cen").fadeOut(300);
+    $('#Bank_'+url_status).delay(300).fadeIn();
+}
 </script>

@@ -18,6 +18,8 @@ class Account
         '13'=>'平安银行','14'=>'广发银行','15'=>'华夏银行'
     );
 
+    public $status = array('0'=>'未设置密保和支付码','1'=>'正常','2'=>'暂时没想好','5'=>'账户停用');
+
 
     function __construct()
     {
@@ -196,7 +198,70 @@ class Account
         phpqrcode($url);
     }
 
+    /**
+     * 完善信息
+     */
+    public function perfectInfo(){
+
+        if($this->user_info->status != 0){
+            exit();
+        }
+        get_header_front();
+        display_show('accountPerfectInfo');
+        get_footer_front();
+    }
+
     /*********************************************************开始：用户功能方法***************************************************************/
+    /**
+     *设置密保与支付密码
+     */
+    public function setPerfectInfo(){
+
+        foreach ($_POST as $item) {
+            if(empty($item)){
+                exit(json_encode(array('status'=>'n','info'=>'请完善信息')));
+            }
+        }
+        $question         = $_POST['question'];
+        $answer           = $_POST['answer'];
+        $payment_password = $_POST['payment_password'];
+        $re_payment_password = $_POST['re_payment_password'];
+
+        if(strlen($question) > 36 || strlen($answer) > 24){//一个汉字3个字符位
+            exit(json_encode(array('status'=>'n','info'=>'请正确输入信息')));
+        }
+
+        if(!is_numeric($payment_password) || strlen($payment_password) != 6 || $payment_password != $re_payment_password){//一个汉字3个字符位
+            exit(json_encode(array('status'=>'n','info'=>'支付密码有误.请重新输入')));
+        }
+
+        $this->model->wpdb->query("BEGIN");
+        $set_account = array(
+            'question'=>$question,
+            'answer'=>$answer,
+            'status'=>1
+        );
+        $result1 = $this->model->updateAccountInfo('account',$set_account,array('user_id'=>$this->user_info->user_id));
+
+        $set_payment = array(
+            'user_id'=>$this->user_info->user_id,
+            'payment_password'=>wpEncrypt($payment_password),
+            'last_time'=>date('Y-m-d H:i:s'),
+            'payment_state'=>'y'
+        );
+        $result2 = $this->model->insertAccountInfo('account_payment',$set_payment);
+
+        if($result1 && $result2){
+            $this->model->wpdb->query("COMMIT");
+
+            exit(json_encode(array('status'=>'y','info'=>'添加成功','url'=>_get_home_url('account'))));
+        }else{
+            $this->model->wpdb->query("ROLLBACK");
+            exit(json_encode(array('status'=>'n','info'=>'添加失败，请重试')));
+        }
+
+    }
+
     /**
      * 获取我的分享
      */
@@ -266,7 +331,7 @@ class Account
     }
 
     /**
-     * 更新用户信息
+     * 更新密码信息
      */
     public function updatePassword(){
         $password = $_POST['password'];
@@ -301,6 +366,54 @@ class Account
         }
 
 
+
+    }
+
+    /**
+     * 更新交易密码
+     */
+    public function updatePaymentPassword(){
+        foreach ($_POST as $item) {
+            if(empty($item)){
+                exit(json_encode(array('status'=>'n','info'=>'密码为空')));
+            }
+        }
+
+        $password = $_POST['password'];
+        $payment_password = $_POST['payment_password'];
+        $new_payment_password = $_POST['new_payment_password'];
+        $re_new_payment_password = $_POST['re_new_payment_password'];
+
+        if($payment_password == $new_payment_password){
+            exit(json_encode(array('status'=>'n','info'=>'新支付密码不能跟原密码一样')));
+        }
+
+        if(!preg_match("/^[\w-\.]{6,16}$/",$password) ||  strlen($payment_password) != 6 ||  strlen($new_payment_password) != 6){
+            exit(json_encode(array('status'=>'n','info'=>'密码位数不正确')));
+        }
+
+        if($re_new_payment_password != $new_payment_password){
+            exit(json_encode(array('status'=>'n','info'=>'两次输入的新密码不正确')));
+        }
+
+        $user_id = $this->user_info->user_id;
+
+        $account_payment = $this->model->getAccountPayment($user_id);
+        if(empty($account_payment)){
+            exit(json_encode(array('status'=>'n','info'=>'无交易密码')));
+        }
+        echo wpDecode($password,$this->user_info->password);
+
+        if(wpDecode($password,$this->user_info->password) && wpDecode($payment_password,$account_payment->payment_password)){
+
+            $result = $this->model->updateAccountInfo('account_payment',array('payment_password'=>wpEncrypt($new_payment_password)),array('user_id'=>$user_id));
+            if($result){
+
+                exit(json_encode(array('status'=>'r','info'=>'支付密码修改成功')));
+            }
+        }else{
+            exit(json_encode(array('status'=>'n','info'=>'支付密码修改失败')));
+        }
 
     }
 

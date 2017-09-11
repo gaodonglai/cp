@@ -98,9 +98,9 @@
 		}
 	});
 	/*城市三级联动*/
-	$('#distpicker4').distpicker({
+	/*$('#distpicker4').distpicker({
 		placeholder: false
-	});
+	});*/
 
 	/*复制链接*/
 	var clipboard = new Clipboard('.input-group-pr');
@@ -122,37 +122,6 @@
 			$("html,body").animate({scrollTop:0},200);	
 		});	
 	}
-	/*全局提交表单*/
-     $(document).on('submit','.postAjax',function(){
-
-         var _this = $(this);
-         var sub_this = $(":submit",this);
-         if($('.subHint').length>0){
-             $('.subHint').hide();
-         }
-
-         sub_this.attr("disabled","disabled");
-         var formData = _this.serialize();
-         $.post(_this.attr('action'),formData,function(data){
-             if(data.status=='200'){
-
-             }else if(data.status=='y'){
-                 $.alerts(data.info);
-                 if(data.url){
-                     window.location.href = data.url;
-                 }
-             }else if(data.status == 'n'){
-                 $.alerts(data.info);
-             }
-         },'json');
-         sub_this.removeAttr('disabled');
-
-         return false;
-     });
-
-
-
-
 
 });
 

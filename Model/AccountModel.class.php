@@ -114,6 +114,16 @@ class Account
         return $this->wpdb->get_results("SELECT * FROM `{$this->table}card_binding` WHERE `user_id`={$user_id}");
 
     }
+    /**
+     * 获取交易密码
+     * @param $user_id
+     * @return array
+     */
+    public function getAccountPayment($user_id){
+
+        return $this->wpdb->get_row("SELECT * FROM `{$this->table}account_payment` WHERE `user_id`={$user_id}");
+
+    }
 
 
 }

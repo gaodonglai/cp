@@ -37,12 +37,16 @@ class Login
         }
 
         global $wpdb;
-        $get_result =  $wpdb->get_row("SELECT user_id,password FROM `{$wpdb->prefix}account` WHERE user_name = '{$user_name}'");
+        $get_result =  $wpdb->get_row("SELECT user_id,password,status FROM `{$wpdb->prefix}account` WHERE user_name = '{$user_name}'");
         if($get_result){
 
             if(wpDecode($user_pass,$get_result->password)){
 
                 $_SESSION['user_id'] = $get_result->user_id;
+
+                if(get_user_info()->status == 0){
+                    exit(json_encode(array('status'=>'y','info'=>'登陆成功','url'=>_get_home_url('account/perfectInfo'))));//继续完善账户
+                }
 
                 exit(json_encode(array('status'=>'y','info'=>'登陆成功','url'=>_get_home_url())));
             }else{
