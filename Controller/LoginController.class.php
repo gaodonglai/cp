@@ -31,7 +31,6 @@ class Login
             exit(json_encode(array('status'=>'n','info'=>'参数为空')));
         }
 
-
         if(get_user_info()){
             exit(json_encode(array('status'=>'y','info'=>'用户已登录','url'=>_get_home_url())));
         }
@@ -42,6 +41,8 @@ class Login
 
             if(wpDecode($user_pass,$get_result->password)){
 
+                //更改最后登录时间
+                $wpdb->query("UPDATE `{$wpdb->prefix}account` SET `last_login`= ".time().",`last_ip`='".ip()."' WHERE `user_id` = {$get_result->user_id}");
                 $_SESSION['user_id'] = $get_result->user_id;
 
                 if(get_user_info()->status == 0){

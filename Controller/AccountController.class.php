@@ -168,17 +168,26 @@ class Account
         $this->getMyShare();
         //获取用户分享链接
         $user_id = $this->user_info->user_id;
-
         $get_link_info = $this->model->getAccountLinkShare($user_id);
-
         $residue_time = $get_link_info->end_time - time();
-
         $distri_url = _get_home_url('register?code='.$get_link_info->reg_code);
 
 
+        $drp = new \Model\Distribution();
+        $drp_one = $drp->getMyMember($user_id,1);//1级分销用户
+        $drp_two = $drp->getMyMember($user_id,2);//2级分销用户
+        $sum_up_money = $drp->getMyCommission($user_id);//获取总佣金
+        $today_money = $drp->getMyTodayCommission($user_id);//获取今日佣金
+        $CommissionDetail = $drp->getMyCommissionDetail($user_id);
+
         $args = array(
             'distri_url'=>$distri_url,
-            'residue_time'=>$residue_time
+            'residue_time'=>$residue_time,
+            'drp_one'=>$drp_one,
+            'drp_two'=>$drp_two,
+            'sum_up_money'=>$sum_up_money,
+            'today_money'=>$today_money,
+            'CommissionDetail'=>$CommissionDetail
         );
 
         define("FUNFCTIO_NAME",__FUNCTION__);
@@ -235,6 +244,10 @@ class Account
             exit(json_encode(array('status'=>'n','info'=>'支付密码有误.请重新输入')));
         }
 
+        if(wpDecode($payment_password,$this->user_info->password)){//一个汉字3个字符位
+            exit(json_encode(array('status'=>'n','info'=>'支付密码不能与登录密码一致')));
+        }
+
         $this->model->wpdb->query("BEGIN");
         $set_account = array(
             'question'=>$question,
@@ -271,7 +284,7 @@ class Account
 
         $get_link_info = $this->model->getAccountLinkShare($user_id);
 
-        $valid_time = 1;//有效分钟数
+        $valid_time = 10;//有效分钟数
 
         //如果用户分享链接信息为空，创建一条
         if(empty($get_link_info)){

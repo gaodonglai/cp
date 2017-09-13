@@ -24,7 +24,7 @@ class Account
 
     /**
      * @param $user_id
-     * 查询用户分享是否存在
+     * 查询用户名片
      * @return false|int 用户分享信息
      */
     public function getAccountLinkShare($user_id){
@@ -37,7 +37,7 @@ class Account
 
     /**
      * @param $user_id
-     * 创建用户分享
+     * 创建用户名片
      * @return false|int 用户分享信息
      */
     public function setAccountLinkShare($user_id,$valid_time){
@@ -54,7 +54,7 @@ class Account
 
     /**
      * @param $user_id
-     * 更新用户分享
+     * 更新用户名片
      * @return false|int 用户分享信息
      */
     public function updateAccountLinkShare($user_id,$valid_time){
@@ -123,6 +123,16 @@ class Account
 
         return $this->wpdb->get_row("SELECT * FROM `{$this->table}account_payment` WHERE `user_id`={$user_id}");
 
+    }
+
+    /**
+     * 更新用户金额
+     * @param $user_id
+     * @param $money
+     * @return false|int
+     */
+    function updateAccountMoney($user_id,$money){
+        return $this->wpdb->query("UPDATE `{$this->table}account` SET `user_money`= user_money+ {$money} WHERE `user_id`= {$user_id}");
     }
 
 
