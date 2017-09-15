@@ -49,8 +49,6 @@
                 <li><a href="<?=_get_home_url('account/distribution')?>"><i class="iconfont">&#xe631;</i><span>分销中心</span></a></li>
                 <li><a href="<?=_get_home_url('account/fcDetails')?>"><i class="iconfont">&#xe64c;</i><span>交易记录</span></a></li>
                 <li><a href="<?=_get_home_url('account/my')?>"><i class="iconfont">&#xe607;</i><span>个人中心</span></a></li>
-                <li><a href="<?=_get_home_url('account/pay')?>"><i class="iconfont">&#xe68f;</i><span>充值</span></a></li>
-                <li><a href="<?=_get_home_url('account/extractMoney')?>"><i class="iconfont">&#xe71c;</i><span>取款</span></a></li>
 				<?php
                 if(get_user_info()){
                     ?>
