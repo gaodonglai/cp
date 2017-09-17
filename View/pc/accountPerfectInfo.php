@@ -9,7 +9,7 @@
 ?>
 
 <!--完善密保和支付密码信息-->
-<main class="personal_main">
+<main class="personal_main personal_main_reg">
     <div class="personal_main_right">
         <!--密码修改-->
         <div class="personal_main_macen">
@@ -18,7 +18,7 @@
             </div>
             <div class="per_main_rig_main">
                 <div class="basic_information">
-                    <div>
+                    <div class="regwanshan">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>为确保您的账户财产安全，请牢记您的交易密码且不要轻易泄漏给他人。设置密保问题是方便您找回自已遗失的密码。</p>
                         <form action="<?=_get_home_url('account/setPerfectInfo')?>" class="postAjax basic_information_form  password_modify_form registerform" >
                             <ul>

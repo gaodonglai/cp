@@ -350,6 +350,17 @@ html{
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
 }
+/*注册详情页面*/
+.personal_main_reg .personal_main_right{
+  width: 100%;
+}
+.regwanshan{
+  width: 80%;
+  margin:100px auto;
+}
+.personal_main_reg .per_main_rig_top h4{
+  border-left: 2px solid #E64E4D;
+}
 /*遮罩层*/
 .mask-re{
   width: 100%;
@@ -1269,4 +1280,8 @@ b{font-weight:normal; display:inline-block; margin:0 8px; color:#f27f02;}
 }
 .flip-clock-divider{
   height: 80px;
+}
+/*找回密码*/
+.retrievePassword{
+  margin-top: 20px;
 }

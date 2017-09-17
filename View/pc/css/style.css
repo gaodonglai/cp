@@ -45,7 +45,7 @@ header{
 }
 .lottery_nav_center ul li{
   display: inline-block;
-  margin:0 5px;
+  margin:0 15px;
   float: left;
 }
 .lottery_nav_center ul li a{
