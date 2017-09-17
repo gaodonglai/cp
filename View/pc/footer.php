@@ -47,7 +47,7 @@
 								<label  for="al_remember" class="cbox">
 									<input type="checkbox"  name="" class="chk" checked="checked">下次自动登录
 								</label>
-								<a href="javascript:void(0)" title="忘记密码？" target="_blank" class="text_cite">忘记密码？</a>
+								<a href="<?=_get_home_url('login/retrievePassword')?>" title="忘记密码？" target="_blank" class="text_cite">忘记密码？</a>
 							</div>
 							<div class="pay_btn"><button id="al_submit" class="" title="登录">登录</button></div>
 						</form>
