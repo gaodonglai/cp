@@ -12,8 +12,22 @@ namespace Model;
 class Index
 {
 
-    protected function getIndexInfo(){
-        echo '';
-    }
+     public function activity(){
+         get_header_front();
+         display_show('activity');
+         get_footer_front();
+     }
+
+    public function help(){
+        get_header_front();
+        display_show('help');
+        get_footer_front();
+     }
+
+    public function Trendchart(){
+        get_header_front();
+        display_show('Trendchart');
+        get_footer_front();
+     }
 
 }

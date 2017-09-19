@@ -27,7 +27,7 @@
                 <p class="rig_main_zla active_zla  rig_main_capital">
                     <a class="betting_top-active" href="#modify_bindingaa1">基本信息</a>
                     <a class="modify_binding2" href="#modify_bindingaa2">充值记录</a>
-                    <a class="modify_binding2" href="#modify_bindingaa3">返水记录</a>
+                    <a class="modify_binding2" href="#modify_bindingaa3">积分与现金记录</a>
                 </p>
                 <div class="basic_information">
                  <div class="table_betting_main table_betting_active table_capital_main" id="modify_bindingaa1">
@@ -71,56 +71,84 @@
                      <div class="table_betting_main table_capital_main" id="modify_bindingaa2">
                         <table class="table_reference">
                             <thead class="tbody_referencea">
+
                                 <tr>
                                     <th><span>充值时间</span></th>
                                     <th><span>充值金额</span></th>
-                                    <th><span>到账时间</span></th>
-                                    <th><span>到账金额</span></th>
-                                    <th><span>返现金额</span></th>
+                                    <th><span>赠送金额</span></th>
+                                    <th><span>充值方式</span></th>
+
                                 </tr>
                             </thead>
                             <tbody class="tbody_referenceb tbody_capital_main">
-                            <tr>
-                                <td><span>2017-08-26-14:00</span></td>
-                                <td><span>￥430</span></td>
-                                <td><span>2017-08-26-14:00</span></td>
-                                <td><span>￥429</span></td>
-                                <td><span>￥5</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>2017-08-26-14:00</span></td>
-                                <td><span>￥430</span></td>
-                                <td><span>2017-08-26-14:00</span></td>
-                                <td><span>￥429</span></td>
-                                <td><span>￥5</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>2017-08-26-14:00</span></td>
-                                <td><span>￥430</span></td>
-                                <td><span>2017-08-26-14:00</span></td>
-                                <td><span>￥429</span></td>
-                                <td><span>￥5</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>2017-08-26-14:00</span></td>
-                                <td><span>￥430</span></td>
-                                <td><span>2017-08-26-14:00</span></td>
-                                <td><span>￥429</span></td>
-                                <td><span>￥5</span></td>
-                            </tr>
-                            <tr>
-                                <td><span>2017-08-26-14:00</span></td>
-                                <td><span>￥430</span></td>
-                                <td><span>2017-08-26-14:00</span></td>
-                                <td><span>￥429</span></td>
-                                <td><span>￥5</span></td>
-                            </tr>
+
+                            <?php
+                            if($pay_log){
+
+                                foreach ($pay_log as $item) {
+                                    ?>
+                                    <tr>
+                                        <td><span><?=$item->recharge_time?></span></td>
+                                        <td><span>￥<?=$item->recharge_money?></span></td>
+                                        <td><span>￥<?=$item->back_now?></span></td>
+                                        <td><span><?=$recharge_type[ $item->recharge_type]?></span></td>
+                                    </tr>
+                                    <?php
+                                }
+
+                            }else{
+                                ?>
+                                <tr>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span>没有充值记录</span></td>
+                                    <td><span></span></td>
+                                </tr>
+                                <?php
+                            }
+
+                            ?>
                             </tbody>
                         </table>
                         <hr class="style12">
                     </div>
                      <div class="table_betting_main table_capital_main" id="modify_bindingaa3">
-                        aaaaaaaaaaa
+                         <table class="table_reference">
+                             <thead class="tbody_referencea">
+
+                             <tr>
+                                 <th><span>时间</span></th>
+                                 <th><span>金额</span></th>
+                                 <th><span>类型</span></th>
+                             </tr>
+                             </thead>
+                             <tbody class="tbody_referenceb tbody_capital_main">
+
+                             <?php
+                             if($cash_log){
+                                 foreach ($cash_log as $item) {
+                                     ?>
+                                     <tr>
+                                         <td><span><?=$item->cash_record_time?></span></td>
+                                         <td><span><?=$item->cash_record_type?>￥<?=$item->cash_record_cost?></span></td>
+                                         <td><span><?=$cost_type[ $item->cost_type]?></span></td>
+                                     </tr>
+                                     <?php
+                                 }
+
+                             }else{
+                                 ?>
+                                 <tr>
+                                     <td><span></span></td>
+                                     <td><span>没有记录</span></td>
+                                     <td><span></span></td>
+                                 </tr>
+                                 <?php
+                             }
+
+                             ?>
+                             </tbody>
+                         </table>
                         <hr class="style12">
                     </div>
                 </div>

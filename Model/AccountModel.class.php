@@ -79,6 +79,29 @@ class Account
 
     }
 
+    /**
+     *获取充值记录
+     * @param $user_id
+     */
+    public function getPayLog($user_id){
+        $limit = 10;
+        //获取分页数
+        $pagenum = isset( $_GET['page'] ) ? absint( $_GET['page'] ) : 1;
+        $offset = ( $pagenum - 1 ) * $limit;
+        return $this->wpdb->get_results("SELECT * FROM `{$this->table}recharge` WHERE `user_id`={$user_id} ORDER BY `id` DESC limit {$offset},{$limit}");
+    }
+    /**
+     *获取现金与积分记录
+     * @param $user_id
+     */
+    public function getCashRecord($user_id){
+        $limit = 10;
+        //获取分页数
+        $pagenum = isset( $_GET['page'] ) ? absint( $_GET['page'] ) : 1;
+        $offset = ( $pagenum - 1 ) * $limit;
+        return $this->wpdb->get_results("SELECT * FROM `{$this->table}cash_record` WHERE `user_id`={$user_id} ORDER BY `user_id` DESC limit {$offset},{$limit}");
+    }
+
 
     /**
      * 插入信息

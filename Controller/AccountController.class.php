@@ -125,12 +125,23 @@ class Account
      *我的账户
      */
     function my(){
+
+        $user_id = $this->user_info->user_id;
+        //$recharge_type bank：银行卡，wechat:微信支付，alipay：支付宝;qq:qq钱包
+        //获取充值记录
+        $get_log = $this->model->getPayLog($user_id);
+        $get_cash = $this->model->getCashRecord($user_id);
+        $args = array(
+
+            'recharge_type'=>array('bank'=>'银行卡','wechat'=>'微信支付','alipay'=>'支付宝','qq'=>'qq钱包','artificial'=>'人工充值',),
+            'cost_type'=>array('cash'=>'现金','grow'=>'积分'),
+            'pay_log'=>$get_log,
+            'cash_log'=>$get_cash,
+        );
+
         define("FUNFCTIO_NAME",__FUNCTION__);
-
         get_header_front();
-
-        display_show('accountMy');
-
+        display_show('accountMy',$args);
         get_footer_front();
     }
 
