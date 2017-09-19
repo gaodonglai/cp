@@ -11,7 +11,7 @@
 <div class="home-swiper">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <div class="swiper-slide" data-swiper-autoplay="7000">
                 <div class="text-swiper">
                     <div class="details_main_center">
                         <div class="details_top">
@@ -55,10 +55,10 @@
                     </div>
                 </div>
             </div>
-           <!-- <div class="swiper-slide">
+            <div class="swiper-slide">
             </div>
             <div class="swiper-slide">
-            </div>-->
+            </div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>

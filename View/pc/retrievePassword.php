@@ -8,11 +8,11 @@
  */
 ?>
 <div class="pop_boxb styled-pane">
-	<div class="pop_boxbimg">
+	<div class="pop_boxbimg retrievePassword">
 		<img src="<?=_get_home_url()?>/View/pc/image/logokuai3.png" alt="">
 		<img src="<?=_get_home_url()?>/View/pc/image/banner2.png"  alt=""/>
 	</div>
-    <div class="pop_box_wp" style="    margin-top: 214px;">
+    <div class="pop_box_wp">
             <div class="t_boxc" >
                 <div class="login_box">
 					<h3>

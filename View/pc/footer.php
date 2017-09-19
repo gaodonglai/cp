@@ -7,13 +7,17 @@
  */
 
 ?>
-
 <footer>
     <div class="lottery_footer">
-        <p><a href="javascript:void(0)">帮助中心</a></p>
-        <p>CopyRight ©版权所有 菲律宾政府合法博彩牌照认证</p>
-        <p>资金安全建议：为了你您的资金安全，建议定期更换您的安全密码</p>
-        <p>郑重提示：彩票有风险，投注需谨慎，不向未满18周岁青少年出售彩票</p>
+    	<div class="footer_main_left">
+	        <p><a href="javascript:void(0)">帮助中心</a></p>
+	        <p>CopyRight ©版权所有 菲律宾政府合法博彩牌照认证</p>
+	        <p>资金安全建议：为了你您的资金安全，建议定期更换您的安全密码</p>
+	        <p>郑重提示：彩票有风险，投注需谨慎，不向未满18周岁青少年出售彩票</p>
+        </div>
+        <div class="footer_main_right">
+			
+        </div>
     </div>
 </footer>
 <!--返回顶部-->
