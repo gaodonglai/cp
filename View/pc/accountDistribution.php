@@ -10,7 +10,8 @@
 ?>
 
 <!--个人中心内容-->
-<main class="personal_main">
+<main>
+<div class="personal_main">
     <?php
     include VIEW_PC.'accountSidebar.php';
     ?>
@@ -248,6 +249,7 @@
             </div>
         </div>
     </div>
+</div>
 </main>
 
 <!--倒计时-->

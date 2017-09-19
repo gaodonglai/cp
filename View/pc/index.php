@@ -45,10 +45,10 @@
                                 </div>
                             </div>
                             <div class="tab_download tab_downloadbb" id="item-2">
-                                <p><a href="">提现后需要多久到账？</a></p>
-                                <p><a href="">平台充值方式有哪些？</a></p>
-                                <p><a href="">提现后需要多久到账？</a></p>
-                                <p><a href="">平台充值方式有哪些？</a></p>
+                                <p><a href="<?=_get_home_url('index/help')?>">提现后需要多久到账？</a></p>
+                                <p><a href="<?=_get_home_url('index/help')?>">平台充值方式有哪些？</a></p>
+                                <p><a href="<?=_get_home_url('index/help')?>">提现后需要多久到账？</a></p>
+                                <p><a href="<?=_get_home_url('index/help')?>">平台充值方式有哪些？</a></p>
                             </div>
                             <div class="tab_problem"></div>
                         </div>

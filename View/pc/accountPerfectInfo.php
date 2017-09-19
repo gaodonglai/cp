@@ -9,7 +9,8 @@
 ?>
 
 <!--完善密保和支付密码信息-->
-<main class="personal_main personal_main_reg">
+<main>
+<div class="personal_main personal_main_reg">
     <div class="personal_main_right">
         <!--密码修改-->
         <div class="personal_main_macen">
@@ -53,6 +54,7 @@
             </div>
         </div>
     </div>
+</div>
 </main>
 <script>
     var url_status = $.getUrlParam('password');

@@ -7,12 +7,10 @@
  * Created people: gaodonglai
  * pageName:我的账户
  */
-
-
-
 ?>
 <!--个人中心内容-->
-<main class="personal_main">
+<main>
+<div class="personal_main">
     <?php
 
     include VIEW_PC.'accountSidebar.php';
@@ -98,11 +96,8 @@
 
                             }else{
                                 ?>
-                                <tr>
-                                    <td><span></span></td>
-                                    <td><span></span></td>
-                                    <td><span>没有充值记录</span></td>
-                                    <td><span></span></td>
+                                <tr class="zanwujl">
+                                    <td colspan="4" style="text-align: center;"><span><i class="iconfont">&#xe60b;</i>没有充值记录</span></td>
                                 </tr>
                                 <?php
                             }
@@ -155,4 +150,5 @@
             </div>
         </div>
     </div>
+   </div> 
 </main>

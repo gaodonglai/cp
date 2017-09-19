@@ -44,7 +44,7 @@ header{
 }
 .lottery_nav_center ul li{
   display: inline-block;
-  margin:0 15px;
+  margin:0 12px;
   float: left;
 }
 .lottery_nav_center ul li a{
@@ -219,7 +219,7 @@ header{
   border-radius: 10px;
   position: absolute;
   top: 50%;
-  right: 20%;
+  right: 10%;
   transform:translate(0%, -50%);
   text-align: left;
 }
@@ -361,7 +361,7 @@ footer{
 }
 .lottery_footer p{
   color: #907C73;
-  padding:10px;
+  padding:10px 10px 0;
 }
 .lottery_footer p:nth-of-type(3){
   padding-bottom: 0;
@@ -371,6 +371,7 @@ footer{
 }
 .lottery_footer p:nth-of-type(4){
   color: #e44b4e;
+  padding-bottom:10px;
 }
 .footer_main_left,
 .footer_main_right{
@@ -384,7 +385,7 @@ footer{
   margin-left: 15%;
 }
 .rechargeMethod {
-    margin: 40px 0 0;
+    margin: 30px 0 0;
 }
 .rechargeMethod i {
     display: inline-block;
@@ -623,7 +624,7 @@ footer{
     max-width: 1200px;
     height: auto;
     overflow: hidden;
-    margin:100px auto;
+    margin:50px auto;
 }
 .personal_main_left,
 .per_main_rig_top,
@@ -914,6 +915,17 @@ footer{
 }
 .fonttextmddd{
   font-size: 18px;
+}
+.tbody_referenceb .zanwujl td{
+  text-align: center;
+  color: #cc0000;
+  padding: 30px;
+}
+.tbody_referenceb .zanwujl td span i{
+  margin: 0 5px;
+}
+.tbody_referenceb .zanwujl:hover{
+  background: inherit;
 }
 /*我的投注*/
 .table_betting_main{
@@ -1247,9 +1259,10 @@ hr.style12 {
   padding:0 20px 0 15px;
 }
 .qrcode_clock{
-  position: initial;
+  position: inherit;
   transform: none;
   margin:10px 0 50px;
+  top: 0;
 }
 .input-group-pr{
   width: 100px;
@@ -1901,6 +1914,261 @@ hr.style12 {
 .shuang_icod{
   background: #87C95C;
 }
+/*活动中心*/
+.activity_main{
+  max-width: 1000px;
+  width: 100%;
+  min-height: 600px;
+  margin: 0 auto;
+}
+.activity_main .floor{
+  background: #fff;
+  background-position: 0 0; 
+  box-shadow: 0 4px 8px #c7c7c7;
+  padding: 15px;
+  margin:15px 0 0;
+  overflow: hidden;
+}
+.showDetail{
+  cursor: pointer;
+  overflow: hidden;  
+}
+.floor .floorTitleImg{
+  float: left;
+  width: 680px;
+  height: 170px;
+}
+.defaultImg {
+    background: url(../image/notPicture.png) 50% no-repeat;
+    background-size: cover;
+    background-color: #f3f3f3;
+}
+.floorLine{
+    background: url(../image/activityShaw.png) no-repeat;
+    width: 100%;
+    height: 15px;
+    padding: 0 3px;
+    margin-left: -3px;
+}
+.floor .floorRright{
+    float: left;
+    width: 290px;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.floor .floorRright h2{
+    font-size: 28px;
+    font-weight: 100;
+    margin: 0;
+    color: #e4393c;
+    line-height: 30px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+}
+.floor .floorRright p{
+    font-size: 14px;
+    padding: 12px 0;
+    height: 72px;
+}
+.floor .floorRright a{
+    font-size: 18px;
+    display: block;
+    line-height: 40px;
+    width: 120px;
+    background: #e4393c;
+    color: #fff;
+    border-radius: 4px;
+    text-align: center;
+    padding-right: 18px;
+    box-sizing: border-box;
+}
+.floorRrightaa_xuan i{
+  transform: rotate(180deg);
+}
+.floor .floorRright a i{
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 8px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid #f09394;
+    transition: .1s;
+}
+.floorDetail{
+    margin-top: 15px!important;
+    border-top: 2px dashed #e6e6e6;
+    overflow: hidden;
+    display: none;
+    width: 970px!important;
+    clear: both;
+}
+.floorDetail_blok{
+  display: block;
+}
+.floorDetail h3{
+    display: block;
+    background: #d2dbe0;
+    width: 84px;
+    text-align: center;
+    line-height: 28px;
+    font-size: 14px;
+    margin: 30px 0 15px;
+}
+.floorDetail h3 i{
+    display: inline-block;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-left: 10px solid #d2dbe0;
+    position: absolute;
+    margin-left: 14px;
+}
+.floorDetail em, .floorDetail i {
+    font-size: 14px;
+    font-style: normal;
+}
+.floorDetail em{
+    margin-right: 15px;
+}
+.floorDetail i{
+    color: #f76727;
+}
+.floorDetail a{
+    font-size: 16px;
+    color: #fff;
+    background: #e4393c;
+    border-radius: 4px;
+    padding: 7px 18px;
+}
+.floorDetail .disable{
+    background: #d6d6d6;
+    color: #999;
+}
+.floorDetail .table_reference{
+  width: 60%;
+}
+.activityCon p{
+  font-size: 14px;
+}
+.floorDetail .tbody_referenceb tr:last-of-type, 
+.floorDetail .tbody_referenceb{
+  border-bottom: 1px solid #c1c1c1;
+}
+.floorDetail .tbody_capital_main tr{
+  border:none;
+}
+.floorDetail .tbody_referencea tr th{
+  border:1px solid #999;
+  text-align: center;
+}
+.floorDetail .tbody_capital_main tr td{
+  border:1px solid #ddd;
+  text-align: center;
+}
+/*走势图*/
+.Trend_chart{
+  text-align: center;
+}
+.Trend_chart_table{
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  font-size: 14px;
+  background: #fff;
+}
+.Trend_chart_table>tbody>tr>td, 
+.Trend_chart_table>tbody>tr>th, 
+.Trend_chart_table>tfoot>tr>td{
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+.table_top_bor th{
+  border-right: 2px solid #E64E4D;
+}
+.table_top_bor th:last-child{
+  border-right: none;
+}
+.table_top_tow th:nth-of-type(6),
+.table_top_tow th:nth-of-type(22),
+.table_top_mainbor td:nth-of-type(1),
+.table_top_mainbor td:nth-of-type(2),
+.table_top_mainbor td:nth-of-type(8),
+.table_top_mainbor td:nth-of-type(24){
+  border-right: 2px solid #E64E4D;
+}
+.table_top_mainbor td:nth-of-type(2){
+  color: #e64e4d;
+}
+.bg_yell,
+.table_top_mainbor td:nth-of-type(2){
+  background: rgb(255, 255, 238);
+}
+.winBall {
+  background: url(../image/redball.png) no-repeat scroll center center rgb(232, 243, 255);
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  text-align: center;
+}
+.trendcolor1,
+.trendcolor2,
+.trendcolor3,
+.trendcolor4,
+.trendcolor5{
+  text-align: center;
+}
+.trendcolor1{
+  color: #fcf7bf;
+  background: none repeat scroll 0% 0% #ff014a;
+}
+.trendcolor2{
+  color: rgb(255, 255, 255);
+  background: none repeat scroll 0% 0% #5da9c8;
+}
+.trendcolor3{
+  color: rgb(255, 255, 255);
+  background: none repeat scroll 0% 0% #f1764b;
+}
+.trendcolor4{
+  color: rgb(255, 255, 255);
+  background: none repeat scroll 0% 0% #88c85d;
+}
+/*帮助中心*/
+.help_main .personal_main_macen{
+  display: none;
+}
+.help_main .personal_main_active{
+  display: block;
+}
+.help_main .per_main_rig_main{
+  margin-top: 0;
+  min-height: 841px;
+}
+.helpSlider{
+    background-color: #E64E4D;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 100;
+    margin: 0;
+}
+.help_mian_nav {
+  margin-top: 0;
+}
+.help_mian_nav ul li a{
+  height: 45px;
+  line-height: 45px;
+  text-align: left;
+  padding-left: 40px;
+}
+.help_main .basic_information{
+  margin:15px;
+}
+/*响应式*/
 @media screen and (max-width:1480px ){
   .lottery_nav_center ul li a{
     width: 80px;

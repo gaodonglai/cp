@@ -27,6 +27,18 @@
 		$(".pop_box").removeClass("pop_login");
 		$(".mask-re").removeClass("mask-reb");
 	});
+	/*活动中心手风琴*/
+	$(".floorRrightaa").on("click",function(){
+		if($(this).parents(".showDetail").next(".floorDetail").hasClass("floorDetail_blok")){
+			$(this).parents(".showDetail").next(".floorDetail").removeClass("floorDetail_blok");
+			$(this).removeClass("floorRrightaa_xuan");
+		}else{
+			$(".floorDetail").removeClass("floorDetail_blok");
+			$(this).parents(".showDetail").next(".floorDetail").addClass("floorDetail_blok");
+			$(".floorRrightaa").removeClass("floorRrightaa_xuan");
+			$(this).addClass("floorRrightaa_xuan");
+		}
+	})
 	/*投注筛选*/
 	var fActive;
 	function filterscreen(screen){
@@ -57,6 +69,12 @@
 		$(".rig_main_capital a").removeClass("betting_top-active");
 		$(this).addClass("betting_top-active");
 		$(".table_capital_main").fadeOut(300);
+		$(this.hash).delay(300).fadeIn();
+	});
+	$(".sonal_main_lef_nav  a").on("click",function(){
+		$(".sonal_main_lef_nav  a").removeClass("left-nav-active");
+		$(this).addClass("left-nav-active");
+		$(".personal_main_macen").fadeOut(300);
 		$(this.hash).delay(300).fadeIn();
 	});
 	/*绑定银行卡*/
