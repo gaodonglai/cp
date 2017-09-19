@@ -24,8 +24,13 @@
                 <h4>我的账户</h4>
             </div>
             <div class="per_main_rig_main">
-                <p class="rig_main_zla active_zla">基本信息</p>
+                <p class="rig_main_zla active_zla  rig_main_capital">
+                    <a class="betting_top-active" href="#modify_bindingaa1">基本信息</a>
+                    <a class="modify_binding2" href="#modify_bindingaa2">充值记录</a>
+                    <a class="modify_binding2" href="#modify_bindingaa3">返水记录</a>
+                </p>
                 <div class="basic_information">
+                 <div class="table_betting_main table_betting_active table_capital_main" id="modify_bindingaa1">
                     <form action="<?=_get_home_url('account/updateAccount')?>" class="postAjax basic_information_form">
                         <ul>
                             <li class="basic_information_a">
@@ -62,6 +67,62 @@
                             </li>
                         </ul>
                     </form>
+                   </div> 
+                     <div class="table_betting_main table_capital_main" id="modify_bindingaa2">
+                        <table class="table_reference">
+                            <thead class="tbody_referencea">
+                                <tr>
+                                    <th><span>充值时间</span></th>
+                                    <th><span>充值金额</span></th>
+                                    <th><span>到账时间</span></th>
+                                    <th><span>到账金额</span></th>
+                                    <th><span>返现金额</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="tbody_referenceb tbody_capital_main">
+                            <tr>
+                                <td><span>2017-08-26-14:00</span></td>
+                                <td><span>￥430</span></td>
+                                <td><span>2017-08-26-14:00</span></td>
+                                <td><span>￥429</span></td>
+                                <td><span>￥5</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>2017-08-26-14:00</span></td>
+                                <td><span>￥430</span></td>
+                                <td><span>2017-08-26-14:00</span></td>
+                                <td><span>￥429</span></td>
+                                <td><span>￥5</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>2017-08-26-14:00</span></td>
+                                <td><span>￥430</span></td>
+                                <td><span>2017-08-26-14:00</span></td>
+                                <td><span>￥429</span></td>
+                                <td><span>￥5</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>2017-08-26-14:00</span></td>
+                                <td><span>￥430</span></td>
+                                <td><span>2017-08-26-14:00</span></td>
+                                <td><span>￥429</span></td>
+                                <td><span>￥5</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>2017-08-26-14:00</span></td>
+                                <td><span>￥430</span></td>
+                                <td><span>2017-08-26-14:00</span></td>
+                                <td><span>￥429</span></td>
+                                <td><span>￥5</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <hr class="style12">
+                    </div>
+                     <div class="table_betting_main table_capital_main" id="modify_bindingaa3">
+                        aaaaaaaaaaa
+                        <hr class="style12">
+                    </div>
                 </div>
             </div>
         </div>

@@ -20,11 +20,10 @@ header{
 }
 .lottery_logo{
   background: url(../image/logokuai3.png) center center /cover no-repeat;
-  padding-left: 20px;
   min-width: 185px;
-  padding-left: 20px;
   position: initial;
   float: left;
+  margin-left: 30px;
 }
 .lottery_logo a{
    color: #E64E4D;
@@ -368,6 +367,13 @@ footer{
 }
 .lottery_footer p a{
   color: #907C73;
+}
+.lottery_footer p:last-of-type{
+  color: #e44b4e;
+}
+.footer_main_left{
+  width: 50%;
+  border-right: 1px solid #907c73;
 }
 /*首页内容*/
 .lottery_main{
@@ -1878,6 +1884,9 @@ hr.style12 {
 @media screen and (max-width:1350px ){
   .lottery_nav_center ul li a{
     width: 69px;
+  }
+  .lottery_logo{
+    margin-left: 0;
   }
 }
 @media screen and (max-width:1250px ){
