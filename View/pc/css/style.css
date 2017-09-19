@@ -357,6 +357,7 @@ footer{
   margin:0 auto;
   color: #907C73;
   padding:20px 0;
+  overflow: hidden;
 }
 .lottery_footer p{
   color: #907C73;
@@ -368,12 +369,36 @@ footer{
 .lottery_footer p a{
   color: #907C73;
 }
-.lottery_footer p:last-of-type{
+.lottery_footer p:nth-of-type(4){
   color: #e44b4e;
 }
-.footer_main_left{
-  width: 50%;
+.footer_main_left,
+.footer_main_right{
+  width: 49%;
+  float: left;
   border-right: 1px solid #907c73;
+}
+.footer_main_right{
+  border:none;
+  width: 21%;
+  margin-left: 15%;
+}
+.rechargeMethod {
+    margin: 40px 0 0;
+}
+.rechargeMethod i {
+    display: inline-block;
+    background: url(../image/rechargeMethod.png) no-repeat!important;
+    height: 50px;
+    width: 72px;
+    margin-right: 18px;
+}
+.rechargeMethod .alipay {
+    background-position: 0 -50px!important;
+}
+.rechargeMethod .cup {
+    background-position: 0 -100px!important;
+    margin-right: 0;
 }
 /*首页内容*/
 .lottery_main{

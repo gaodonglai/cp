@@ -16,7 +16,8 @@
 	        <p>郑重提示：彩票有风险，投注需谨慎，不向未满18周岁青少年出售彩票</p>
         </div>
         <div class="footer_main_right">
-			
+			<p data-v-d0cd27ac="">充值方式<i data-v-d0cd27ac="">Recharge method</i></p>
+			<div data-v-d0cd27ac="" class="rechargeMethod"><i data-v-d0cd27ac="" class="wechat"></i><i data-v-d0cd27ac="" class="alipay"></i><i data-v-d0cd27ac="" class="cup"></i></div>
         </div>
     </div>
 </footer>

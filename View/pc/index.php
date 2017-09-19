@@ -39,8 +39,8 @@
                                 <div class="tab_download_img"><img src="View/pc/image/QR_code.png" alt=""></div>
                                 <div class="tab_download_text">
                                     <p>
-                                        <a href="javascript:void(0)">下载客户端</a>
-                                        <span>最新版客户端，赶快去下载吧</span>
+                                        <a href="javascript:void(0)">暂未开通</a>
+                                        <span>请通过手机浏览器打开网站</span>
                                     </p>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="lottery_main_dice">
-                <div class="lottery_madice_top"><img src="View/pc/image/k3icon.png" alt=""><span>北京快三</span></div>
+                <div class="lottery_madice_top"><img src="View/pc/image/JSSB3.png" alt=""><span>江苏快三</span></div>
                 <div class="lottery_madice_main">
                     <p>期号：第<span>86405</span>期</p>
                     <p class="lottery_madice_mshuang">和值:<span>5</span>形态:<span>小</span>|<span>单</span></p>
@@ -102,7 +102,7 @@
                 </div>
             </div>
             <div class="lottery_main_dice">
-                <div class="lottery_madice_top"><img src="View/pc/image/k3icon.png" alt=""><span>北京快三</span></div>
+                <div class="lottery_madice_top"><img src="View/pc/image/AHK3.png" alt=""><span>安徽快三</span></div>
                 <div class="lottery_madice_main">
                     <p>期号：第<span>86405</span>期</p>
                     <p class="lottery_madice_mshuang">和值:<span>5</span>形态:<span>小</span>|<span>单</span></p>
@@ -116,7 +116,7 @@
                 </div>
             </div>
             <div class="lottery_main_dice">
-                <div class="lottery_madice_top"><img src="View/pc/image/k3icon.png" alt=""><span>北京快三</span></div>
+                <div class="lottery_madice_top"><img src="View/pc/image/GXK3.png" alt=""><span>广西快三</span></div>
                 <div class="lottery_madice_main">
                     <p>期号：第<span>86405</span>期</p>
                     <p class="lottery_madice_mshuang">和值:<span>5</span>形态:<span>小</span>|<span>单</span></p>
@@ -130,7 +130,7 @@
                 </div>
             </div>
             <div class="lottery_main_dice">
-                <div class="lottery_madice_top"><img src="View/pc/image/k3icon.png" alt=""><span>北京快三</span></div>
+                <div class="lottery_madice_top"><img src="View/pc/image/HBK3.png" alt=""><span>湖北快三</span></div>
                 <div class="lottery_madice_main">
                     <p>期号：第<span>86405</span>期</p>
                     <p class="lottery_madice_mshuang">和值:<span>5</span>形态:<span>小</span>|<span>单</span></p>
@@ -144,7 +144,7 @@
                 </div>
             </div>
             <div class="lottery_main_dice">
-                <div class="lottery_madice_top"><img src="View/pc/image/k3icon.png" alt=""><span>北京快三</span></div>
+                <div class="lottery_madice_top"><img src="View/pc/image/HEBK3.png" alt=""><span>河北快三</span></div>
                 <div class="lottery_madice_main">
                     <p>期号：第<span>86405</span>期</p>
                     <p class="lottery_madice_mshuang">和值:<span>5</span>形态:<span>小</span>|<span>单</span></p>
@@ -158,7 +158,7 @@
                 </div>
             </div>
             <div class="lottery_main_dice">
-                <div class="lottery_madice_top"><img src="View/pc/image/k3icon.png" alt=""><span>北京快三</span></div>
+                <div class="lottery_madice_top"><img src="View/pc/image/SHHK3.png" alt=""><span>上海快三</span></div>
                 <div class="lottery_madice_main">
                     <p>期号：第<span>86405</span>期</p>
                     <p class="lottery_madice_mshuang">和值:<span>5</span>形态:<span>小</span>|<span>单</span></p>
@@ -172,7 +172,7 @@
                 </div>
             </div>
             <div class="lottery_main_dice">
-                <div class="lottery_madice_top"><img src="View/pc/image/k3icon.png" alt=""><span>北京快三</span></div>
+                <div class="lottery_madice_top"><img src="View/pc/image/WFK3.png" alt=""><span>甘肃快三</span></div>
                 <div class="lottery_madice_main">
                     <p>期号：第<span>86405</span>期</p>
                     <p class="lottery_madice_mshuang">和值:<span>5</span>形态:<span>小</span>|<span>单</span></p>
@@ -186,7 +186,7 @@
                 </div>
             </div>
             <div class="lottery_main_dice">
-                <div class="lottery_madice_top"><img src="View/pc/image/k3icon.png" alt=""><span>北京快三</span></div>
+                <div class="lottery_madice_top"><img src="View/pc/image/FFK3.png" alt=""><span>分分快三</span></div>
                 <div class="lottery_madice_main">
                     <p>期号：第<span>86405</span>期</p>
                     <p class="lottery_madice_mshuang">和值:<span>5</span>形态:<span>小</span>|<span>单</span></p>
