@@ -47,7 +47,7 @@ function add_role_menu()
         'edit_pages' => '页面[新添加]'
     );
     
-    add_menu_page(__('角色权限管理'), __('角色权限管理'), 'role', 'role', 'menu_role','',13);
+    add_menu_page(__('角色权限'), __('角色权限'), 'role', 'role', 'menu_role','',89);
     
     add_submenu_page('role', '新增角色', '新增角色', 'role', 'role_add', 'menu_role_add');
 }
@@ -97,7 +97,7 @@ function menu_role()
         }
     </style>
 
-    <script src="<?=get_stylesheet_directory_uri()?>/admin/web/js/jquery.min.js"></script>
+    <script src="<?=get_stylesheet_directory_uri()?>/admin/web/js/jquery2.1.1.min.js"></script>
     <script src="<?=get_stylesheet_directory_uri()?>/admin/web/js/jquery-ui/jquery-ui.min.js"></script>
 
     <div id="accordion">

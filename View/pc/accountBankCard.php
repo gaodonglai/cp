@@ -132,12 +132,12 @@
                                         <div class="item">
                                             <div class="head">
                                                 <span><?=$bank[$val->opening_bank]?><i class="iconfont">&#xe622;</i></span>
-                                                <a class="delete"  href="javascript:void(0)"><i class="iconfont">&#xe629;</i></a>
+                                                <a class="delete" data-id="<?=$val->id?>"  href="javascript:void(0)"><i class="iconfont">&#xe629;</i></a>
                                             </div>
                                             <div class="body">
                                                 <dl>
                                                     <dd>
-                                                        <span>卡号：</span><?=$val->account_number?></dd>
+                                                        <span>卡号：</span>***<?=substr($val->account_number,'-4')?></dd>
                                                     <dd><span>户名：</span><?=$val->account_name?></dd>
                                                 </dl>
                                                 <a href="javascript:void(0)" class="take take_bank_manage">设为默认帐户</a>
@@ -152,12 +152,12 @@
                                         <div class="item">
                                             <div class="head">
                                                 <span class="zhifubao">支付宝账号<i class="iconfont">&#xe62b;</i></span>
-                                                <a class="delete"  href="javascript:void(0)"><i class="iconfont">&#xe629;</i></a>
+                                                <a class="delete" data-id="<?=$val->id?>" href="javascript:void(0)"><i class="iconfont">&#xe629;</i></a>
                                             </div>
                                             <div class="body">
                                                 <dl>
                                                     <dd>
-                                                        <span>账号：</span><?=$val->account_number?></dd>
+                                                        <span>账号：</span><?=hideStar($val->account_number)?></dd>
                                                     <dd><span>名字：</span><?=$val->account_name?></dd>
                                                 </dl>
                                                 <a href="javascript:void(0)" class="take take_bank_manage">设为默认帐户</a>
@@ -171,7 +171,7 @@
                                         <div class="item">
                                             <div class="head">
                                                 <span class="weixina">微信账号<i class="iconfont">&#xe603;</i></span>
-                                                <a class="delete"  href="javascript:void(0)"><i class="iconfont">&#xe629;</i></a>
+                                                <a class="delete" data-id="<?=$val->id?>"  href="javascript:void(0)"><i class="iconfont">&#xe629;</i></a>
                                             </div>
                                             <div class="body">
                                                 <dl>
@@ -223,4 +223,24 @@ if(url_status){
     $(".brigtinh_main_cen").fadeOut(300);
     $('#Bank_'+url_status).delay(300).fadeIn();
 }
+
+$(".delete").on("click",function(){
+    var _this = $(this);
+    $.ajax({
+        type : 'POST',  //提交方式
+        dataType:'json',
+        url : '<?=_get_home_url('account/deleteBankCard')?>',//路径
+        data:{'bank':_this.data('id')},//数据，这里使用的是Json格式进行传输
+        success : function(data) {//返回数据根据结果进行相应的处理
+            console.log(data);
+            if ( data.status == 'y') {
+                $.alerts(data.info)
+                _this.parents(".bank_manage").remove();
+            } else {
+                $.alerts(data.info)
+            }
+        }
+    });
+
+});
 </script>

@@ -60,9 +60,9 @@
 		$(this.hash).delay(300).fadeIn();
 	});
 	/*绑定银行卡*/
-	$(".delete").on("click",function(){
+	/*$(".delete").on("click",function(){
 		$(this).parents(".bank_manage").remove();
-	});
+	});*/
 	$(".take_bank_manage").on("click",function(){
 		$(".bank_manage").removeClass("bank_manage_active");
 		$(".take_bank_manage").text("设为默认帐户");

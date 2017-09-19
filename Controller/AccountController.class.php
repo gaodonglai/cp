@@ -84,12 +84,27 @@ class Account
      *提现申请
      */
     function extractMoney(){
+
+
+        $user_id = $this->user_info->user_id;
+        $content  = $this->model->getBankCardAll($user_id);
+        $money = $this->user_info->user_money - $this->user_info->frozen_money;//可用金额
+
+        $Conbankmy = new BankMg();
+        $bankmy = new \Model\BankMg();
+        $withdraw_log = $bankmy->getUserWithdrawRecord($user_id);
+
+        $args = array(
+            'bank'=>$this->bank,
+            'content'=>$content,
+            'money'=>$money,
+            'withdraw_log'=>$withdraw_log,
+            'dispose_stauts'=>$Conbankmy->status
+        );
+
         define("FUNFCTIO_NAME",__FUNCTION__);
-
         get_header_front();
-
-        display_show('accountExtractMoney');
-
+        display_show('accountExtractMoney',$args);
         get_footer_front();
     }
 
@@ -145,18 +160,6 @@ class Account
         get_footer_front();
     }
 
-    /**
-     *充值返现活动
-     */
-    function payActivity(){
-        define("FUNFCTIO_NAME",__FUNCTION__);
-
-        get_header_front();
-
-        display_show('accountPayActivity');
-
-        get_footer_front();
-    }
 
 
     /**
@@ -226,10 +229,8 @@ class Account
      */
     public function setPerfectInfo(){
 
-        foreach ($_POST as $item) {
-            if(empty($item)){
-                exit(json_encode(array('status'=>'n','info'=>'请完善信息')));
-            }
+        if(in_array("",$_POST)){
+            exit(json_encode(array('status'=>'n','info'=>'请完善填写内容')));
         }
         $question         = $_POST['question'];
         $answer           = $_POST['answer'];
@@ -386,10 +387,8 @@ class Account
      * 更新交易密码
      */
     public function updatePaymentPassword(){
-        foreach ($_POST as $item) {
-            if(empty($item)){
-                exit(json_encode(array('status'=>'n','info'=>'密码为空')));
-            }
+        if(in_array("",$_POST)){
+            exit(json_encode(array('status'=>'n','info'=>'请完善填写内容')));
         }
 
         $password = $_POST['password'];
@@ -415,7 +414,7 @@ class Account
         if(empty($account_payment)){
             exit(json_encode(array('status'=>'n','info'=>'无交易密码')));
         }
-        echo wpDecode($password,$this->user_info->password);
+        //echo wpDecode($password,$this->user_info->password);
 
         if(wpDecode($password,$this->user_info->password) && wpDecode($payment_password,$account_payment->payment_password)){
 
@@ -435,23 +434,29 @@ class Account
      */
     public function setBankCard(){
 
-        foreach ($_POST as $item) {
-            if(empty($item)){
-                exit(json_encode(array('status'=>'n','info'=>'有空值')));
-            }
+        if(in_array("",$_POST)){
+            exit(json_encode(array('status'=>'n','info'=>'请完善填写内容')));
         }
+
         $type = $_POST['type'];
         $user_id = $this->user_info->user_id;
 
         $get_content = $this->model->getBankCardCount($user_id,$type);//查询数量
 
         if($type == 'bank'){
-            if($get_content == 2){
-                exit(json_encode(array('status'=>'n','info'=>'不能再添加了')));
-            }
+
+
             $bank_account = $_POST['bank_account'];
             $bank_card = $_POST['bank_card'];
             $bank_name = $_POST['bank_name'];
+
+            if(!bankVerify($bank_account)){
+                exit(json_encode(array('status'=>'n','info'=>'银行卡号不正确')));
+            }
+
+            if($get_content == 2){
+                exit(json_encode(array('status'=>'n','info'=>'不能再添加了')));
+            }
 
             $args = array('user_id'=>$user_id,'account_number'=>$bank_account,'opening_bank'=>$bank_card,'card_state'=>'y','time'=>date('Y-m-d H:i:s'),'account_name'=>$bank_name,'card_type'=>$type);
 
@@ -483,6 +488,27 @@ class Account
 
 
 
+    }
+
+    /**
+     * 删除银行卡
+     */
+    function deleteBankCard(){
+
+        $bank = $_POST['bank'];
+        if(!is_numeric($bank)){
+            exit();
+        }
+
+        $user_id = $this->user_info->user_id;
+        $table = $this->model->table.'card_binding';
+        $result = $this->model->wpdb->query("DELETE FROM $table WHERE id = {$bank} and user_id = {$user_id}");
+
+        if($result){
+            exit(json_encode(array('status'=>'y','info'=>'删除成功')));
+        }else{
+            exit(json_encode(array('status'=>'n','info'=>'删除失败')));
+        }
     }
 
     /*********************************************************结束：用户功能方法***************************************************************/

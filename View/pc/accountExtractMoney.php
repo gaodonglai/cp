@@ -29,19 +29,43 @@
                 <div class="basic_information">
                     <div class="table_betting_main table_betting_active table_capital_main" id="Withdrawals_binding1">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>暂不支持信用卡和微信提现，目前仅支持储蓄卡和支付宝提现。</p>
-                        <form action="" class="basic_information_form Withdrawals_bind_form registerform">
+                        <form action="<?=_get_home_url('bankMg/withdrawalApp')?>" class="postAjax basic_information_form Withdrawals_bind_form registerform">
                             <ul>
                                 <li class="basic_information_a">
                                     <label for="">银行卡号：</label>
-                                    <select name="bankother" class="loginValue">
-                                        <option data-msg="6217003890002717564" value="274014">中国建设银行尾号：7564</option>
-                                        <option data-msg="6217003890002717564" value="274014">中国农业银行尾号：7564</option>
-                                        <option data-msg="6217003890002717564" value="274014">中国招商银行尾号：7564</option>
+
+                                    <select name="bank" class="loginValue">
+                                        <?php
+                                        $flag = true;
+                                        if($content){
+                                            foreach ($content as $item) {
+                                                if ($item->card_type == 'bank') {
+
+                                                    $flag = false;
+                                                    ?>
+                                                    <option value="<?=$item->id?>"><?=$bank[$item->opening_bank]?>尾号：<?=substr($item->account_number, -4)?></option>
+                                                    <?php
+                                                }
+                                                if($item->card_type == 'alipay'){
+                                                    $alipay_id = $item->id;
+                                                    $alipay_name = $item->account_number;
+                                                    print_r($alipay_name);
+                                                }
+                                            }
+                                        }
+                                        ?>
                                     </select>
+                                    <?php
+                                    if($flag){
+                                        ?>
+                                        <span >没有银行卡<a class="color_red_mddd " href="<?=_get_home_url('account/bankCard')?>">去添加</a></span>
+                                    <?php
+                                    }
+                                    ?>
                                 </li>
                                 <li class="basic_information_b">
                                     <label for="">可用人民币：</label>
-                                    <span class="color_red_mddd leftdd">5000.00</span>
+                                    <span class="color_red_mddd leftdd"><?=$money ? sprintf("%.2f",$money) : '0.00'?></span>
                                 </li>
                                 <li class="basic_information_d">
                                     <label for="">提现金额(￥)：</label>
@@ -50,18 +74,18 @@
                                 </li>
                                 <li class="basic_information_e">
                                     <label for="">交易密码：</label>
-                                    <input type="password" name="pwdtrade" value=""  datatype="*5-15" nullmsg="请填写密码！" errormsg="密码范围在5~15位之间！"/>
+                                    <input type="password" name="deal_password" value=""  datatype="*5-15" nullmsg="请填写密码！" errormsg="密码范围在5~15位之间！"/>
                                     <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_c">
                                     <label for="">到账时间：</label>
                                     <div class="basic_information_c_main">
                                     <label class="basic_radio_label">
-                                        <input class="mui-checkbox checkbox-s checkbox-orange"  id="type-1" type="radio" name="paymentype" value = "2" />
+                                        <input class="mui-checkbox checkbox-s checkbox-orange"  id="type-1" type="radio" name="paymen_type" value = "2" />
                                         <i class="iconfont checkbox-i">&#xe628;</i> 极速提现（9:00——18:00时间段 1时内到账，其他时间段 12小时内到账） 
                                     </label>
                                     <label class="basic_radio_label">
-                                        <input class="mui-checkbox checkbox-s checkbox-orange" id="type-2" type="radio" name="paymentype" value = "1" checked="1"/>
+                                        <input class="mui-checkbox checkbox-s checkbox-orange" id="type-2" type="radio" name="payment_ype" value = "1" checked="1"/>
                                          快速提现   （正常24小时内到账，具体到账时间因收款银行略有不同，节假日会略有延迟）
                                         <i class="iconfont checkbox-i">&#xe628;</i>
                                     </label>
@@ -89,44 +113,61 @@
                             </tr>
                             </thead>
                             <tbody class="tbody_referenceb tbody_referencebc">
-                            <tr class="screen_nowin_a">
-                                <td><span>2017-08-23 16:46:29</span></td>
-                                <td><span>300.00</span></td>
-                                <td><span>2.00</span></td>
-                                <td><span>298.00</span></td>
-                                <td><span>建设银行</span></td>
-                                <td><span>7564</span></td>
-                                <td><span class="tdbetting-active-aa">通过</span></td>
-                                <td><span></span></td>
-                                <td><span><a href=""><i class="iconfont">&#xe629;</i></a></span></td>
-                            </tr>
-                            <tr class="screen_nowin_a">
-                                <td><span>2017-08-23 16:46:29</span></td>
-                                <td><span>300.00</span></td>
-                                <td><span>2.00</span></td>
-                                <td><span>298.00</span></td>
-                                <td><span>建设银行</span></td>
-                                <td><span>7564</span></td>
-                                <td><span class="tdbetting-active-b">未通过</span></td>
-                                <td><span>银行卡异常</span></td>
-                                <td><span><a href=""><i class="iconfont">&#xe629;</i></a></span></td>
-                            </tr>
+                            <?php
+                            if($withdraw_log){
+                                foreach ($withdraw_log as $item) {
+                                    if($item->card_type == 'bank'){
+                                        ?>
+                                        <tr class="screen_nowin_a">
+                                            <td><span><?=$item->time?></span></td>
+                                            <td><span><?=$item->money?></span></td>
+                                            <td><span><?=$item->service_charge?></span></td>
+                                            <td><span><?=sprintf("%.2f",$item->money - $item->service_charge)?></span></td>
+                                            <td><span><?=$bank[$item->bankcard]?></span></td>
+                                            <td><span><?=substr($item->account_number,'-4')?></span></td>
+                                            <td><span class="tdbetting-active-aa"><?=$dispose_stauts[$item->status]?></span></td>
+                                            <td><span><?=$item->refuse_reason?></span></td>
+                                            <td><span><a href=""><i class="iconfont">&#xe629;</i></a></span></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                }
+                            }else{
+                                ?>
+                                <tr class="screen_nowin_a">
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span>没有记录</td>
+                                    <td><span></span></td>
+                                    <td><span class="tdbetting-active-aa"></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                </tr>
+                            <?php
+                            }
+
+                            ?>
+
                             </tbody>
                         </table>
                         <hr class="style12">
                     </div>
                     <div class="table_betting_main  table_capital_main Withdrawals_bind_main" id="Withdrawals_binding2">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>暂不支持信用卡和微信提现，目前仅支持储蓄卡和支付宝提现。</p>
-                        <form action="" class="basic_information_form Withdrawals_bind_form registerform">
+                        <form action="<?=_get_home_url('bankMg/withdrawalApp')?>" class="postAjax basic_information_form Withdrawals_bind_form registerform">
+                            <input type="hidden" name="bank" value="<?=$alipay_id?>" >
+                            <input type="hidden" name="payment_ype" value="1" >
                             <ul>
                                 <li class="basic_information_a">
                                     <label for="">支付宝账号：</label>
-                                    <input type="text" name="money" value=""  nullmsg="请输入支付宝账号" datatype="*4-18" errormsg="至少6个字符,最多18个字符！">
+                                    <input type="text" disabled="disabled" name="money" value="<?=hideStar($alipay_name)?>"  nullmsg="请输入支付宝账号" datatype="*4-18" errormsg="至少6个字符,最多18个字符！">
                                     <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_b">
                                     <label for="">可用人民币：</label>
-                                    <span class="color_red_mddd leftdd">5000.00</span>
+                                    <span class="color_red_mddd leftdd"><?=$money ? sprintf("%.2f",$money) : '0.00'?></span>
                                 </li>
                                 <li class="basic_information_d">
                                     <label for="">提现金额(￥)：</label>
@@ -135,7 +176,7 @@
                                 </li>
                                 <li class="basic_information_e">
                                     <label for="">交易密码：</label>
-                                    <input type="password" name="pwdtrade" value=""  datatype="*5-15" nullmsg="请输入交易密码" errormsg="密码范围在5~15位之间！"/>
+                                    <input type="password" name="deal_password" value=""  datatype="*5-15" nullmsg="请输入交易密码" errormsg="密码范围在5~15位之间！"/>
                                     <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_c">
@@ -163,26 +204,41 @@
                             </tr>
                             </thead>
                             <tbody class="tbody_referenceb tbody_referencebc">
-                            <tr class="screen_nowin_a">
-                                <td><span>2017-08-23 16:46:29</span></td>
-                                <td><span>300.00</span></td>
-                                <td><span>2.00</span></td>
-                                <td><span>298.00</span></td>
-                                <td><span>13219079952</span></td>
-                                <td><span class="tdbetting-active-aa">通过</span></td>
-                                <td><span></span></td>
-                                <td><span><a href=""><i class="iconfont">&#xe629;</i></a></span></td>
-                            </tr>
-                            <tr class="screen_nowin_a">
-                                <td><span>2017-08-23 16:46:29</span></td>
-                                <td><span>300.00</span></td>
-                                <td><span>2.00</span></td>
-                                <td><span>298.00</span></td>
-                                <td><span>526399773</span></td>
-                                <td><span class="tdbetting-active-b">未通过</span></td>
-                                <td><span>账号异常</span></td>
-                                <td><span><a href=""><i class="iconfont">&#xe629;</i></a></span></td>
-                            </tr>
+                            <?php
+                            if($withdraw_log){
+                                foreach ($withdraw_log as $item) {
+                                    if($item->card_type == 'alipay'){
+                                        ?>
+                                        <tr class="screen_nowin_a">
+                                            <td><span><?=$item->time?></span></td>
+                                            <td><span><?=$item->money?></span></td>
+                                            <td><span><?=$item->service_charge?></span></td>
+                                            <td><span><?=sprintf("%.2f",$item->money - $item->service_charge)?></span></td>
+                                            <td><span><?=substr($item->account_number,'-4')?></span></td>
+                                            <td><span class="tdbetting-active-aa"><?=$dispose_stauts[$item->status]?></span></td>
+                                            <td><span><?=$item->refuse_reason?></span></td>
+                                            <td><span><a href=""><i class="iconfont">&#xe629;</i></a></span></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                }
+                            }else{
+                                ?>
+                                <tr class="screen_nowin_a">
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+
+                                    <td><span></span>没有记录</td>
+                                    <td><span></span></td>
+                                    <td><span class="tdbetting-active-aa"></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                </tr>
+                                <?php
+                            }
+
+                            ?>
                             </tbody>
                         </table>
                         <hr class="style12">

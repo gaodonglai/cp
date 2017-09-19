@@ -139,6 +139,10 @@ function _get_home_url($page=''){
 
 /*判断手持设备*/
 function is_mobile( $a=false ) {
+    global $is_mobile;
+    if($is_mobile){
+        return $is_mobile;
+    }
     $user_agent = $_SERVER['HTTP_USER_AGENT'];
     $mobile_agents = Array("240x320","acer","acoon","acs-","abacho","ahong","airness","alcatel","amoi","android","anywhereyougo.com","applewebkit/525","applewebkit/532","asus","audio","au-mic","avantogo","becker","benq","bilbo","bird","blackberry","blazer","bleu","cdm-","compal","coolpad","danger","dbtel","dopod","elaine","eric","etouch","fly ","fly_","fly-","go.web","goodaccess","gradiente","grundig","haier","hedy","hitachi","htc","huawei","hutchison","inno","ipad","ipaq","ipod","jbrowser","kddi","kgt","kwc","lenovo","lg ","lg2","lg3","lg4","lg5","lg7","lg8","lg9","lg-","lge-","lge9","longcos","maemo","mercator","meridian","micromax","midp","mini","mitsu","mmm","mmp","mobi","mot-","moto","nec-","netfront","newgen","nexian","nf-browser","nintendo","nitro","nokia","nook","novarra","obigo","palm","panasonic","pantech","philips","phone","pg-","playstation","pocket","pt-","qc-","qtek","rover","sagem","sama","samu","sanyo","samsung","sch-","scooter","sec-","sendo","sgh-","sharp","siemens","sie-","softbank","sony","spice","sprint","spv","symbian","tablet","talkabout","tcl-","teleca","telit","tianyu","tim-","toshiba","tsm","up.browser","utec","utstar","verykool","virgin","vk-","voda","voxtel","vx","wap","wellco","wig browser","wii","windows ce","wireless","xda","xde","zte");
     $is_mobile = false;
@@ -155,6 +159,21 @@ function is_mobile( $a=false ) {
         }
     }
     return $is_mobile;
+}
+
+/**
+ *识别安卓APP
+ */
+if(is_mobile() && ($_GET['isapp'] == MD5('sxshappyes') || $_COOKIE['isapp'] == MD5('sxshappyes'))){
+    $isapp = $_GET['isapp'] ? $_GET['isapp'] : $_COOKIE['isapp'];
+    setcookie('isapp',$isapp,time()+'315360000','/','.sixiangcangku.com');
+}
+/**
+ *识别IPSAPP
+ */
+if(is_mobile() && ($_GET['isapp'] == MD5('sxshiosyes') || $_COOKIE['isapp'] == MD5('sxshiosyes'))){
+    $isapp = $_GET['isapp'] ? $_GET['isapp'] : $_COOKIE['isapp'];
+    setcookie('isapp',$isapp,time()+'315360000','/','.sixiangcangku.com');
 }
 
 /*获取用户ip地址*/
@@ -195,4 +214,28 @@ function hideStar($str) { //
         }
     }
     return $rs;
+}
+
+/*
+  16-19 位卡号校验位采用 Luhm 校验方法计算：
+    1，将未带校验位的 15 位卡号从右依次编号 1 到 15，位于奇数位号上的数字乘以 2
+    2，将奇位乘积的个十位全部相加，再加上所有偶数位上的数字
+    3，将加法和加上校验位能被 10 整除。
+*/
+function bankVerify($s) {
+    $n = 0;
+    for ($i = strlen($s); $i >= 1; $i--) {
+        $index=$i-1;
+        //偶数位
+        if ($i % 2==0) {
+            $n += $s{$index};
+        } else {//奇数位
+            $t = $s{$index} * 2;
+            if ($t > 9) {
+                $t = (int)($t/10)+ $t%10;
+            }
+            $n += $t;
+        }
+    }
+    return ($n % 10) == 0;
 }

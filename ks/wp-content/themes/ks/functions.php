@@ -1,15 +1,5 @@
 <?php
-/**
- * 默认配置文件
- *
- * 
- */
-session_start();
-date_default_timezone_set('PRC');   //设置时区(中国标准时间)
 
-/**
- * 订单处理end
-*/
 /**
  * 判断管理员
  * @return int
@@ -24,14 +14,6 @@ function ludou_is_administrator() {
         return 0;  // 非管理员
 }
 
-/**
- * 点单号生成规则
- * @return string
- */
-function build_order_no($orderid,$user){
-   return date('ymd').($orderid*3).substr($user,-1);
-    //return date('Ymd').substr(implode(NULL, array_map('ord', str_split(substr(uniqid(), 7, 13), 1))), 0, 8);
-}
 
 /*转译html*/
 function htmlSChars($v){
@@ -47,39 +29,56 @@ function _htmlSChars($v)
     }
 }
 
-/*判断系统-leo*/  
-function get_system(){  
-    $user_OSagent = $_SERVER['HTTP_USER_AGENT'];  
-    if(strpos($user_OSagent,"NT")){  
-        $visitor_os ="Windows";   
-    }elseif(strpos($user_OSagent,"Mac")) {  
-        $visitor_os ="Mac";  
-    } elseif(strpos($user_OSagent,"Linux")) {   
-        $visitor_os ="Linux";  
-    } elseif(strpos($user_OSagent,"Unix")) {  
-        $visitor_os ="Unix";  
-    } elseif(strpos($user_OSagent,"FreeBSD")) {  
-        $visitor_os ="FreeBSD";  
-    } elseif(strpos($user_OSagent,"SunOS")) {  
-        $visitor_os ="SunOS";   
-    } elseif(strpos($user_OSagent,"BeOS")) {  
-        $visitor_os ="BeOS";   
-    } elseif(strpos($user_OSagent,"OS/2")) {  
-        $visitor_os ="OS/2";  
-    } elseif(strpos($user_OSagent,"PC")) {  
-        $visitor_os ="Macintosh";  
-    } elseif(strpos($user_OSagent,"AIX")) {  
-        $visitor_os ="AIX";  
-    } elseif(strpos($user_OSagent,"IBM OS/2")) {  
-        $visitor_os ="IBM OS/2";  
-    } elseif(strpos($user_OSagent,"BSD")) {  
-        $visitor_os ="BSD";  
-   } elseif(strpos($user_OSagent,"NetBSD")) {  
-        $visitor_os ="NetBSD";  
-    } else {  
-       $visitor_os ="其它操作系统";  
-    }  
-    return $visitor_os;   
+/**
+ * 加密
+ * @param $parameter 需要加密的参数
+ * @return bool|string
+ */
+function adminEncrypt($password) {
+    global $wp_hasher;
+
+    if ( empty($wp_hasher) ) {
+        require_once( dirname(WP_CONTENT_DIR).'/wp-includes/class-phpass.php');
+        // By default, use the portable hash from phpass
+        $wp_hasher = new PasswordHash(8, true);
+    }
+
+    return $wp_hasher->HashPassword( trim( $password ) );
+}
+
+/*判断系统-leo*/
+function get_system(){
+    $user_OSagent = $_SERVER['HTTP_USER_AGENT'];
+    if(strpos($user_OSagent,"NT")){
+        $visitor_os ="Windows";
+    }elseif(strpos($user_OSagent,"Mac")) {
+        $visitor_os ="Mac";
+    } elseif(strpos($user_OSagent,"Linux")) {
+        $visitor_os ="Linux";
+    } elseif(strpos($user_OSagent,"Unix")) {
+        $visitor_os ="Unix";
+    } elseif(strpos($user_OSagent,"FreeBSD")) {
+        $visitor_os ="FreeBSD";
+    } elseif(strpos($user_OSagent,"SunOS")) {
+        $visitor_os ="SunOS";
+    } elseif(strpos($user_OSagent,"BeOS")) {
+        $visitor_os ="BeOS";
+    } elseif(strpos($user_OSagent,"OS/2")) {
+        $visitor_os ="OS/2";
+    } elseif(strpos($user_OSagent,"PC")) {
+        $visitor_os ="Macintosh";
+    } elseif(strpos($user_OSagent,"AIX")) {
+        $visitor_os ="AIX";
+    } elseif(strpos($user_OSagent,"IBM OS/2")) {
+        $visitor_os ="IBM OS/2";
+    } elseif(strpos($user_OSagent,"BSD")) {
+        $visitor_os ="BSD";
+   } elseif(strpos($user_OSagent,"NetBSD")) {
+        $visitor_os ="NetBSD";
+    } else {
+       $visitor_os ="其它操作系统";
+    }
+    return $visitor_os;
 }
 
 /*获取设备名称-leo*/
@@ -135,34 +134,11 @@ function get_device(){
     return $brand;
 }
 
-/*获取IP-leo*/
-function getIP() { 
-    if (getenv('HTTP_CLIENT_IP')) { 
-        $ip = getenv('HTTP_CLIENT_IP'); 
-    } 
-    elseif (getenv('HTTP_X_FORWARDED_FOR')) { 
-        $ip = getenv('HTTP_X_FORWARDED_FOR'); 
-    } 
-    elseif (getenv('HTTP_X_FORWARDED')) { 
-        $ip = getenv('HTTP_X_FORWARDED'); 
-    } 
-    elseif (getenv('HTTP_FORWARDED_FOR')) { 
-        $ip = getenv('HTTP_FORWARDED_FOR'); 
-
-    } 
-    elseif (getenv('HTTP_FORWARDED')) { 
-        $ip = getenv('HTTP_FORWARDED'); 
-    } 
-    else { 
-        $ip = $_SERVER['REMOTE_ADDR']; 
-    } 
-    return $ip; 
-} 
 
 /*IP地址转化-leo*/
 function convertip($ip) {
     $dat_path = WP_CONTENT_DIR.'/uploads/qqwry/qqwry.dat';
-    
+
     if(!$fd = @fopen($dat_path, 'rb')){
         return 'IP date file not exists or access denied';
     }
@@ -280,7 +256,7 @@ function convertip($ip) {
     if(preg_match('/http/i', $ipaddr) || $ipaddr == '') {
         $ipaddr = 'Unknown';
     }
-    $ipaddr = iconv('gbk', 'utf-8//IGNORE', $ipaddr); 
+    $ipaddr = iconv('gbk', 'utf-8//IGNORE', $ipaddr);
     if( $ipaddr != '  ' )
         return $ipaddr;
     else
@@ -288,44 +264,12 @@ function convertip($ip) {
         return $ipaddr;
 }
 
-/*判断手持设备*/
-function is_mobile( $a=false ) {
-    $user_agent = $_SERVER['HTTP_USER_AGENT'];
-    $mobile_agents = Array("240x320","acer","acoon","acs-","abacho","ahong","airness","alcatel","amoi","android","anywhereyougo.com","applewebkit/525","applewebkit/532","asus","audio","au-mic","avantogo","becker","benq","bilbo","bird","blackberry","blazer","bleu","cdm-","compal","coolpad","danger","dbtel","dopod","elaine","eric","etouch","fly ","fly_","fly-","go.web","goodaccess","gradiente","grundig","haier","hedy","hitachi","htc","huawei","hutchison","inno","ipad","ipaq","ipod","jbrowser","kddi","kgt","kwc","lenovo","lg ","lg2","lg3","lg4","lg5","lg7","lg8","lg9","lg-","lge-","lge9","longcos","maemo","mercator","meridian","micromax","midp","mini","mitsu","mmm","mmp","mobi","mot-","moto","nec-","netfront","newgen","nexian","nf-browser","nintendo","nitro","nokia","nook","novarra","obigo","palm","panasonic","pantech","philips","phone","pg-","playstation","pocket","pt-","qc-","qtek","rover","sagem","sama","samu","sanyo","samsung","sch-","scooter","sec-","sendo","sgh-","sharp","siemens","sie-","softbank","sony","spice","sprint","spv","symbian","tablet","talkabout","tcl-","teleca","telit","tianyu","tim-","toshiba","tsm","up.browser","utec","utstar","verykool","virgin","vk-","voda","voxtel","vx","wap","wellco","wig browser","wii","windows ce","wireless","xda","xde","zte");
-    $is_mobile = false;
-    foreach ($mobile_agents as $device) {
-        if (stristr($user_agent, $device)) {
-            if($a==true){
-
-                $is_mobile = $device;
-            }else{
-
-                $is_mobile = true;
-            }
-            break;
-        }
-    }
-    return $is_mobile;
-}
-
 function is_weixin(){
     return strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger');
 }
 
-/**
-*识别安卓APP
-*/
-if(is_mobile() && ($_GET['isapp'] == MD5('sxshappyes') || $_COOKIE['isapp'] == MD5('sxshappyes'))){
-    $isapp = $_GET['isapp'] ? $_GET['isapp'] : $_COOKIE['isapp'];
-    setcookie('isapp',$isapp,time()+'315360000','/','.sixiangcangku.com');
-}
-/**
-*识别IPSAPP
-*/
-if(is_mobile() && ($_GET['isapp'] == MD5('sxshiosyes') || $_COOKIE['isapp'] == MD5('sxshiosyes'))){
-    $isapp = $_GET['isapp'] ? $_GET['isapp'] : $_COOKIE['isapp'];
-    setcookie('isapp',$isapp,time()+'315360000','/','.sixiangcangku.com');
-}
+
+
 //分页功能
 function theme_echo_pagenavi($flag=false){
     global $request, $posts_per_page, $wpdb, $paged;
@@ -403,7 +347,7 @@ function theme_echo_pagenavi($flag=false){
                 echo '<a href="'.get_pagenum_link($max_page).'"><li>尾页</li></a>';
             }
         }
-        
+
         //echo " <li>共{$numposts}条记录</li>";
     }
 }
@@ -651,106 +595,4 @@ function wpyou_rename_upload_file($filename) {
     return substr(md5($name), 0, 15) . $ext; // 15 为要截取的文件名长度
 
 }
-function priceHtml($price){
-    return "<b class='priceY'>&yen;</b>".sprintf('%.2f',$price);
-}
 
-require_once 'libraries/util/EtNavigation.class.php';
-function wpautops($content){
-    $content = wpautop($content);
-    $content = apply_filters( 'the_content', $content );
-    $content = str_replace( ']]>', ']]&gt;', $content );
-    return $content;
-}
-/**
- * 新浪获取地址
- */
-function getIpAddress(){
-    $url = "http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js&ip=".getIP();
-    $ipContent   = file_get_contents($url);
-    $jsonData = explode("=",$ipContent);
-    $jsonAddress = substr($jsonData[1], 0, -1);
-    return $jsonAddress;
-}
-/**
-*获取到的地址进行转换
- */
- function getIpAddressList($num=1){
-     global $user;
-     $return = array();
-     $AccountModel = new \app\consumer\model\AccountModel();
-     if($user){
-         if($_SESSION['address']){
-             $where = "and a.c_ad_id = {$_SESSION['address']}";
-             $getUserAddressfirst = $AccountModel->getAddressAll("c_id={$user['userId']} {$where}",'1');
-         }else{
-             $getUserAddressfirst = $AccountModel->getAddressAll("c_id={$user['userId']}",'1');
-         }
-        if($getUserAddressfirst) {
-            if ($getUserAddressfirst[0]['c_ad_province']) {
-                $return['province'] = array(
-                    'code' => $getUserAddressfirst[0]['c_ad_province'],
-                    'name' => $getUserAddressfirst[0]['c_ad_provinceN'],
-                );
-            }
-            if ($getUserAddressfirst[0]['c_ad_city']) {
-                $return['city'] = array(
-                    'code' => $getUserAddressfirst[0]['c_ad_city'],
-                    'name' => $getUserAddressfirst[0]['c_ad_cityN'],
-                );
-            }
-            if ($getUserAddressfirst[0]['c_ad_county']) {
-                $return['district'] = array(
-                    'code' => $getUserAddressfirst[0]['c_ad_county'],
-                    'name' => $getUserAddressfirst[0]['c_ad_countyN'],
-                );
-            }
-            return $return;
-        }
-     }
-     $ip_info=json_decode(getIpAddress());
-     if($ip_info->province){
-         /**
-          * 第一级
-          */
-         $province = $AccountModel->getAddress("name like '{$ip_info->province}%' and parentId =0");
-         $return['province'] = $province =$province[0];
-         if($ip_info->city && $province && $num>1){
-             /**
-              * 第二级
-              */
-             $city = $AccountModel->getAddress("name like '{$ip_info->city}%' and parentId ={$province['code']} ");
-             $return['city'] = $city = $city[0];
-             if($ip_info->district && $city && $num>2){
-                 /**
-                  * 第三级
-                  */
-                 $district = $AccountModel->getAddress("name like '{$ip_info->city}%' and parentId ={$city['code']}");
-                 $return[district] = $district[0];
-             }
-         }
-     }
-     return $return;
- }
-
-function inStockS($i_id,$p_id){
-    $IpAddress = getIpAddressList(2);
-    $r = false;
-    //第一级判断
-    $inStock = inStock($i_id,$p_id,$IpAddress['province']['code']);
-    if($inStock){
-        $r = $inStock;
-    }
-    /**
-     * 判断第二级
-     */
-    if(!$inStock || $inStock->status!='all'){
-        $inStock = inStock($i_id,$p_id,$IpAddress['city']['code']);
-        if($inStock){
-            $r = $inStock;
-        }else{
-            $r = false;
-        }
-    }
-    return $r;
-}

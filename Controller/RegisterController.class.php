@@ -91,11 +91,16 @@ class Register
 
         global $wpdb;
         $table = $wpdb->prefix.'account';
-        $result = $wpdb->query("INSERT INTO `$table`( `user_name`, `password`, `reg_time`,`parent_id`, `$key` ) VALUES ('$user_name','".wpEncrypt($user_pass)."',".time().",{$get_code->user_id},'$user_name')");
+        $result = $wpdb->query("INSERT INTO `$table`( `user_name`, `password`,`is_validated`, `reg_time`,`parent_id`, `$key` ) VALUES ('$user_name','".wpEncrypt($user_pass)."',1,".time().",{$get_code->user_id},'$user_name')");
+
+        $user_id = $wpdb->insert_id;
 
         if($result){
 
-            $_SESSION['user_id'] = $wpdb->insert_id;
+            $drp = new \Model\Distribution();
+            $drp->setRegiterDrp($user_id,$get_code->user_id);//设置分销展示信息
+
+            $_SESSION['user_id'] = $user_id;
             exit(json_encode(array('status'=>'y','info'=>'注册成功','url'=>_get_home_url('account/perfectInfo'))));//继续完善账户
 
         }else{

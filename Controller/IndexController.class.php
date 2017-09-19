@@ -15,10 +15,17 @@ class Index extends \Model\Index
          $this->getIndexInfo();
         /*$mIdex = new \Model\Index();
         $mIdex->getIndexInfo();*/
+        if(is_mobile()){
+            display_show('index');
 
-        get_header_front();
-        display_show('index');
-        get_footer_front();
+        }else{
+
+            get_header_front();
+            display_show('index');
+            get_footer_front();
+
+        }
+
 
     }
 

@@ -79,7 +79,7 @@ class Distribution
             $data_array = array(
                 'user_id'=>$getProfit1Id,
                 'cash_record_type'=>'+',
-                'cash_record_cost'=>floor($cash_record_cost),
+                'cash_record_cost'=>$cash_record_cost,
                 'cost_type'=>'cash',
                 'cash_record_time'=>date('Y-m-d H:i:s')
             );
@@ -105,7 +105,7 @@ class Distribution
                 $data_array1 = array(
                     'user_id'=>$getProfit2Id,
                     'cash_record_type'=>'+',
-                    'cash_record_cost'=>floor($cash_record_cost1),
+                    'cash_record_cost'=>$cash_record_cost1,
                     'cost_type'=>'cash',
                     'cash_record_time'=>date('Y-m-d H:i:s')
                 );
@@ -131,6 +131,41 @@ class Distribution
             return false;
         }
 
+
+    }
+
+    /**
+     * @param $user_id 当前注册用户id
+     * @param $parent_id 直接推广者id
+     */
+    function setRegiterDrp($user_id,$parent_id){
+
+        $flag = array();
+        $data_log1 = array(
+            'user_id'=>$user_id,
+            'money'=>'0',
+            'increase_money'=>'0',
+            'is_official'=>'0',
+            'rank'=>1,
+            'rank_user_id'=>$parent_id,
+            'time'=>date('Y-m-d H:i:s')
+        );
+        $flag[] = $this->insertDistributionInfo("drp_log",$data_log1);
+
+        //获取间接推广者id
+        $getProfit2Id =  $this->getSuperior($parent_id);
+        if($getProfit2Id){
+            $data_log1 = array(
+                'user_id'=>$user_id,
+                'money'=>'0',
+                'increase_money'=>'0',
+                'is_official'=>'0',
+                'rank'=>2,
+                'rank_user_id'=>$getProfit2Id,
+                'time'=>date('Y-m-d H:i:s')
+            );
+            $flag[] = $this->insertDistributionInfo("drp_log",$data_log1);
+        }
 
     }
 
@@ -186,7 +221,7 @@ class Distribution
         //获取分页数
         $pagenum = isset( $_GET['page'] ) ? absint( $_GET['page'] ) : 1;
         $offset = ( $pagenum - 1 ) * $limit;
-        return $this->wpdb->get_results("SELECT a.increase_money,a.money,a.rank,a.time,b.user_name FROM `{$this->table}drp_log` as a left join `{$this->table}account` as b on a.user_id = b.user_id WHERE a.rank_user_id={$user_id}  ORDER BY a.time DESC  limit {$offset},{$limit}");
+        return $this->wpdb->get_results("SELECT a.increase_money,a.money,a.rank,a.time,b.user_name FROM `{$this->table}drp_log` as a left join `{$this->table}account` as b on a.user_id = b.user_id WHERE a.rank_user_id={$user_id} and a.is_official = 1  ORDER BY a.time DESC  limit {$offset},{$limit}");
         
     }
 
@@ -196,7 +231,7 @@ class Distribution
      * @return mixed
      */
     function getMyCommission($user_id){
-        return $this->wpdb->get_var("SELECT sum(increase_money) as increase_money FROM `{$this->table}drp_log` WHERE rank_user_id={$user_id}");
+        return $this->wpdb->get_var("SELECT sum(increase_money) as increase_money FROM `{$this->table}drp_log` WHERE rank_user_id={$user_id} and is_official = 1");
     }
 
     /**
@@ -205,7 +240,7 @@ class Distribution
      * @return mixed
      */
     function getMyTodayCommission($user_id){
-        return $this->wpdb->get_var("SELECT sum(increase_money) as increase_money FROM `{$this->table}drp_log` WHERE rank_user_id={$user_id} and  TO_DAYS(time) = TO_DAYS(NOW())");
+        return $this->wpdb->get_var("SELECT sum(increase_money) as increase_money FROM `{$this->table}drp_log` WHERE rank_user_id={$user_id} and is_official = 1 and  TO_DAYS(time) = TO_DAYS(NOW())");
     }
 
 }

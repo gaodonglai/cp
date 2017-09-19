@@ -27,9 +27,6 @@ class Distribution
         $user_id = $this->user_info->user_id;
         $this->model->wpdb->query("BEGIN");
 
-
-
-
         $result1 = $this->model->setPayLog($user_id,100,20,'wechat');
 
         $result2 = $this->model->setDistributionProfit($user_id,100);
@@ -42,7 +39,6 @@ class Distribution
             $this->model->wpdb->query("ROLLBACK");
         }
     }
-
 
 
 
