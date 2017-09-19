@@ -26,7 +26,7 @@
             <li><a href="<?=_get_home_url('account/bet')?>" <?=FUNFCTIO_NAME == 'bet' ? 'class="left-nav-active"' : ''?>><i class="iconfont">&#xe601;</i>我的投注</a></li>
             <li><a href="<?=_get_home_url('account/fcDetails')?>" <?=FUNFCTIO_NAME == 'fcDetails' ? 'class="left-nav-active"' : ''?>><i class="iconfont">&#xe605;</i>资金明细</a></li>
             <li><a href="<?=_get_home_url('account/pay')?>" <?=FUNFCTIO_NAME == 'pay' ? 'class="left-nav-active"' : ''?>><i class="iconfont">&#xe60d;</i>立即充值</a></li>
-            <li><a href="<?=_get_home_url('account/payActivity')?>" <?=FUNFCTIO_NAME == 'payActivity' ? 'class="left-nav-active"' : ''?>><i class="iconfont">&#xe69d;</i>充值返现</a></li>
+
             <li><a href="<?=_get_home_url('account/extractMoney')?>" <?=FUNFCTIO_NAME == 'extractMoney' ? 'class="left-nav-active"' : ''?>><i class="iconfont">&#xe627;</i>提现申请</a></li>
             <li><a href="<?=_get_home_url('account/passwordUp')?>" <?=FUNFCTIO_NAME == 'passwordUp' ? 'class="left-nav-active"' : ''?>><i class="iconfont">&#xe653;</i>密码修改</a></li>
             <li><a href="<?=_get_home_url('account/bankCard')?>" <?=FUNFCTIO_NAME == 'bankCard' ? 'class="left-nav-active"' : ''?>><i class="iconfont">&#xe65e;</i>绑银行卡</a></li>

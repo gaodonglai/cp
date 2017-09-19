@@ -166,14 +166,14 @@
                                 <i class="iconfont">&#xe627;</i> 
                                 <div class="detail">
                                     <p>我的佣金(总)</p> 
-                                    <em><?=$sum_up_money?></em>
+                                    <em><?=$sum_up_money ? $sum_up_money : '0.00'?></em>
                                 </div>
                             </div>
                             <div class="plTotal">
                                 <i class="iconfont">&#xe605;</i> 
                                 <div class="detail">
                                     <p>今日佣金返水金额</p> 
-                                    <em><?=$today_money?></em>
+                                    <em><?=$today_money ? $today_money : '0.00'?></em>
                                 </div>
                             </div>
                        </div>

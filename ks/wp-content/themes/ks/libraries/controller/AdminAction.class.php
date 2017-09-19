@@ -38,13 +38,18 @@ class AdminAction
             exit('温馨提示：页面路径指向错误');
         }
 
-        if(!empty((array)$this)){
+        if($this){
+
             //对象属性装换为数组
             foreach($this as $key => $value){
                 $arr[$key] = $value;
             }
             extract($arr);//生成变量
+
+
+            include($path);
         }
+
 
         /**
          * 默认添加admin_url

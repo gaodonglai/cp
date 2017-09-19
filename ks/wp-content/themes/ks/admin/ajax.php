@@ -4,7 +4,7 @@
  * 当前提交只能是post提交
  */
 
-require_once  dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) . '/wp-load.php' ;
+require_once  dirname( dirname( dirname( dirname( dirname( __FILE__ ) ) ) ) ) . '/wp-load.php' ;
 header("Content-Type: text/html; charset=utf-8");
 if (is_user_logged_in() && $_POST) {
 

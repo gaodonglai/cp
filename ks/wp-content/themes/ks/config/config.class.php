@@ -176,7 +176,7 @@ class config{
 
 		/*if ($reditect_page=='login')
 		{
-			header("Location:".home_url('member/login.html'));
+			header("Location:".home_url('member/login.php'));
 			exit;
 		}*/
 		

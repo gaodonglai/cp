@@ -204,6 +204,8 @@ class AdminConfig
         }
     }
 
+
+
     /**
      * menu页面自动加载
      */
@@ -289,6 +291,10 @@ class AdminConfig
         $screen->remove_help_tabs();
         return $old_help;
     }
+
+
+
+
 
 
     public function iplookup(){

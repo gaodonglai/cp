@@ -40,8 +40,8 @@ class Action
 
             exit($path);
         }
+        if($this){
 
-        if(!empty((array)$this)){
             //对象属性装换为数组
             foreach($this as $key => $value){
                 $arr[$key] = $value;
@@ -49,7 +49,9 @@ class Action
             extract($arr);//生成变量
         }
 
-        include($path);
+            include($path);
+
+
 
     }
 
