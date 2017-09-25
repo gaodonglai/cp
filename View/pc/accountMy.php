@@ -133,11 +133,9 @@
 
                              }else{
                                  ?>
-                                 <tr>
-                                     <td><span></span></td>
-                                     <td><span>没有记录</span></td>
-                                     <td><span></span></td>
-                                 </tr>
+                                 <tr class="zanwujl">
+                                    <td colspan="4" style="text-align: center;"><span><i class="iconfont">&#xe60b;</i>没有充值记录</span></td>
+                                </tr>
                                  <?php
                              }
 

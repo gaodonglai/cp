@@ -10,15 +10,41 @@
 <footer>
     <div class="lottery_footer">
     	<div class="footer_main_left">
-	        <p><a href="<?=_get_home_url('index/help')?>">帮助中心</a></p>
-	        <p>CopyRight ©版权所有 菲律宾政府合法博彩牌照认证</p>
-	        <p>资金安全建议：为了你您的资金安全，建议定期更换您的安全密码</p>
-	        <p>郑重提示：彩票有风险，投注需谨慎，不向未满18周岁青少年出售彩票</p>
+		  	<a href="javascript:void(0)">
+			  	<p class="top_tooteraa">技术支持 <i>Technical support</i></p>
+			  	<div class="technicalSupport">
+					<img src="<?=_get_home_url()?>/View/pc/image/dafayun.png" alt="">
+					<p><span>宇泰云系统</span><i>专业的彩票系统平台</i></p>
+			  	</div>
+		  	</a>
+        </div>
+        <div class="footer_main_center">
+       		<div class="footer_main_cccc">
+				<p class="top_tooteraa">服务体验 <i>Service experience</i></p>
+				<ul class="serviceExperience">
+					  <li>平台充值到账平均时间
+		              	<p class="footBar"><span  style="width: 22.7778%;"></span></p> <em>0'41</em><i>秒</i></li> 
+		              <li>平台提现到账平均时间
+		              	<p class="footBar"><span  style="width: 79.4444%;"></span></p> <em>2'23</em><i>秒</i>
+		              </li>
+	              </ul>
+              </div>
         </div>
         <div class="footer_main_right">
-			<p>充值方式<i>Recharge method</i></p>
-			<div class="rechargeMethod"><i class="wechat"></i><i  class="alipay"></i><i  class="cup"></i></div>
+	        <div class="footer_main_cccc">
+				<p class="top_tooteraa">充值方式<i>Recharge method</i></p>
+				<div class="rechargeMethod"><i class="wechat"></i><i  class="alipay"></i><i  class="cup"></i></div>
+	        </div>
         </div>
+    </div>
+    <div class="container_about aboutText">
+	    <p class="fix_about">
+		    <a href="javascript:void(0)">关于我们</a>|
+		    <a href="javascript:void(0)">联系我们</a>|
+		    <a href="javascript:void(0)">代理加盟</a>|
+	    	<a href="javascript:void(0)">存款帮助</a>|<a>隐私声明</a>|
+	    </p> 
+	    <p class="copyright">Copyright © <span class="siteName">福彩快三网</span> Reserved | 18+</p>
     </div>
 </footer>
 <!--返回顶部-->

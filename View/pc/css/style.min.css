@@ -14,6 +14,9 @@ fieldset, img { border:0; }
 button, input, select, textarea { font-size:100%; }
 table { border-collapse:collapse; border-spacing:0; }
 button{cursor: pointer;}
+i{
+  font-style: normal;
+}
 /*更改input placeholder字体颜色*/
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
     color: #bfbfbf; opacity:1; 
