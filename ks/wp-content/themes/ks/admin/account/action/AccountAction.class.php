@@ -6,6 +6,7 @@
  * Time: 14:01
  */
 namespace admin\account\action;
+use admin\account\model\PayModel;
 use libraries\controller\AdminAction;
 
 class AccountAction extends AdminAction
@@ -99,6 +100,40 @@ class AccountAction extends AdminAction
             exit(json_encode(array('status'=>'n','info'=>'更新失败，请检查更新内容')));
         }
 
+    }
+
+    /**
+     * 人工充值
+     */
+    public function payAccount(){
+
+        $user_id = $_POST['user_id'];
+        $pay_money = $_POST['pay_money'];
+        $is_activity = $_POST['is_activity'];
+
+        if(empty($pay_money) || empty($user_id)){
+            exit(json_encode(array('status'=>'n','info'=>'请完善信息')));
+        }
+        //是否参加活动
+        if($is_activity){
+            //充值活动
+            $back_now=0;
+        }else{
+            //充值活动
+            $back_now=0;
+        }
+
+
+        $payModel = new PayModel();
+        $payModel->setPayLog($user_id,$pay_money,$back_now,'direct');
+
+        if($payModel){
+
+            exit(json_encode(array('status'=>'y','info'=>'更新成功')));//继续完善账户
+
+        }else{
+            exit(json_encode(array('status'=>'n','info'=>'更新失败，请检查更新内容')));
+        }
     }
 
 

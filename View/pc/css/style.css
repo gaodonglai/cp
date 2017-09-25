@@ -803,11 +803,6 @@ footer{
     margin:1px 0;
     border-radius: 3px;
 }
-/*p*/
-.basic_information p{
-  text-align: left;
-  padding:10px 0;
-}
 /*个人信息*/
 .basic_information_form {
     padding: 20px 0px 0 0px;
@@ -983,7 +978,7 @@ hr.style12 {
     position: relative;
     top: -3px;
 }
-.tbody_referenceb tr:hover{
+.tbody_referenceb tr:not(.nothover):hover{
   background: #e8dbd5;
 }
 .tbody_referenceb tr td{
@@ -1890,7 +1885,6 @@ hr.style12 {
   padding: 15px 0;
   text-align: center;
   color: #e31e27;
-  display: none;
 }
 .Cl_ico{
   display: inline-block;

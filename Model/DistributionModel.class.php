@@ -40,7 +40,7 @@ class Distribution
         );
 
         $flag[] =  $this->insertDistributionInfo('recharge',$data_array);//充值记录
-        $flag[] =  $this->updateAccountMoney($user_id,$money+$back_now);
+        $flag[] =  $this->updateAccountMoney($user_id,$money,$back_now);
 
         $data_array1 = array(
             'user_id'=>$user_id,
@@ -85,7 +85,7 @@ class Distribution
             );
 
             $flag[] = $this->insertDistributionInfo("cash_record",$data_array);
-            $flag[] = $this->updateAccountMoney($getProfit1Id,$cash_record_cost);
+            $flag[] = $this->updateAccountRewardMoney($getProfit1Id,$cash_record_cost);
             $data_log = array(
                 'user_id'=>$user_id,
                 'money'=>$money,
@@ -110,7 +110,7 @@ class Distribution
                     'cash_record_time'=>date('Y-m-d H:i:s')
                 );
                 $flag[] = $this->insertDistributionInfo("cash_record",$data_array1);
-                $flag[] = $this->updateAccountMoney($getProfit2Id,$cash_record_cost);
+                $flag[] = $this->updateAccountRewardMoney($getProfit2Id,$cash_record_cost);
                 $data_log1 = array(
                     'user_id'=>$user_id,
                     'money'=>$money,
@@ -177,12 +177,24 @@ class Distribution
     /**
      * 更新用户金额
      * @param $user_id
+     * @param $money  充值的
+     * @param $back_now 赠送的
+     * @return false|int
+     */
+    function updateAccountMoney($user_id,$money,$back_now){
+
+        return $this->wpdb->query("UPDATE `{$this->table}account` SET `user_money`= user_money + {$money},`reward_money`= reward_money + {$back_now} WHERE `user_id`= {$user_id}");
+    }
+
+    /**
+     * 更新用户奖励金额
+     * @param $user_id
      * @param $money
      * @return false|int
      */
-    function updateAccountMoney($user_id,$money){
+    function updateAccountRewardMoney($user_id,$money){
 
-        return $this->wpdb->query("UPDATE `{$this->table}account` SET `user_money`= user_money+ {$money} WHERE `user_id`= {$user_id}");
+        return $this->wpdb->query("UPDATE `{$this->table}account` SET `reward_money`= reward_money+ {$money} WHERE `user_id`= {$user_id}");
     }
 
 

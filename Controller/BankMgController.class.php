@@ -46,17 +46,16 @@ class BankMg
         $service_charge = 0;//手续费
 
         $user_id = $this->user_info->user_id;
-        $user_money = $this->user_info->user_money;
+        $reward_money = $this->user_info->reward_money;
 
         if(!wpDecode($deal_password,$this->model->getPayPassword($user_id))){
             exit(json_encode(array('status'=>'n','info'=>'交易密码错误')));
         }
 
-       /* $pending_money = $this->model->getExtractPendingMoney($user_id);//待确认金额
-        print_r($pending_money);*/
+        //最低限制还未设置
 
 
-        if($user_money  < $money){
+        if($reward_money  < $money){
             exit(json_encode(array('status'=>'n','info'=>'提现金额超出限额')));
         }
 
@@ -80,9 +79,7 @@ class BankMg
             'cash_record_time'=>date('Y-m-d H:i:s')
         );
         $flag[] = $this->model->insertBankMgInfo("cash_record",$data_array1);//用户账户金额记录
-
         $flag[] =  $this->model->updateAccountMoney($user_id,$money);//减去用户账户金额
-        var_dump($flag);
 
         if(!in_array("",$flag)){
             $this->model->wpdb->query("COMMIT");

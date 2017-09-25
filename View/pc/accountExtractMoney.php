@@ -50,7 +50,7 @@
                                                 if($item->card_type == 'alipay'){
                                                     $alipay_id = $item->id;
                                                     $alipay_name = $item->account_number;
-                                                    print_r($alipay_name);
+
                                                 }
                                             }
                                         }
@@ -161,11 +161,25 @@
                             <input type="hidden" name="bank" value="<?=$alipay_id?>" >
                             <input type="hidden" name="payment_ype" value="1" >
                             <ul>
-                                <li class="basic_information_a">
-                                    <label for="">支付宝账号：</label>
-                                    <input type="text" disabled="disabled" name="money" value="<?=hideStar($alipay_name)?>"  nullmsg="请输入支付宝账号" datatype="*4-18" errormsg="至少6个字符,最多18个字符！">
-                                    <span class="Validform_checktip"></span>
-                                </li>
+                                <?php
+                                if(empty($alipay_name)){
+                                    ?>
+                                    <li class="basic_information_a">
+                                        <span >没有支付宝账号：<a class="color_red_mddd " href="<?=_get_home_url('account/bankCard#Bank_card_binding2')?>">去添加</a></span>
+                                    </li>
+
+                                    <?php
+                                }else{
+                                    ?>
+                                    <li class="basic_information_a">
+                                        <label for="">支付宝账号：</label>
+                                        <input type="text" disabled="disabled" name="money" value="<?=hideStar($alipay_name)?>"  nullmsg="请输入支付宝账号" datatype="*4-18" errormsg="至少6个字符,最多18个字符！">
+                                        <span class="Validform_checktip"></span>
+                                    </li>
+                                <?php
+                                }
+                                ?>
+
                                 <li class="basic_information_b">
                                     <label for="">可用人民币：</label>
                                     <span class="color_red_mddd leftdd"><?=$money ? sprintf("%.2f",$money) : '0.00'?></span>

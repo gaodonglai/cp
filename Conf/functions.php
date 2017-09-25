@@ -89,7 +89,7 @@ function display_show($pageName,$args=array()){
 
 
 
-function get_header_front( $name = null ) {
+function get_header_front( $name = null,$title='',$css='' ) {
 
     $terminal = is_mobile() ? 'mobile' : 'pc';
 
@@ -106,7 +106,7 @@ function get_header_front( $name = null ) {
 
 }
 
-function get_footer_front( $name = null ) {
+function get_footer_front( $name = null,$js='' ) {
 
     $terminal = is_mobile() ? 'mobile' : 'pc';
 
@@ -222,20 +222,33 @@ function hideStar($str) { //
     2，将奇位乘积的个十位全部相加，再加上所有偶数位上的数字
     3，将加法和加上校验位能被 10 整除。
 */
-function bankVerify($s) {
-    $n = 0;
-    for ($i = strlen($s); $i >= 1; $i--) {
-        $index=$i-1;
-        //偶数位
-        if ($i % 2==0) {
-            $n += $s{$index};
-        } else {//奇数位
-            $t = $s{$index} * 2;
-            if ($t > 9) {
-                $t = (int)($t/10)+ $t%10;
+function bankVerify($no) {
+    $arr_no = str_split($no);
+    $last_n = $arr_no[count($arr_no)-1];
+    krsort($arr_no);
+    $i = 1;
+    $total = 0;
+    foreach ($arr_no as $n){
+        if($i%2==0){
+            $ix = $n*2;
+            if($ix>=10){
+                $nx = 1 + ($ix % 10);
+                $total += $nx;
+            }else{
+                $total += $ix;
             }
-            $n += $t;
+        }else{
+            $total += $n;
         }
+        $i++;
     }
-    return ($n % 10) == 0;
+    $total -= $last_n;
+    $total *= 9;
+    if($last_n == ($total%10)){
+
+       return true;
+
+    }else{
+        return false;
+    }
 }

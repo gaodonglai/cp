@@ -32,6 +32,14 @@ class Pay
 
     }
 
+    /**
+     * 获取当天所有充值金额
+     */
+    public function getTodayPayMoney($pay_money){
+
+        return $this->wpdb->get_results("select pay_money from {$this->table}artificial_pay where status='s' and pay_money ={$pay_money} and to_days(time) = to_days(now());");
+    }
+
 
 
 }

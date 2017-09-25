@@ -88,7 +88,7 @@ class Account
 
         $user_id = $this->user_info->user_id;
         $content  = $this->model->getBankCardAll($user_id);
-        $money = $this->user_info->user_money - $this->user_info->frozen_money;//可用金额
+        $money = $this->user_info->reward_money - $this->user_info->frozen_money;//可用金额
 
         $Conbankmy = new BankMg();
         $bankmy = new \Model\BankMg();
@@ -133,7 +133,7 @@ class Account
         $get_cash = $this->model->getCashRecord($user_id);
         $args = array(
 
-            'recharge_type'=>array('bank'=>'银行卡','wechat'=>'微信支付','alipay'=>'支付宝','qq'=>'qq钱包','artificial'=>'人工充值',),
+            'recharge_type'=>array('bank'=>'银行卡','wechat'=>'微信支付','alipay'=>'支付宝','qq'=>'qq钱包','artificial'=>'人工充值','direct'=>'其他充值'),
             'cost_type'=>array('cash'=>'现金','grow'=>'积分'),
             'pay_log'=>$get_log,
             'cash_log'=>$get_cash,
@@ -162,13 +162,17 @@ class Account
      *支付
      */
     function pay(){
+
+        $args = array(
+            'recharge_type'=>array('bank'=>'银行卡','wechat'=>'微信','alipay'=>'支付宝'),
+        );
+
+       // $js = array('pc/js/publics.js');
+
         define("FUNFCTIO_NAME",__FUNCTION__);
-
         get_header_front();
-
-        display_show('accountPay');
-
-        get_footer_front();
+        display_show('accountPay',$args);
+        get_footer_front('');
     }
 
 

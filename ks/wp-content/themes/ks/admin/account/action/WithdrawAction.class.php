@@ -7,6 +7,7 @@
  * 取现管理
  */
 namespace admin\account\action;
+use admin\account\model\WithdrawModel;
 use libraries\controller\AdminAction;
 
 class WithdrawAction extends AdminAction
@@ -18,89 +19,118 @@ class WithdrawAction extends AdminAction
         if(!is_user_logged_in()){
             die('用户未登录');
         }
-
+        $this->model = new WithdrawModel();
     }
 
-    /*活动列表*/
-    public function setAccount(){
+    /*
+     * 用户取现确认
+     */
+    public function withdrawConfirm(){
 
-        $user_name = $_POST["user_name"];
-        $user_pass = $_POST["user_pass"];
-        $user_rePass = $_POST["user_rePass"];
-
-        if( empty($user_name) || empty($user_pass) || empty($user_rePass) ){
-            exit(json_encode(array('status'=>'n','info'=>'参数为空')));
-        }
-
-        if(!preg_match("/^[\w-\.]{6,16}$/",$user_pass)){
-            exit(json_encode(array('status'=>'n','info'=>'用户密码位数不正确')));
-        }
-
-        if($user_pass !== $user_rePass){
-            exit(json_encode(array('status'=>'n','info'=>'两次输入密码不一致')));
-        }
-
-        //判断是否是邮箱
-        if(preg_match( "/^([0-9A-Za-z\\-_\\.]+)@([0-9a-z]+\\.[a-z]{2,3}(\\.[a-z]{2})?)$/i", $user_name )){
-            $key = 'email';//附加
-        }else if( preg_match( '/^\+?\d{11}$/', $user_name) ){//判断是否是手机号
-            //判断手机是否正确
-            if( !preg_match("/^1[34578]\d{9}$/", $user_name) ){
-                exit(json_encode(array('status'=>'n','info'=>'手机号不正确')));
-            }
-
-            $key = 'mobile_phone';//附加
-
-
-        }else{
-            exit(json_encode(array('status'=>'n','info'=>'用户名格式不正确')));
-        }
-
-        global $wpdb;
-        $table = $wpdb->prefix.'account';
-        $result = $wpdb->query("INSERT INTO `$table`( `user_name`, `password`,`is_validated`, `reg_time`, `$key` ) VALUES ('$user_name','".adminEncrypt($user_pass)."',1,".time().",'$user_name')");
-
-        if($result){
-
-            exit(json_encode(array('status'=>'y','info'=>'用户添加成功')));//继续完善账户
-
-        }else{
-            exit(json_encode(array('status'=>'n','info'=>'注册失败，用户名已被占用')));
-        }
-        
-    }
-
-
-    public function updateAccount(){
+        $flag = array();
 
         $user_id = $_POST['user_id'];
+        $id = $_POST['id'];
+        $cancel_content = $_POST['cancel_content'];
+        $submit_type = $_POST['submit_type'];
 
-        unset($_POST['action']);
-        unset($_POST['user_id']);
+        $extract_log = $this->model->wpdb->get_row( "SELECT * FROM {$this->model->wpdb->prefix}extract_money_log where user_id = {$user_id} and id= {$id}" );
 
-        global $wpdb;
-        //$get_account = $wpdb->get_row( "SELECT * FROM {$wpdb->prefix}account where user_id = {$user_id}" );
-
-
-        $set_content = array();
-        foreach ($_POST as $key=> $item) {
-            if($item){
-                $set_content[$key] = $item;
-            }
-
+        if(empty($extract_log)){
+            exit(json_encode(array('status'=>'n','info'=>'信息有误，请刷新页面再试')));
         }
 
-        $result = $wpdb->update($wpdb->prefix.'account',$set_content,array('user_id'=>$user_id));
+        if($submit_type == 'confirm'){//确认
+            $operation_record = array(
+                'users_id'=>get_current_user_id(),//操作人员id
+                'record'=>'取现状态：user_id='.$user_id,
+                'front'=>1,
+                'behind'=>2,
+                'ip'=>'',
+                'time'=>time(),
+            );
 
-        if($result){
+            $update_log = array(
+                'status'=>2
+            );
 
-            exit(json_encode(array('status'=>'y','info'=>'更新成功')));//继续完善账户
+        } else{
+            exit(json_encode(array('status'=>'n','info'=>'信息有误，请刷新页面再试')));
+        }
 
+
+        $this->model->wpdb->query("BEGIN");
+
+        $flag[] = $this->model->updateWithdrawInfo('extract_money_log',$update_log,array('user_id'=>$user_id,'id'=>$id));
+        $flag[] = $this->model->insertWithdrawInfo('operation_record',$operation_record);//管理员操作记录
+
+        if(!in_array("", $flag)){
+            $this->model->wpdb->query("COMMIT");
+            exit(json_encode(array('status'=>'y','info'=>'确认成功')));//继续完善账户
         }else{
-            exit(json_encode(array('status'=>'n','info'=>'更新失败，请检查更新内容')));
+            $this->model->wpdb->query("ROLLBACK");
+
+            exit(json_encode(array('status'=>'n','info'=>'确认失败请重试')));
         }
 
     }
+
+    /**
+     * 取消并把金额返还到用户账户
+     */
+    function withdrawCancel(){
+
+        $flag = array();
+
+        $user_id = $_POST['user_id'];
+        $id = $_POST['id'];
+        $cancel_content = $_POST['cancel_content'];
+
+        $extract_log = $this->model->wpdb->get_row( "SELECT * FROM {$this->model->wpdb->prefix}extract_money_log where user_id = {$user_id} and id= {$id}" );
+
+        if(empty($extract_log)){
+            exit(json_encode(array('status'=>'n','info'=>'信息有误，请刷新页面再试')));
+        }
+
+        $money = $extract_log->money;
+
+        $data_array1 = array(
+            'user_id'=>$user_id,
+            'cash_record_type'=>'+',
+            'cash_record_cost'=>$money,
+            'cost_type'=>'cash',
+            'cash_record_time'=>date('Y-m-d H:i:s')
+        );
+
+        $operation_record = array(
+            'users_id'=>get_current_user_id(),//操作人员id
+            'record'=>'取现状态：user_id='.$user_id,
+            'front'=>1,
+            'behind'=>3,
+            'ip'=>'',
+            'time'=>time(),
+        );
+
+        $update_log = array(
+            'status'=>3,
+            'refuse_reason'=>$cancel_content
+        );
+
+        $this->model->wpdb->query("BEGIN");
+        $flag[] = $this->model->updateWithdrawInfo('extract_money_log',$update_log,array('user_id'=>$user_id,'id'=>$id));
+        $flag[] = $this->model->insertWithdrawInfo("cash_record",$data_array1);//用户账户金额记录
+        $flag[] =  $this->model->updateAccountMoney($user_id,$money);//加上用户账户金额
+        $flag[] = $this->model->insertWithdrawInfo('operation_record',$operation_record);//管理员操作记录
+
+        if(!in_array("",$flag)){
+            $this->model->wpdb->query("COMMIT");
+            exit(json_encode(array('status'=>'y','info'=>'取消成功')));
+        }else{
+            $this->model->wpdb->query("ROLLBACK");
+            exit(json_encode(array('status'=>'n','info'=>'取消失败，请重试')));
+        }
+    }
+
 
 
 }

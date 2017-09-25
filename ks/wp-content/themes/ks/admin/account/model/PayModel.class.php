@@ -24,7 +24,7 @@ class PayModel
      * @param $user_id 用户id
      * @param $money 充值金额
      * @param $back_now 充值返现金额
-     * @param $recharge_type bank：银行卡，wechat:微信支付，alipay：支付宝;qq:qq钱包,artificial:人工
+     * @param $recharge_type bank：银行卡，wechat:微信支付，alipay：支付宝;qq:qq钱包,artificial:人工处理充值,direct：人工后台账户直接充值
      * @return mixed
      */
     function setPayLog($user_id,$money,$back_now,$recharge_type){
@@ -38,7 +38,7 @@ class PayModel
         );
 
         $flag[] =  $this->insertDistributionInfo('recharge',$data_array);//充值记录
-        $flag[] =  $this->updateAccountMoney($user_id,$money+$back_now);
+        $flag[] =  $this->updateAccountMoney($user_id,$money,$back_now);
 
         $data_array1 = array(
             'user_id'=>$user_id,
@@ -83,7 +83,7 @@ class PayModel
             );
 
             $flag[] = $this->insertDistributionInfo("cash_record",$data_array);
-            $flag[] = $this->updateAccountMoney($getProfit1Id,$cash_record_cost);
+            $flag[] = $this->updateAccountRewardMoney($getProfit1Id,$cash_record_cost);
             $data_log = array(
                 'user_id'=>$user_id,
                 'money'=>$money,
@@ -108,7 +108,7 @@ class PayModel
                     'cash_record_time'=>date('Y-m-d H:i:s')
                 );
                 $flag[] = $this->insertDistributionInfo("cash_record",$data_array1);
-                $flag[] = $this->updateAccountMoney($getProfit2Id,$cash_record_cost);
+                $flag[] = $this->updateAccountRewardMoney($getProfit2Id,$cash_record_cost);
                 $data_log1 = array(
                     'user_id'=>$user_id,
                     'money'=>$money,
@@ -150,13 +150,24 @@ class PayModel
     /**
      * 更新用户金额
      * @param $user_id
+     * @param $money  充值的
+     * @param $back_now 赠送的
+     * @return false|int
+     */
+    function updateAccountMoney($user_id,$money,$back_now){
+
+        return $this->wpdb->query("UPDATE `{$this->table}account` SET `user_money`= user_money + {$money},`reward_money`= reward_money + {$back_now} WHERE `user_id`= {$user_id}");
+    }
+
+    /**
+     * 更新用户奖励金额
+     * @param $user_id
      * @param $money
      * @return false|int
      */
-    function updateAccountMoney($user_id,$money){
+    function updateAccountRewardMoney($user_id,$money){
 
-        return $this->wpdb->query("UPDATE `{$this->table}account` SET `user_money`= user_money+ {$money} WHERE `user_id`= {$user_id}");
+        return $this->wpdb->query("UPDATE `{$this->table}account` SET `reward_money`= reward_money+ {$money} WHERE `user_id`= {$user_id}");
     }
-
 
 }

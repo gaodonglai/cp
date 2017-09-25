@@ -135,54 +135,18 @@ function default_role_delete(){
     exit;
 }
 
-//合作品牌信息设置
-add_action('wp_ajax_short_partner_settings', 'short_partner_settings');
-function short_partner_settings(){
-    if($_POST){
-        //$data = array('partner_name'=>$_POST['user_name'],'partner_url'=>$_POST['user_pwd'],'partner_img'=>$_POST['items_thumbnail']);
-        if($_POST['flag']){
-        foreach($_POST['flag'] as $key => $value){
-            $data[$key]['partner_name'] = $value;
-            if($_POST['sign']){
-            foreach($_POST['sign'] as $key2 => $value2){
-                $data[$key2]['partner_url'] = $value2;
-                if($_POST['items_thumbnail']){
-                foreach($_POST['items_thumbnail'] as $key3 => $value3){
-                    $data[$key3]['items_thumbnail'] = $value3;
-                }
-                }
-            }
-            }
 
-        }
-        }
-        $flag = update_option('short_partner_settings',$data);
-        if($flag){
-            echo json_encode(array('flag'=>y,'info'=>'更新成功'));
-        }else{
-            echo json_encode(array('flag'=>n,'info'=>'更新失败'));
-        }
-    }
-   exit;
-}
+//网站开关
+add_action( 'wp_ajax_checked_switch', 'default_checked_switch' );
+function default_checked_switch(){
 
-//支付设置
-add_action( 'wp_ajax_pay_update', 'default_pay_update' );
-function default_pay_update(){
+    $checked_switch = $_POST['checked_switch'];
+    $off_switch = $_POST['off_switch'];
 
-    foreach ($_POST as $item) {
-        if(empty($item)){
-            exit(json_encode(array('flag'=>n,'info'=>'有空值')));
-        }
-    }
-    $gsb = get_option('pay_Settings');
+    $result = update_option('website_checked_switch',$checked_switch);
+    $result = update_option('website_off_switch_content',$off_switch);
 
-    if($gsb){
-        $usb = update_option('pay_Settings',array_merge($gsb,array($_POST['subtab']=>$_POST)));
-    }else{
-        $usb = update_option('pay_Settings',array($_POST['subtab']=>$_POST));
-    }
-    if($usb){
+    if( $result){
         echo json_encode(array('flag'=>y,'info'=>'设置成功'));
     }else{
         echo json_encode(array('flag'=>n,'info'=>'设置失败'));

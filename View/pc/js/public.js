@@ -88,20 +88,7 @@
 		$(this).parents(".bank_manage").addClass("bank_manage_active");
 		$(this).parents(".bank_manage").prependTo(".Bank_card_bind_mainbb");
 	});
-	/*投注选项卡*/
-	$(".brigtinh_main_top a").on("click",function(){
-		$(".brigtinh_main_top a").removeClass("betting_top-active");
-		$(this).addClass("betting_top-active");
-		$(".brigtinh_main_cen").fadeOut(300);
-		$(this.hash).delay(300).fadeIn();
-	});
-	/*投注选中*/
-	$(".key_shadow_num").click(function(){
-		$(this).toggleClass("Selected_null_active");
-	})
-	$(".key_shadow_num2").click(function(){
-		$(this).toggleClass("Selected_null_active");
-	})  
+
 	/*招聘手风琴*/
 	$(".childTitle").on("click",function(){
 		if($(this).hasClass("Record_active")){
@@ -141,6 +128,50 @@
 		});	
 	}
 
-});
+     /*全局提交表单*/
+     $(document).on('submit','.postAjax',function(){
+
+         var _this = $(this);
+         var sub_this = $(":submit",this);
+         if($('.subHint').length>0){
+             $('.subHint').hide();
+         }
+
+         sub_this.attr("disabled","disabled");
+         var formData = _this.serialize();
+         $.post(_this.attr('action'),formData,function(data){
+             if(data.status=='200'){
+
+             }else if(data.status=='y'){
+                 $.alerts(data.info);
+                 if(data.url){
+                     window.location.href = data.url;
+                 }
+             }else if(data.status == 'n'){
+                 $.alerts(data.info);
+             }else if(data.status == 'r'){
+                 if(data.url){
+                     window.location.href = data.url;
+                 }
+             }
+
+         },'json');
+         sub_this.removeAttr('disabled');
+
+         return false;
+     });
+
+     //获取链接标签（#）
+     $.getUrlParam = function(name) {
+         var reg = new RegExp("(^|&)" + name + "_([^&]*)(&|$)");
+         var r = window.location.hash.substr(1).match(reg);
+         if(r != null) return unescape(r[2]);
+         return null;
+     }
+
+
+
+
+ });
 
 

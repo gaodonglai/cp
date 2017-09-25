@@ -54,7 +54,7 @@ class BankMg
      */
     function updateAccountMoney($user_id,$money){
 
-        return $this->wpdb->query("UPDATE `{$this->table}account` SET `user_money`= user_money - {$money} WHERE `user_id`= {$user_id}");
+        return $this->wpdb->query("UPDATE `{$this->table}account` SET `reward_money`= reward_money - {$money} WHERE `user_id`= {$user_id}");
     }
 
     /**

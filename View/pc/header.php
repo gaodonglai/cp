@@ -10,18 +10,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>首页</title>
+    <title><?=$title?$title.' | ':''?><?=get_bloginfo('name')?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /> <!-- 优先使用 IE 最新版本和 Chrome -->
     <meta name="zk" content="name, 526399773@qq.com" /> <!-- 网页作者 -->
     <meta name="format-detection" content="telephone=no"/>
     <meta name="format-detection" content="email=no"/>
-    <link rel="stylesheet" href="<?=_get_home_url()?>View/pc/css/swiper.css">
-    <link rel="stylesheet" href="<?=_get_home_url()?>View/pc/css/style.min.css">
-    <link rel="stylesheet" href="<?=_get_home_url()?>View/pc/css/style.css">
-    <script src="<?=_get_home_url()?>View/pc/js/jquery2.1.1.min.js"></script>
-    <script src="<?=_get_home_url()?>View/pc/js/publics.js"></script>
+    <link rel="stylesheet" href="<?=_get_home_url()?>View/pc/css/swiper.css?v=<?=J_C_V?>">
+    <link rel="stylesheet" href="<?=_get_home_url()?>View/pc/css/style.min.css?v=<?=J_C_V?>">
+    <link rel="stylesheet" href="<?=_get_home_url()?>View/pc/css/style.css?v=<?=J_C_V?>">
+    <?php
+    if($css){
+    foreach ($css as $v){ ?>
+    <link rel="stylesheet" href="<?=_get_home_url()?>View/<?=$v?>?v=<?=J_C_V?>">
+    <?php }
+    }
+    ?>
+    <script src="<?=_get_home_url()?>View/pc/js/jquery2.1.1.min.js?v=<?=J_C_V?>"></script>
     <script>
         $(document).ready(function() {
             <?php
@@ -45,7 +51,7 @@
                 <li class="loactive"><a href="<?=_get_home_url()?>"><i class="iconfont">&#xe61d;</i><span>首页</span></a></li>
                 <li><a href=""><i class="iconfont">&#xe651;</i><span>购彩大厅</span></a></li>
                 <li><a href="<?=_get_home_url('index/activity')?>"><i class="iconfont">&#xe700;</i><span>优惠活动</span></a></li>
-                <li><a href="<?=_get_home_url('index/Trendchart')?>"><i class="iconfont">&#xe661;</i><span>走势图</span></a></li>
+                <li><a href="<?=_get_home_url('fastthree/trendchart')?>"><i class="iconfont">&#xe661;</i><span>走势图</span></a></li>
                 <li><a href="<?=_get_home_url('account/distribution')?>"><i class="iconfont">&#xe631;</i><span>分销中心</span></a></li>
                 <li><a href="<?=_get_home_url('account/fcDetails')?>"><i class="iconfont">&#xe64c;</i><span>交易记录</span></a></li>
                 <li><a href="<?=_get_home_url('index/help')?>"><i class="iconfont">&#xe60e;</i><span>帮助中心</span></a></li>

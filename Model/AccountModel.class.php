@@ -99,7 +99,7 @@ class Account
         //获取分页数
         $pagenum = isset( $_GET['page'] ) ? absint( $_GET['page'] ) : 1;
         $offset = ( $pagenum - 1 ) * $limit;
-        return $this->wpdb->get_results("SELECT * FROM `{$this->table}cash_record` WHERE `user_id`={$user_id} ORDER BY `user_id` DESC limit {$offset},{$limit}");
+        return $this->wpdb->get_results("SELECT * FROM `{$this->table}cash_record` WHERE `user_id`={$user_id} ORDER BY `cash_record_time` DESC limit {$offset},{$limit}");
     }
 
 
@@ -148,15 +148,6 @@ class Account
 
     }
 
-    /**
-     * 更新用户金额
-     * @param $user_id
-     * @param $money
-     * @return false|int
-     */
-    function updateAccountMoney($user_id,$money){
-        return $this->wpdb->query("UPDATE `{$this->table}account` SET `user_money`= user_money+ {$money} WHERE `user_id`= {$user_id}");
-    }
 
 
 }

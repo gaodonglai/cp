@@ -20,9 +20,12 @@ class Index extends \Model\Index
 
         }else{
 
-            get_header_front();
-            display_show('index');
-            get_footer_front();
+            $args = array();
+        $FastThreemodel = new \Model\FastThree();
+        $args['FastThree'] = $FastThreemodel->get_FastThrees(1,9);
+        get_header_front();
+        display_show('index',$args);
+        get_footer_front();
 
         }
 
@@ -42,13 +45,5 @@ class Index extends \Model\Index
         display_show('help');
         get_footer_front();
     }
-
-    public function Trendchart(){
-        get_header_front();
-        display_show('Trendchart');
-        get_footer_front();
-    }
-
-
 
 }

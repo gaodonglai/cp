@@ -49,6 +49,9 @@ class order_account_calss{
         if($_GET['type'] == 'edit'){
             $this->edit();
             exit();
+        }elseif ($_GET['type'] == 'pay'){
+            $this->pay();
+            exit();
         }
 
         global $wpdb;
@@ -107,7 +110,16 @@ class order_account_calss{
                             foreach( $entries as $entry ) {
                                 ?>
                                 <tr id="user-1"><th scope="row" class="check-column">
-                                    <td class="username column-username has-row-actions column-primary" data-colname="用户名"><strong><a href="javascript:;"><?=$entry->user_name?></a></strong><br><div class="row-actions"><span class="edit"><a href="?page=account&type=edit&user_id=<?=$entry->user_id?>">编辑</a> </span></div><button type="button" class="toggle-row"><span class="screen-reader-text">显示详情</span></button></td>
+                                    <td class="username column-username has-row-actions column-primary" data-colname="用户名"><strong>
+                                            <a href="javascript:;"><?=$entry->user_name?></a>
+                                            </strong><br>
+                                        <div class="row-actions"><span class="edit">
+                                            <a href="?page=account&type=edit&user_id=<?=$entry->user_id?>">编辑</a> </span>
+                                            |
+                                            <a href="?page=account&type=pay&user_id=<?=$entry->user_id?>">人工充值</a> </span>
+                                        </div>
+                                        <button type="button" class="toggle-row"><span class="screen-reader-text">显示详情</span></button>
+                                    </td>
                                     <td class="name column-name" data-colname="姓名"><?=$entry->nick_name?></a></td>
                                     <td class="email column-email" data-colname="邮箱"><a href="javascript:;"><?=$entry->email?></a></td>
                                     <td class="user_id column-user_id" data-colname="余额"><?=$entry->user_money?></td>
@@ -129,7 +141,7 @@ class order_account_calss{
                     <tfoot>
                     <tr>
                         <td id="cb" class="manage-column column-cb check-column"><label class="screen-reader-text" for="cb-select-all-1">全选</label><input id="cb-select-all-1" type="checkbox"></td>
-                        <th scope="col" id="username" class="manage-column column-username column-primary sortable desc"><a href="http://localhost/cp/ks/wp-admin/users.php?orderby=login&amp;order=asc"><span>用户名</span><span class="sorting-indicator"></span></a></th>
+                        <th scope="col" id="username" class="manage-column column-username column-primary sortable desc"><a href="javascript:;"><span>用户名</span><span class="sorting-indicator"></span></a></th>
                         <th scope="col" id="name" class="manage-column column-name">姓名</th>
                         <th scope="col" id="email" class="manage-column column-email sortable desc"><a href="javascript:;"><span>电子邮件</span><span class="sorting-indicator"></span></a></th>
                         <th scope="col" id="role" class="manage-column column-role">余额</th>
@@ -317,6 +329,89 @@ class order_account_calss{
         <script src="<?= JS;?>/public.js"></script>
        <?php
     }
+
+    function pay(){
+        $user_id =  $_GET['user_id'];
+
+        global $wpdb;
+        $get_account = $wpdb->get_row( "SELECT * FROM {$wpdb->prefix}account where user_id = $user_id" );
+
+        ?>
+        <div class="wrap" id="profile-page">
+            <h1 class="wp-heading-inline">人工充值</h1>
+
+
+            <hr class="wp-header-end">
+
+            <form  action="<?=get_stylesheet_directory_uri().'/admin/ajax.php'?>" method="post" class="pay-verify" novalidate="novalidate">
+
+                <input type="hidden" name="action" value="account/account/payAccount">
+                <input type="hidden" name="user_id" value="<?=$user_id?>">
+
+                <table class="form-table">
+                    <tbody><tr class="user-user-login-wrap">
+                        <th><label for="user_login">用户名</label></th>
+                        <td><input type="text" name="user_name" value="<?=$get_account->user_name?>" disabled="disabled" class="regular-text"> <span class="description">用户名不可更改。</span></td>
+                    </tr>
+
+                    <tr class="user-first-name-wrap">
+                        <th><label for="first_name">充值金额</label></th>
+                        <td><input type="text" name="pay_money" value="" class="regular-text"></td>
+                    </tr>
+
+                    <table class="form-table">
+
+                        <tr class="show-admin-bar user-admin-bar-front-wrap">
+                            <th scope="row">是否参与活动</th>
+                            <td><fieldset><legend class="screen-reader-text"><span>工具栏</span></legend>
+                                    <label for="admin_bar_front">
+                                        <input name="is_activity" type="checkbox"  value="1" checked="checked">
+                                        取消后用户本次充值不参与充值活动</label><br>
+                                </fieldset>
+                            </td>
+                        </tr>
+
+
+                    </table>
+
+                    <p class="submit"><input type="submit" name="submit" id="submit" class="button button-primary" value="充 值"></p>
+            </form>
+        </div>
+        <script src="<?= JS;?>/jquery2.1.1.min.js"></script>
+        <script>
+
+            $(".pay-verify").on("submit",function(){
+                var _this = $(this);
+                var pay_money = $('input[name=pay_money]').val();
+
+                if(!confirm("请确认充值金额："+pay_money+ "元")){
+                    return false;
+                }
+
+                $.ajax({
+                    type : 'POST',  //提交方式
+                    dataType:'json',
+                    url :"<?=get_stylesheet_directory_uri().'/admin/ajax.php'?>",//路径
+                    data:_this.serializeArray(),//
+                    success : function(data) {//返回数据根据结果进行相应的处理
+
+                        if ( data.status == 'y') {
+                            alert("充值成功");
+                            window.history.go(0);
+                        } else {
+                            alert("充值失败，请重试");
+                        }
+                    }
+                });
+                return false;
+
+            });
+
+
+        </script>
+        <?php
+    }
+
 }
 new order_account_calss();
 ?>

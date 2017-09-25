@@ -67,17 +67,27 @@
 <!--遮罩层-->
 <div class="mask-re"></div>
 </body>
-
+<script>
+	var home = "<?=_get_home_url()?>";
+</script>
 <!-- Swiper JS -->
-<script src="<?=_get_home_url()?>View/pc/js/swiper.jquery.min.js"></script>
+<script src="<?=_get_home_url()?>View/pc/js/swiper.jquery.min.js?v=<?=J_C_V?>"></script>
 <!--表单验证插件-->
-<script src="<?=_get_home_url()?>View/pc/js/Validform_v5.3.2_min.js"></script>
+<script src="<?=_get_home_url()?>View/pc/js/Validform_v5.3.2_min.js?v=<?=J_C_V?>"></script>
 <!--城市三级联动-->
 <!--<script src="<?/*=_get_home_url()*/?>View/pc/js/distpicker.data.js"></script>
 <script src="<?/*=_get_home_url()*/?>View/pc/js/distpicker.js"></script>-->
 <!--复制文本插件-->
-<script src="<?=_get_home_url()?>View/pc/js/clipboard.min.js"></script>
-<script src="<?=_get_home_url()?>View/pc/js/cookie.url.config.js"></script>
-<script src="<?=_get_home_url()?>View/pc/js/public.js"></script>
+<script src="<?=_get_home_url()?>View/pc/js/clipboard.min.js?v=<?=J_C_V?>"></script>
+<script src="<?=_get_home_url()?>View/pc/js/cookie.url.config.js?v=<?=J_C_V?>"></script>
+<script src="<?=_get_home_url()?>View/pc/js/template.js?v=<?=J_C_V?>"></script>
+<script src="<?=_get_home_url()?>View/pc/js/public.js?v=<?=J_C_V?>"></script>
+<?php
+if($js){
+	foreach ($js as $v){ ?>
+		<script src="<?=_get_home_url()?>View/<?=$v?>?v=<?=J_C_V?>"></script>
+	<?php }
+ }
+?>
 </html>
 
