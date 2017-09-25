@@ -356,7 +356,7 @@ footer{
   height: auto;
   margin:0 auto;
   color: #907C73;
-  padding:30px 0;
+  padding:30px 0 0;
   overflow: hidden;
 }
 .lottery_footer p{
@@ -481,7 +481,7 @@ footer{
 .container_about{
   width: 1000px;
   margin: 0 auto;
-  height: 100px;
+  height: 70px;
 }
 .fix_about{
   color: #999;
@@ -1405,6 +1405,12 @@ hr.style12 {
   height: auto;
   overflow: hidden;
 }
+.my_account {
+  margin-bottom: 20px;
+}
+.my_account .plTotal{
+  width: 230px;
+}
 .plTotal{
   float: left;
   padding: 15px;
@@ -1460,6 +1466,7 @@ hr.style12 {
   padding-bottom: 10px;
   border-radius: 5px;
   background: #F8F4F3;
+  z-index: 99;
 }
 .Betting_main_lef_nav{
   margin:0;
@@ -2267,6 +2274,9 @@ hr.style12 {
 }
 .help_main .basic_information{
   margin:15px;
+}
+.help_main .basic_information p{
+  margin-bottom: 10px;
 }
 /*游戏规则*/
 .jiesao_ks span{

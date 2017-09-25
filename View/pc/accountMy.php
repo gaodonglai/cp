@@ -29,7 +29,7 @@
                 </p>
                 <div class="basic_information">
                  <div class="table_betting_main table_betting_active table_capital_main" id="modify_bindingaa1">
-                     <div class="plTotal_main">
+                     <div class="plTotal_main my_account">
                          <div class="plTotal">
                              <i class="iconfont">&#xe627;</i>
                              <div class="detail">
@@ -45,13 +45,14 @@
                              </div>
                          </div>
                          <div class="plTotal">
-                             <i class="iconfont">&#xe605;</i>
+                             <i class="iconfont">&#xe6ca;</i>
                              <div class="detail">
                                  <p>可提现金额</p>
                                  <em><?=$today_money ? $today_money : '0.00'?></em>
                              </div>
                          </div>
                      </div>
+                     <hr class="style12">
                     <form action="<?=_get_home_url('account/updateAccount')?>" class="postAjax basic_information_form">
                         <ul>
                             <li class="basic_information_a">

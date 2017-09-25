@@ -156,7 +156,6 @@
 					<p class="rig_main_zla active_zla">快三玩法介绍</p>
 					<div class="basic_information">
 						 <div class="childContent">
-	                       <p class="record_p">最近12小时无开奖记录</p>
 	                        <div class="basic_information help_record_p">
 							 <p class="jiesao_ks">本平台快3开奖结果是根据<span>江苏快三</span>，<span>安徽快三</span>，<span>广西快三</span>，<span>吉林快三</span>，<span>湖北快三</span>，<span>河北快三</span>开奖为依据的。另外会员可以下注单，双，大，小。</p>
 							 <h1 class="title_ks">快三游戏八大解读</h1>
