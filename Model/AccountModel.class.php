@@ -84,15 +84,11 @@ class Account
      * @param $user_id
      */
     public function getPayLog($user_id){
-
         $limit = 10;
-        $pagenum = isset( $_GET['page'] ) ? absint( $_GET['page'] ) : 1; //获取分页数
+        //获取分页数
+        $pagenum = isset( $_GET['page'] ) ? absint( $_GET['page'] ) : 1;
         $offset = ( $pagenum - 1 ) * $limit;
-
-        $content = $this->wpdb->get_results("SELECT SQL_CALC_FOUND_ROWS * FROM `{$this->table}recharge` WHERE `user_id`={$user_id} ORDER BY `id` DESC limit {$offset},{$limit}");
-
-        $count = $this->wpdb->get_var("SELECT FOUND_ROWS();");
-        return array('content'=>$content,'count'=>$count / $limit,'pagenum'=>$pagenum);
+        return $this->wpdb->get_results("SELECT * FROM `{$this->table}recharge` WHERE `user_id`={$user_id} ORDER BY `id` DESC limit {$offset},{$limit}");
     }
     /**
      *获取现金与积分记录
@@ -100,13 +96,10 @@ class Account
      */
     public function getCashRecord($user_id){
         $limit = 10;
-        $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1; //获取分页数
+        //获取分页数
+        $pagenum = isset( $_GET['page'] ) ? absint( $_GET['page'] ) : 1;
         $offset = ( $pagenum - 1 ) * $limit;
-
-        $content = $this->wpdb->get_results("SELECT SQL_CALC_FOUND_ROWS  * FROM `{$this->table}cash_record` WHERE `user_id`={$user_id} ORDER BY `cash_record_time` DESC limit {$offset},{$limit}");
-
-        $count = $this->wpdb->get_var("SELECT FOUND_ROWS();");
-        return array('content'=>$content,'count'=>$count / $limit,'pagenum'=>$pagenum);
+        return $this->wpdb->get_results("SELECT * FROM `{$this->table}cash_record` WHERE `user_id`={$user_id} ORDER BY `cash_record_time` DESC limit {$offset},{$limit}");
     }
 
 
@@ -141,19 +134,7 @@ class Account
      */
     public function getBankCardAll($user_id){
 
-        return $this->wpdb->get_results("SELECT * FROM `{$this->table}card_binding` WHERE `user_id`={$user_id} and  card_state = 'y'");
-
-    }
-
-    /**
-     * 查询正在充值的记录
-     * @param $data_array
-     * @param $where_clause
-     * @return mixed
-     */
-    public function getArtificialPay($user_id){
-
-        return $this->wpdb->get_row("SELECT a.*,b.account_number,b.opening_bank,b.card_type FROM `{$this->table}artificial_pay` as a INNER JOIN {$this->table}card_binding as b on a.pay_type=b.id and a.user_id = b.user_id WHERE a.user_id={$user_id} and status = 's'");
+        return $this->wpdb->get_results("SELECT * FROM `{$this->table}card_binding` WHERE `user_id`={$user_id}");
 
     }
     /**

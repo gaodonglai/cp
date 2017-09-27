@@ -92,14 +92,12 @@
 </div>
 </main>
 <script>
-    window.onload = function() {
-       var url_status = $.getUrlParam('password');
-       if(url_status){
-           $(".rig_main_capital a").removeClass("betting_top-active");
-           $('.'+url_status).addClass("betting_top-active");
-           $(".table_capital_main").removeClass("table_betting_active");
-           $(".brigtinh_main_cen").fadeOut(300);
-           $('#password_'+url_status).delay(300).fadeIn();
-       }
-   };
+    var url_status = $.getUrlParam('password');
+    if(url_status){
+        $(".rig_main_capital a").removeClass("betting_top-active");
+        $('.'+url_status).addClass("betting_top-active");
+        $(".table_capital_main").removeClass("table_betting_active");
+        $(".brigtinh_main_cen").fadeOut(300);
+        $('#password_'+url_status).delay(300).fadeIn();
+    }
 </script>

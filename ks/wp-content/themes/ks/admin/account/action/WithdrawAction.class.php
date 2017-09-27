@@ -132,23 +132,5 @@ class WithdrawAction extends AdminAction
     }
 
 
-    public function quotaSetting(){
-
-        $quota_money = $_POST['quota_money'];
-
-        if(!is_numeric($quota_money)){
-            exit(json_encode(array('status'=>'n','info'=>'请完善信息')));
-        }
-
-        $quota = update_option('withdraw_quota_setting',(int)$quota_money);//分销比例
-
-        if($quota){
-
-            exit(json_encode(array('status'=>'y','info'=>'设置成功')));
-        }else{
-
-            exit(json_encode(array('status'=>'n','info'=>'设置失败，请重试')));
-        }
-    }
 
 }
