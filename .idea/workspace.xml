@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/Controller/AccountController.class.php" line="165" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9844a1fb-f3f3-428c-a9a3-5cb7a2efeff3" name="默认的" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -10,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -19,16 +22,28 @@
       <find>'admin-ajax.php'</find>
       <find>test</find>
       <find>updaTeartificialPay</find>
-      <find>distribution</find>
       <find>user_money</find>
-      <find>pay</find>
       <find>$user_money</find>
       <find>updateAccountMoney</find>
-      <find>setBankCard</find>
-      <find>withdrawalApp</find>
       <find>编辑</find>
       <find>payAccount</find>
+      <find>setBankCard</find>
+      <find>Withdraw</find>
+      <find>充值金额</find>
+      <find>人工充值</find>
+      <find>pay</find>
+      <find>artificial_pay</find>
+      <find>$pay_idartificial_pay</find>
+      <find>cancelPay</find>
       <find>setArtificialPay</find>
+      <find>bankCard</find>
+      <find>my</find>
+      <find>distribution</find>
+      <find>支付宝</find>
+      <find>$type</find>
+      <find>$CommissionDetail</find>
+      <find>withdrawalApp</find>
+      <find>extractMoney</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -45,36 +60,42 @@
         <option value="$PROJECT_DIR$/Conf/ks_conf.php" />
         <option value="$PROJECT_DIR$/functions/gaoxing.function.php" />
         <option value="$PROJECT_DIR$/Controller/RegisterController.class.php" />
-        <option value="$PROJECT_DIR$/View/pc/accountMy.php" />
         <option value="$PROJECT_DIR$/View/pc/help.php" />
         <option value="$PROJECT_DIR$/View/pc/header.php" />
         <option value="$PROJECT_DIR$/View/pc/footer.php" />
         <option value="$PROJECT_DIR$/Model/IndexModel.class.php" />
         <option value="$PROJECT_DIR$/Controller/IndexController.class.php" />
-        <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/WithdrawAction.class.php" />
-        <option value="$PROJECT_DIR$/Model/PayModel.class.php" />
         <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/ajax/Default.ajax.php" />
         <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/submenu.menu.php" />
-        <option value="$PROJECT_DIR$/View/pc/accountPay.php" />
         <option value="$PROJECT_DIR$/View/pc/js/publics.js" />
-        <option value="$PROJECT_DIR$/View/pc/js/public.js" />
-        <option value="$PROJECT_DIR$/View/pc/accountBankCard.php" />
-        <option value="$PROJECT_DIR$/View/pc/accountDistribution.php" />
-        <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/withdraw.menu.php" />
-        <option value="$PROJECT_DIR$/Model/AccountModel.class.php" />
-        <option value="$PROJECT_DIR$/Model/BankMgModel.class.php" />
         <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/model/WithdrawModel.class.php" />
-        <option value="$PROJECT_DIR$/Model/DistributionModel.class.php" />
         <option value="$PROJECT_DIR$/Conf/functions.php" />
-        <option value="$PROJECT_DIR$/View/pc/accountExtractMoney.php" />
+        <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/AccountAction.class.php" />
+        <option value="$PROJECT_DIR$/View/pc/accountSidebar.php" />
+        <option value="$PROJECT_DIR$/View/pc/accountBankCard.php" />
+        <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/model/DrpModel.class.php" />
+        <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/DrpAction.class.php" />
+        <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/drp.menu.php" />
         <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/account.menu.php" />
+        <option value="$PROJECT_DIR$/Controller/DistributionController.class.php" />
+        <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/WithdrawAction.class.php" />
+        <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/withdraw.menu.php" />
+        <option value="$PROJECT_DIR$/View/pc/js/public.js" />
+        <option value="$PROJECT_DIR$/View/pc/accountPasswordUp.php" />
+        <option value="$PROJECT_DIR$/Model/PayModel.class.php" />
+        <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/pay.menu.php" />
         <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/model/PayModel.class.php" />
         <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/PayAction.class.php" />
-        <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/AccountAction.class.php" />
-        <option value="$PROJECT_DIR$/Controller/AccountController.class.php" />
-        <option value="$PROJECT_DIR$/Controller/BankMgController.class.php" />
         <option value="$PROJECT_DIR$/Controller/PayController.class.php" />
-        <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/pay.menu.php" />
+        <option value="$PROJECT_DIR$/View/pc/accountPay.php" />
+        <option value="$PROJECT_DIR$/View/pc/accountMy.php" />
+        <option value="$PROJECT_DIR$/Model/AccountModel.class.php" />
+        <option value="$PROJECT_DIR$/View/pc/accountDistribution.php" />
+        <option value="$PROJECT_DIR$/Model/DistributionModel.class.php" />
+        <option value="$PROJECT_DIR$/Controller/AccountController.class.php" />
+        <option value="$PROJECT_DIR$/Model/BankMgModel.class.php" />
+        <option value="$PROJECT_DIR$/Controller/BankMgController.class.php" />
+        <option value="$PROJECT_DIR$/View/pc/accountExtractMoney.php" />
       </list>
     </option>
   </component>
@@ -92,7 +113,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -129,6 +150,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -144,93 +166,6 @@
             <path>
               <item name="cp" type="b2602c69:ProjectViewProjectNode" />
               <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="account" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="account" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="action" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="menu" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="wp-content" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="themes" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="web" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -239,26 +174,32 @@
               <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="pc" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pc" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="image" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sxck" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\phpStudy\WWW\cp\View\pc\image" />
+      <recent name="D:\phpStudy\WWW\cp\ks\wp-content\themes\ks\admin\account\model" />
+      <recent name="D:\phpStudy\WWW\cp\ks\wp-content\themes\ks\admin\account\action" />
       <recent name="D:\phpStudy\WWW\cp\ks\wp-content\themes\ks\admin\web\js" />
       <recent name="D:\phpStudy\WWW\cp\ks\wp-content\themes\ks\admin\menu" />
-      <recent name="D:\phpStudy\WWW\cp\ks\wp-content\themes\ks\admin\account\model" />
-      <recent name="D:\phpStudy\WWW\cp\Conf\libraries" />
-      <recent name="D:\phpStudy\WWW\cp\Model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -293,17 +234,20 @@
       <workItem from="1505888357057" duration="12639000" />
       <workItem from="1505959466277" duration="20666000" />
       <workItem from="1506306895681" duration="25000" />
-      <workItem from="1506308308148" duration="19689000" />
+      <workItem from="1506308308148" duration="20456000" />
+      <workItem from="1506396905464" duration="20157000" />
+      <workItem from="1506428436903" duration="10255000" />
+      <workItem from="1506483173011" duration="11599000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78728000" />
+    <option name="totallyTimeSpent" value="121506000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23081024" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -336,7 +280,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2238806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23347548" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -360,67 +304,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Conf/libraries/phpqrcode/qrlib.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/functions/gaoxing.function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="54" column="1" lean-forward="true" selection-start-line="54" selection-start-column="1" selection-end-line="54" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/activity.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/help.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="943">
-          <caret line="46" column="65" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/Trendchart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="9" column="2" lean-forward="false" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ks/wp-includes/user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="424" column="28" lean-forward="false" selection-start-line="424" selection-start-column="9" selection-end-line="424" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="138" column="13" lean-forward="false" selection-start-line="138" selection-start-column="13" selection-end-line="138" selection-end-column="13" />
-          <folding>
-            <marker date="1505808260594" expanded="true" signature="9928:9959" ph="SELECT COUNT... ${$fromwhere}" />
-            <marker date="1505808260594" expanded="true" signature="17831:18164" ph="..." />
-            <marker date="1505808260594" expanded="true" signature="17868:18140" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ks/wp-includes/wp-db.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
@@ -432,9 +315,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
           <caret line="262" column="18" lean-forward="false" selection-start-line="262" selection-start-column="10" selection-end-line="262" selection-end-column="18" />
-          <folding>
-            <marker date="1505720423232" expanded="true" signature="8225:8313" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -483,58 +363,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/js/public.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1426">
-          <caret line="172" column="0" lean-forward="false" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/js/publics.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/accountDistribution.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="658">
-          <caret line="278" column="24" lean-forward="true" selection-start-line="278" selection-start-column="24" selection-end-line="278" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/accountPay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/drp.menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/withdraw.menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="227" column="100" lean-forward="false" selection-start-line="227" selection-start-column="100" selection-end-line="227" selection-end-column="100" />
-          <folding>
-            <marker date="1506321166974" expanded="true" signature="2347:2815" ph="SELECT a.*,b... $" />
-            <marker date="1506321166974" expanded="true" signature="9621:9678" ph="SELECT COUNT... $" />
-            <marker date="1506321166974" expanded="true" signature="10199:10212" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Controller/activityController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -570,30 +398,6 @@
             <marker date="1506154781286" expanded="true" signature="2826:2874" ph="SELECT quest... ${$table}" />
             <marker date="1506154781286" expanded="true" signature="3269:3317" ph="SELECT quest... ${$table}" />
             <marker date="1506154781286" expanded="true" signature="4818:4894" ph="UPDATE ${$ta... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/RegisterController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="829">
-          <caret line="102" column="26" lean-forward="false" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
-          <folding>
-            <marker date="1506156265937" expanded="true" signature="326:446" ph="INSERT INTO `ks_account`... " />
-            <marker date="1506156265937" expanded="true" signature="2430:2621" ph="INSERT INTO `${$table}`... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/BankMgModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="56" column="83" lean-forward="false" selection-start-line="56" selection-start-column="71" selection-end-line="56" selection-end-column="83" />
-          <folding>
-            <marker date="1506324489468" expanded="true" signature="660:739" ph="SELECT payme... ${{$this-&gt;table}}account_payment" />
-            <marker date="1506324489468" expanded="true" signature="866:956" ph="SELECT sum(m... ${{$this-&gt;table}}extract_money_log" />
-            <marker date="1506324489468" expanded="true" signature="1166:1258" ph="UPDATE `${{$... " />
-            <marker date="1506324489468" expanded="true" signature="1447:1656" ph="SELECT a.*,b... ${{$this-&gt;table}}extract_money_log" />
           </folding>
         </state>
       </provider>
@@ -639,41 +443,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Model/AccountModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding>
-            <marker date="1506324376434" expanded="true" signature="444:511" ph="SELECT * FRO... ${{$this-&gt;table}}account_link_share" />
-            <marker date="1506324376434" expanded="true" signature="861:985" ph="INSERT INTO `${{$this-&gt;table}}account_link_share`... " />
-            <marker date="1506324376434" expanded="true" signature="1328:1435" ph="UPDATE `${{$... " />
-            <marker date="1506324376434" expanded="true" signature="2014:2115" ph="SELECT * FRO... ${{$this-&gt;table}}recharge" />
-            <marker date="1506324376434" expanded="true" signature="2429:2547" ph="SELECT * FRO... ${{$this-&gt;table}}cash_record" />
-            <marker date="1506324376434" expanded="true" signature="3004:3106" ph="SELECT COUNT... ${{$this-&gt;table}}card_binding" />
-            <marker date="1506324376434" expanded="true" signature="3311:3370" ph="SELECT * FRO... ${{$this-&gt;table}}card_binding" />
-            <marker date="1506324376434" expanded="true" signature="3552:3614" ph="SELECT * FRO... ${{$this-&gt;table}}account_payment" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/model/WithdrawModel.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
           <caret line="51" column="98" lean-forward="false" selection-start-line="51" selection-start-column="98" selection-end-line="51" selection-end-column="98" />
-          <folding>
-            <marker date="1506324547297" expanded="true" signature="971:1063" ph="UPDATE `${{$... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/WithdrawAction.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="121" column="40" lean-forward="false" selection-start-line="121" selection-start-column="40" selection-end-line="121" selection-end-column="40" />
-          <folding>
-            <marker date="1505962590916" expanded="true" signature="714:809" ph="SELECT * FRO... $" />
-            <marker date="1505962590916" expanded="true" signature="2294:2389" ph="SELECT * FRO... $" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -681,68 +454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
           <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/PayModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-          <folding>
-            <marker date="1506154337063" expanded="true" signature="617:747" ph="select pay_m... $" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/DistributionController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="29" column="40" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/DistributionModel.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="188" column="4" lean-forward="false" selection-start-line="188" selection-start-column="4" selection-end-line="197" selection-end-column="5" />
-          <folding>
-            <marker date="1506325326819" expanded="true" signature="4942:5007" ph="SELECT `pare... ${{$this-&gt;table}}account" />
-            <marker date="1506325326819" expanded="true" signature="5258:5389" ph="UPDATE `${{$... " />
-            <marker date="1506325326819" expanded="true" signature="5370:5389" ph="UPDATE `${{$... " />
-            <marker date="1506325326819" expanded="true" signature="5603:5694" ph="UPDATE `${{$... " />
-            <marker date="1506325326819" expanded="true" signature="6280:6554" ph="SELECT sum(i... ${{$this-&gt;table}}drp_log" />
-            <marker date="1506325326819" expanded="true" signature="6869:7118" ph="SELECT a.inc... ${{$this-&gt;table}}drp_log" />
-            <marker date="1506325326819" expanded="true" signature="7296:7419" ph="SELECT sum(i... ${{$this-&gt;table}}drp_log" />
-            <marker date="1506325326819" expanded="true" signature="7586:7745" ph="SELECT sum(i... ${{$this-&gt;table}}drp_log" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/accountMy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="127" column="106" lean-forward="false" selection-start-line="127" selection-start-column="90" selection-end-line="127" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Conf/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="224" column="19" lean-forward="false" selection-start-line="224" selection-start-column="9" selection-end-line="224" selection-end-column="19" />
-          <folding>
-            <marker date="1506326477806" expanded="true" signature="409:464" ph="SELECT * FRO... ${{$wpdb-&gt;prefix}}account" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/accountExtractMoney.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="167" column="141" lean-forward="false" selection-start-line="167" selection-start-column="141" selection-end-line="167" selection-end-column="141" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -750,108 +461,391 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="69">
           <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/pc/accountSidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="19" column="84" lean-forward="false" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="84" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/PayAction.class.php">
+    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/model/DrpModel.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="52" column="18" lean-forward="false" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
-          <folding>
-            <marker date="1506333045802" expanded="true" signature="714:774" ph="SELECT * FRO... ${{$wpdb-&gt;prefix}}artificial_pay" />
-            <marker date="1506333045802" expanded="true" signature="872:939" ph="SELECT user_... ${{$wpdb-&gt;prefix}}account" />
-          </folding>
+        <state relative-caret-position="667">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/account.menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="389" column="0" lean-forward="true" selection-start-line="389" selection-start-column="0" selection-end-line="389" selection-end-column="0" />
+        <state relative-caret-position="667">
+          <caret line="231" column="21" lean-forward="true" selection-start-line="231" selection-start-column="21" selection-end-line="231" selection-end-column="21" />
           <folding>
-            <marker date="1506332525419" expanded="true" signature="2069:2170" ph="SELECT * FRO... $" />
-            <marker date="1506332525419" expanded="true" signature="8457:8509" ph="SELECT COUNT... $" />
-            <marker date="1506332525419" expanded="true" signature="9030:9043" ph="..." />
-            <marker date="1506332525419" expanded="true" signature="11341:11394" ph="SELECT * FRO... $" />
-            <marker date="1506332525419" expanded="true" signature="16686:16739" ph="SELECT * FRO... $" />
+            <marker date="1506499554094" expanded="true" signature="2069:2170" ph="SELECT * FRO... $" />
+            <marker date="1506499554094" expanded="true" signature="8400:8452" ph="SELECT COUNT... $" />
+            <marker date="1506499554094" expanded="true" signature="8973:8986" ph="..." />
+            <marker date="1506499554094" expanded="true" signature="11297:11350" ph="SELECT * FRO... $" />
+            <marker date="1506499554094" expanded="true" signature="16642:16695" ph="SELECT * FRO... $" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/model/PayModel.class.php">
+    <entry file="file://$PROJECT_DIR$/Controller/DistributionController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="26" column="93" lean-forward="false" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="93" />
+        <state relative-caret-position="299">
+          <caret line="19" column="47" lean-forward="false" selection-start-line="19" selection-start-column="42" selection-end-line="19" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/RegisterController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="100" column="18" lean-forward="false" selection-start-line="100" selection-start-column="18" selection-end-line="100" selection-end-column="18" />
           <folding>
-            <marker date="1506333045830" expanded="true" signature="4228:4293" ph="SELECT `pare... ${{$this-&gt;table}}account" />
-            <marker date="1506333045830" expanded="true" signature="4543:4674" ph="UPDATE `${{$... " />
-            <marker date="1506333045830" expanded="true" signature="4888:4979" ph="UPDATE `${{$... " />
+            <marker date="1506156265937" expanded="true" signature="326:446" ph="INSERT INTO `ks_account`... " />
+            <marker date="1506156265937" expanded="true" signature="2430:2621" ph="INSERT INTO `${$table}`... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/BankMgController.class.php">
+    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/drp.menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="54" column="18" lean-forward="false" selection-start-line="54" selection-start-column="18" selection-end-line="54" selection-end-column="18" />
+        <state relative-caret-position="396">
+          <caret line="474" column="16" lean-forward="false" selection-start-line="474" selection-start-column="8" selection-end-line="474" selection-end-column="65" />
+          <folding>
+            <marker date="1506499554096" expanded="true" signature="2030:2303" ph="SELECT * FRO... $" />
+            <marker date="1506499554096" expanded="true" signature="8345:8498" ph="SELECT COUNT... $" />
+            <marker date="1506499554096" expanded="true" signature="9011:9024" ph="..." />
+            <marker date="1506499554096" expanded="true" signature="9468:9529" ph="select user_... $" />
+            <marker date="1506499554096" expanded="true" signature="9729:9942" ph="SELECT b.use... $" />
+            <marker date="1506499554096" expanded="true" signature="15464:15614" ph="SELECT COUNT... $" />
+            <marker date="1506499554096" expanded="true" signature="16133:16146" ph="..." />
+            <marker date="1506499554096" expanded="true" signature="16849:17082" ph="SELECT b.use... $" />
+            <marker date="1506499554096" expanded="true" signature="17137:17198" ph="select user_... $" />
+            <marker date="1506499554096" expanded="true" signature="22605:22755" ph="SELECT COUNT... $" />
+            <marker date="1506499554096" expanded="true" signature="23274:23287" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/WithdrawAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="142" column="81" lean-forward="true" selection-start-line="142" selection-start-column="81" selection-end-line="142" selection-end-column="81" />
+          <folding>
+            <marker date="1506499554089" expanded="true" signature="714:809" ph="SELECT * FRO... $" />
+            <marker date="1506499554089" expanded="true" signature="2294:2389" ph="SELECT * FRO... $" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/AccountAction.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2576">
+          <caret line="118" column="18" lean-forward="false" selection-start-line="118" selection-start-column="12" selection-end-line="118" selection-end-column="18" />
+          <folding>
+            <marker date="1506333188812" expanded="true" signature="1585:1746" ph="INSERT INTO `${$table}`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/pc/js/publics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/pc/js/public.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="787">
+          <caret line="157" column="31" lean-forward="false" selection-start-line="157" selection-start-column="31" selection-end-line="157" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/View/pc/accountBankCard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-87">
-          <caret line="43" column="49" lean-forward="false" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="49" />
+        <state relative-caret-position="396">
+          <caret line="226" column="0" lean-forward="false" selection-start-line="226" selection-start-column="0" selection-end-line="235" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/AccountAction.class.php">
+    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/DrpAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="118" column="18" lean-forward="true" selection-start-line="118" selection-start-column="12" selection-end-line="118" selection-end-column="18" />
+        <state relative-caret-position="359">
+          <caret line="74" column="6" lean-forward="false" selection-start-line="74" selection-start-column="6" selection-end-line="81" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/model/PayModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="154" column="61" lean-forward="false" selection-start-line="154" selection-start-column="50" selection-end-line="154" selection-end-column="61" />
           <folding>
-            <element signature="e#116#149#0#PHP" expanded="true" />
-            <marker date="1506333188812" expanded="true" signature="1585:1746" ph="INSERT INTO `${$table}`... " />
+            <marker date="1506499554092" expanded="true" signature="4537:4602" ph="SELECT `pare... ${{$this-&gt;table}}account" />
+            <marker date="1506499554092" expanded="true" signature="4852:4983" ph="UPDATE `${{$... " />
+            <marker date="1506499554092" expanded="true" signature="5224:5348" ph="UPDATE `${{$... " />
+            <marker date="1506499554092" expanded="true" signature="4888:4979" ph="UPDATE `${{$... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/PayController.class.php">
+    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/PayAction.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="86" column="16" lean-forward="false" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+        <state relative-caret-position="603">
+          <caret line="151" column="49" lean-forward="false" selection-start-line="151" selection-start-column="49" selection-end-line="151" selection-end-column="49" />
           <folding>
-            <marker date="1506334929328" expanded="true" signature="2218:3167" ph="..." />
-            <marker date="1506334929328" expanded="true" signature="2284:3135" ph="..." />
-            <marker date="1506334929328" expanded="true" signature="2326:3096" ph="..." />
+            <marker date="1506499554087" expanded="true" signature="714:774" ph="SELECT * FRO... ${{$wpdb-&gt;prefix}}artificial_pay" />
+            <marker date="1506499554087" expanded="true" signature="872:939" ph="SELECT user_... ${{$wpdb-&gt;prefix}}account" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/PayModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding>
+            <marker date="1506499554072" expanded="true" signature="691:778" ph="SELECT * FRO... ks_card_binding" />
+            <marker date="1506499554072" expanded="true" signature="691:779" ph="SELECT card_... ks_card_binding" />
+            <marker date="1506499554072" expanded="true" signature="691:789" ph="SELECT * FRO... ks_card_binding" />
+            <marker date="1506499554072" expanded="true" signature="1009:1091" ph="SELECT * FRO... ${{$this-&gt;table}}artificial_pay" />
+            <marker date="1506499554072" expanded="true" signature="1009:1116" ph="SELECT * FRO... ${{$this-&gt;table}}artificial_pay" />
+            <marker date="1506499554072" expanded="true" signature="1332:1443" ph="SELECT * FRO... ${{$this-&gt;table}}artificial_pay" />
+            <marker date="1506499554072" expanded="true" signature="1332:1448" ph="UPDATE `${{$... " />
+            <marker date="1506499554072" expanded="true" signature="617:747" ph="select pay_m... $" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/pay.menu.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="95" column="300" lean-forward="false" selection-start-line="95" selection-start-column="300" selection-end-line="95" selection-end-column="300" />
+        <state relative-caret-position="304">
+          <caret line="239" column="60" lean-forward="false" selection-start-line="239" selection-start-column="46" selection-end-line="239" selection-end-column="60" />
           <folding>
-            <element signature="e#17531#17558#0#HTML" expanded="true" />
-            <marker date="1506336043210" expanded="true" signature="1757:1954" ph="SELECT a.*,b... $" />
-            <marker date="1506336043210" expanded="true" signature="8110:8164" ph="SELECT COUNT... $" />
-            <marker date="1506336043210" expanded="true" signature="8685:8698" ph="..." />
-            <marker date="1506336043210" expanded="true" signature="11691:11882" ph="SELECT a.*,b... $" />
-            <marker date="1506336043210" expanded="true" signature="16588:16636" ph="SELECT COUNT... $" />
-            <marker date="1506336043210" expanded="true" signature="17157:17170" ph="..." />
+            <marker date="1506499554098" expanded="true" signature="1758:2134" ph="SELECT a.*,b... $" />
+            <marker date="1506499554098" expanded="true" signature="8610:8664" ph="SELECT COUNT... $" />
+            <marker date="1506499554098" expanded="true" signature="9185:9198" ph="..." />
+            <marker date="1506499554098" expanded="true" signature="11691:11882" ph="SELECT a.*,b... $" />
+            <marker date="1506499554098" expanded="true" signature="16588:16636" ph="SELECT COUNT... $" />
+            <marker date="1506499554098" expanded="true" signature="17157:17170" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/pc/accountPay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="231" column="34" lean-forward="false" selection-start-line="231" selection-start-column="34" selection-end-line="231" selection-end-column="34" />
+          <folding>
+            <marker date="1506500739039" expanded="true" signature="3716:4887" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="3786:4847" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="3832:4804" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="5000:5018" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="5019:6123" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="5089:6083" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="5135:5377" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="5135:5379" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="5135:5397" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="5135:5399" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="5135:5401" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="5135:5403" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="5135:6040" ph="..." />
+            <marker date="1506500739039" expanded="true" signature="5494:5509" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/PayController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="79" column="0" lean-forward="true" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/role.menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1369">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ks/wp-includes/general-template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-527">
+          <caret line="3266" column="9" lean-forward="false" selection-start-line="3266" selection-start-column="9" selection-end-line="3266" selection-end-column="9" />
+          <folding>
+            <marker date="1504493278395" expanded="true" signature="29372:29385" ph="..." />
+            <marker date="1504493278395" expanded="true" signature="56013:56195" ph="SELECT YEAR(... " />
+            <marker date="1504493278395" expanded="true" signature="57087:57222" ph="SELECT YEAR(... " />
+            <marker date="1504493278395" expanded="true" signature="57987:58231" ph="SELECT YEAR(... " />
+            <marker date="1504493278395" expanded="true" signature="59202:59440" ph="SELECT DISTI... " />
+            <marker date="1504493278395" expanded="true" signature="60844:60902" ph="SELECT * FRO... ${$wpdb-&gt;posts}" />
+            <marker date="1504493278395" expanded="true" signature="63207:63302" ph="SELECT 1 as ${$wpdb-&gt;posts}" />
+            <marker date="1504493278395" expanded="true" signature="64540:64754" ph="SELECT MONTH... " />
+            <marker date="1504493278395" expanded="true" signature="64783:65014" ph="SELECT MONTH... " />
+            <marker date="1504493278395" expanded="true" signature="65190:65331" ph="..." />
+            <marker date="1504493278395" expanded="true" signature="65325:65331" ph="..." />
+            <marker date="1504493278395" expanded="true" signature="65776:65782" ph="..." />
+            <marker date="1504493278395" expanded="true" signature="66585:66591" ph="..." />
+            <marker date="1504493278395" expanded="true" signature="66684:66919" ph="SELECT DISTI... ${$wpdb-&gt;posts}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/pc/accountPasswordUp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="104" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/DistributionModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="99" column="7" lean-forward="false" selection-start-line="99" selection-start-column="7" selection-end-line="106" selection-end-column="87" />
+          <folding>
+            <marker date="1506499554070" expanded="true" signature="1339:1404" ph="SELECT `pare... ${{$this-&gt;table}}account" />
+            <marker date="1506499554070" expanded="true" signature="1994:2268" ph="SELECT sum(i... ${{$this-&gt;table}}drp_log" />
+            <marker date="1506499554070" expanded="true" signature="2594:2863" ph="SELECT SQL_C... ${{$this-&gt;table}}recharge" />
+            <marker date="1506499554070" expanded="true" signature="7296:7419" ph="SELECT sum(i... ${{$this-&gt;table}}drp_log" />
+            <marker date="1506499554070" expanded="true" signature="7586:7745" ph="SELECT sum(i... ${{$this-&gt;table}}drp_log" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ks/wp-content/themes/ks/admin/menu/withdraw.menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="60" column="14" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="14" />
+          <folding>
+            <marker date="1506499554101" expanded="true" signature="2347:2830" ph="SELECT a.*,b... $" />
+            <marker date="1506499554101" expanded="true" signature="9727:9784" ph="SELECT COUNT... $" />
+            <marker date="1506499554101" expanded="true" signature="10305:10318" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/pc/accountMy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="145" column="27" lean-forward="true" selection-start-line="132" selection-start-column="25" selection-end-line="145" selection-end-column="27" />
+          <folding>
+            <marker date="1506499554079" expanded="true" signature="7202:7215" ph="..." />
+            <marker date="1506499554079" expanded="true" signature="9772:9785" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/pc/accountDistribution.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="253" column="46" lean-forward="true" selection-start-line="240" selection-start-column="44" selection-end-line="253" selection-end-column="46" />
+          <folding>
+            <marker date="1506499554076" expanded="true" signature="15757:15770" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Conf/ks_conf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Conf/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="200" column="17" lean-forward="false" selection-start-line="200" selection-start-column="9" selection-end-line="200" selection-end-column="17" />
+          <folding>
+            <marker date="1506326477806" expanded="true" signature="409:464" ph="SELECT * FRO... ${{$wpdb-&gt;prefix}}account" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/AccountModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="91" column="174" lean-forward="false" selection-start-line="91" selection-start-column="150" selection-end-line="91" selection-end-column="174" />
+          <folding>
+            <marker date="1506499554066" expanded="true" signature="444:511" ph="SELECT * FRO... ${{$this-&gt;table}}account_link_share" />
+            <marker date="1506499554066" expanded="true" signature="861:985" ph="INSERT INTO `${{$this-&gt;table}}account_link_share`... " />
+            <marker date="1506499554066" expanded="true" signature="1328:1435" ph="UPDATE `${{$... " />
+            <marker date="1506499554066" expanded="true" signature="2012:2133" ph="SELECT SQL_C... ${{$this-&gt;table}}cash_record" />
+            <marker date="1506499554066" expanded="true" signature="2602:2741" ph="SELECT * FRO... ${{$this-&gt;table}}cash_record" />
+            <marker date="1506499554066" expanded="true" signature="3350:3452" ph="SELECT COUNT... ${{$this-&gt;table}}card_binding" />
+            <marker date="1506499554066" expanded="true" signature="3657:3716" ph="SELECT * FRO... ${{$this-&gt;table}}card_binding" />
+            <marker date="1506499554066" expanded="true" signature="3657:3748" ph="SELECT * FRO... ${{$this-&gt;table}}card_binding" />
+            <marker date="1506499554066" expanded="true" signature="3954:4154" ph="SELECT * FRO... ${{$this-&gt;table}}artificial_pay" />
+            <marker date="1506499554066" expanded="true" signature="3954:4181" ph="SELECT * FRO... ${{$this-&gt;table}}artificial_pay" />
+            <marker date="1506499554066" expanded="true" signature="3552:3614" ph="SELECT * FRO... ${{$this-&gt;table}}account_payment" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/BankMgController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+          <folding>
+            <marker date="1506499554060" expanded="true" signature="135:2444" ph="{...}" />
+            <marker date="1506499554060" expanded="true" signature="2263:2294" ph="..." />
+            <marker date="1506499554060" expanded="true" signature="2263:2440" ph="..." />
+            <marker date="1506499554060" expanded="true" signature="2300:2434" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/pc/accountExtractMoney.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1167">
+          <caret line="116" column="33" lean-forward="false" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/BankMgModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="68" column="0" lean-forward="true" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding>
+            <marker date="1506499554068" expanded="true" signature="660:739" ph="SELECT payme... ${{$this-&gt;table}}account_payment" />
+            <marker date="1506499554068" expanded="true" signature="866:956" ph="SELECT sum(m... ${{$this-&gt;table}}extract_money_log" />
+            <marker date="1506499554068" expanded="true" signature="1166:1258" ph="UPDATE `${{$... " />
+            <marker date="1506499554068" expanded="true" signature="1447:1656" ph="SELECT a.*,b... ${{$this-&gt;table}}extract_money_log" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/pc/js/clipboard.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Controller/AccountController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="135" column="131" lean-forward="false" selection-start-line="135" selection-start-column="131" selection-end-line="135" selection-end-column="131" />
+        <state relative-caret-position="352">
+          <caret line="94" column="44" lean-forward="false" selection-start-line="94" selection-start-column="44" selection-end-line="94" selection-end-column="44" />
           <folding>
-            <marker date="1506333411479" expanded="true" signature="14495:14547" ph="DELETE FROM " />
+            <marker date="1506499554058" expanded="true" signature="14495:14547" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
