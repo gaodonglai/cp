@@ -113,7 +113,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -237,15 +237,15 @@
       <workItem from="1506308308148" duration="20456000" />
       <workItem from="1506396905464" duration="20157000" />
       <workItem from="1506428436903" duration="10255000" />
-      <workItem from="1506483173011" duration="11599000" />
+      <workItem from="1506483173011" duration="11640000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121506000" />
+    <option name="totallyTimeSpent" value="121547000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -645,22 +645,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="543">
           <caret line="231" column="34" lean-forward="false" selection-start-line="231" selection-start-column="34" selection-end-line="231" selection-end-column="34" />
-          <folding>
-            <marker date="1506500739039" expanded="true" signature="3716:4887" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="3786:4847" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="3832:4804" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="5000:5018" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="5019:6123" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="5089:6083" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="5135:5377" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="5135:5379" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="5135:5397" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="5135:5399" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="5135:5401" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="5135:5403" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="5135:6040" ph="..." />
-            <marker date="1506500739039" expanded="true" signature="5494:5509" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
