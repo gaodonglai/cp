@@ -70,16 +70,7 @@
                                     <label for="" style="width: 111px;">充值方式：</label>
 
                                     <label for="">充值方式：</label>
-
                                     <label for="" style="width: 111px;">充值方式：</label>
-
-                                    <label for="" style="width: 111px;">充值方式：</label>
-
-                                    <label for="" style="width: 111px;">充值方式：</label>
-
-
-                                    <label for="">充值方式：</label>
-
                                     <select name="type">
                                         <option value="">请选择</option>
                                         <?php
@@ -93,6 +84,7 @@
 
                                     <span class="Validform_checktip" style="    width: 400px;height: 66px;"></span>
 
+                                    <span class="Validform_checktip" style="    width: 400px;height: 66px;"></span>
                                 </li>
                             <li class="basic_information_d">
                                 <label for="" style="width: 111px;">充值金额(￥)：</label>
