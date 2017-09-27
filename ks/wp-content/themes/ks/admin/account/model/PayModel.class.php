@@ -58,22 +58,30 @@ class PayModel
 
     /**
      * 设置用户上级分销利润
+     * @param int $user_id 用户id
      * @param int $money 金额
      */
     function setDistributionProfit($user_id,$money){
         $flag = array();
 
-        //获取分成 分成是以百分数来算
-        $Profit = json_decode('{}');
-        $Profit->profit1 = 2;//直接推广
-        $Profit->profit2 = 1;//间接推广
+        $proportion = get_option('drp_proportion_content'); //默认分销比例
 
+        //获取分成 分成是以百分数来算
+        $distribution_one = $proportion['distribution_one'];//直接推广
+        $distribution_two = $proportion['distribution_two'];//间接推广
 
         //获取直接推广者id
         $getProfit1Id =  $this->getSuperior($user_id);
         if($getProfit1Id){
 
-            $cash_record_cost = ($Profit->profit1 / 100) * $money;
+            //个性化分销
+            if(false){
+
+            }else{
+                $cash_record_cost = ($distribution_one / 100) * $money;
+            }
+
+
             $data_array = array(
                 'user_id'=>$getProfit1Id,
                 'cash_record_type'=>'+',
@@ -99,7 +107,13 @@ class PayModel
             $getProfit2Id =  $this->getSuperior($getProfit1Id);
             if($getProfit2Id){
 
-                $cash_record_cost1 = ($Profit->profit2 / 100) * $money;
+                //个性化分销
+                if(false){
+
+                }else{
+                    $cash_record_cost1 = ($distribution_two / 100) * $money;
+                }
+
                 $data_array1 = array(
                     'user_id'=>$getProfit2Id,
                     'cash_record_type'=>'+',
@@ -157,6 +171,17 @@ class PayModel
     function updateAccountMoney($user_id,$money,$back_now){
 
         return $this->wpdb->query("UPDATE `{$this->table}account` SET `user_money`= user_money + {$money},`reward_money`= reward_money + {$back_now} WHERE `user_id`= {$user_id}");
+    }
+
+    /**
+     * 查询用户提现记录是否存在
+     * @param $data_array
+     * @param $where_clause
+     * @return mixed
+     */
+    public function updateArtificialPayLog($user_id,$id,$cancel_content){
+        return $this->wpdb->query("UPDATE `{$this->table}artificial_pay` SET `status`= 'n',`remarks`= '{$cancel_content}' WHERE `user_id`= {$user_id} and`id`= {$id}");
+
     }
 
     /**

@@ -95,11 +95,13 @@ class Account
         $withdraw_log = $bankmy->getUserWithdrawRecord($user_id);
 
         $args = array(
+            'quota'=>get_option('withdraw_quota_setting'),//提现限额,
             'bank'=>$this->bank,
             'content'=>$content,
             'money'=>$money,
             'withdraw_log'=>$withdraw_log,
-            'dispose_stauts'=>$Conbankmy->status
+            'dispose_stauts'=>$Conbankmy->status,
+            'dispose_type'=>$Conbankmy->type
         );
 
         define("FUNFCTIO_NAME",__FUNCTION__);
@@ -137,6 +139,7 @@ class Account
             'cost_type'=>array('cash'=>'现金','grow'=>'积分'),
             'pay_log'=>$get_log,
             'cash_log'=>$get_cash,
+
         );
 
         define("FUNFCTIO_NAME",__FUNCTION__);
@@ -163,7 +166,14 @@ class Account
      */
     function pay(){
 
+        $user_id = $this->user_info->user_id;
+        $content  = $this->model->getBankCardAll($user_id);
+
+        $artificial_pay = $this->model->getArtificialPay($user_id);
+
         $args = array(
+            'artificial_pay'=>$artificial_pay,
+            'content'=>$content,
             'recharge_type'=>array('bank'=>'银行卡','wechat'=>'微信','alipay'=>'支付宝'),
         );
 
@@ -196,7 +206,7 @@ class Account
         $drp_two = $drp->getMyMember($user_id,2);//2级分销用户
         $sum_up_money = $drp->getMyCommission($user_id);//获取总佣金
         $today_money = $drp->getMyTodayCommission($user_id);//获取今日佣金
-        $CommissionDetail = $drp->getMyCommissionDetail($user_id);
+        $CommissionDetail = $drp->getMyCommissionDetail($user_id);//佣金
 
         $args = array(
             'distri_url'=>$distri_url,
@@ -489,7 +499,8 @@ class Account
                 exit(json_encode(array('status'=>'n','info'=>'不能再添加了')));
             }
             $wechat_account = $_POST['wechat_account'];
-            $args = array('user_id'=>$user_id,'account_number'=>$wechat_account,'card_type'=>$type,'card_state'=>'y','time'=>date('Y-m-d H:i:s'));
+            $wechat_name = $_POST['wechat_name'];
+            $args = array('user_id'=>$user_id,'account_number'=>$wechat_account,'account_name'=>$wechat_name,'card_type'=>$type,'card_state'=>'y','time'=>date('Y-m-d H:i:s'));
         }
 
         if($args){
@@ -497,7 +508,7 @@ class Account
             $result = $this->model->insertAccountInfo('card_binding',$args);
 
             if($result){
-                exit(json_encode(array('status'=>'y','info'=>'添加成功')));
+                exit(json_encode(array('status'=>'s','info'=>'添加成功')));
             }
         }
 
@@ -517,7 +528,8 @@ class Account
 
         $user_id = $this->user_info->user_id;
         $table = $this->model->table.'card_binding';
-        $result = $this->model->wpdb->query("DELETE FROM $table WHERE id = {$bank} and user_id = {$user_id}");
+
+        $result = $this->model->wpdb->query("UPDATE $table SET  `card_state`='n' WHERE id = {$bank} and`user_id`= {$user_id}");
 
         if($result){
             exit(json_encode(array('status'=>'y','info'=>'删除成功')));

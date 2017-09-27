@@ -17,7 +17,7 @@
         </p>
         <p class="lef_header_d">
             <span>当前余额</span>
-            <b><?=get_user_info()->user_money?></b>
+            <b><?=get_user_info()->user_money ? get_user_info()->user_money : '00'?></b>
         </p>
     </div>
     <div class="sonal_main_lef_nav">

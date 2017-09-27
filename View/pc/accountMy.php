@@ -23,9 +23,9 @@
             </div>
             <div class="per_main_rig_main">
                 <p class="rig_main_zla active_zla  rig_main_capital">
-                    <a class="betting_top-active" href="#modify_bindingaa1">基本信息</a>
-                    <a class="modify_binding2" href="#modify_bindingaa2">充值记录</a>
-                    <a class="modify_binding2" href="#modify_bindingaa3">积分与现金记录</a>
+                    <a class="betting_top-active bindingaa1" href="#modify_bindingaa1">基本信息</a>
+                    <a class="bindingaa2" href="#modify_bindingaa2">充值记录</a>
+                    <a class="bindingaa3" href="#modify_bindingaa3">积分与现金记录</a>
                 </p>
                 <div class="basic_information">
                  <div class="table_betting_main table_betting_active table_capital_main" id="modify_bindingaa1">
@@ -34,21 +34,21 @@
                              <i class="iconfont">&#xe627;</i>
                              <div class="detail">
                                  <p>账户余额</p>
-                                 <em><?=$sum_up_money ? $sum_up_money : '0.00'?></em>
+                                 <em><?=get_user_info()->user_money;?></em>
                              </div>
                          </div>
                          <div class="plTotal">
                              <i class="iconfont">&#xe605;</i>
                              <div class="detail">
                                  <p>投注金额</p>
-                                 <em><?=$today_money ? $today_money : '0.00'?></em>
+                                 <em><?=get_user_info()->betting_money?></em>
                              </div>
                          </div>
                          <div class="plTotal">
                              <i class="iconfont">&#xe6ca;</i>
                              <div class="detail">
                                  <p>可提现金额</p>
-                                 <em><?=$today_money ? $today_money : '0.00'?></em>
+                                 <em><?=get_user_info()->reward_money?></em>
                              </div>
                          </div>
                      </div>
@@ -105,9 +105,9 @@
                             <tbody class="tbody_referenceb tbody_capital_main">
 
                             <?php
-                            if($pay_log){
+                            if($pay_log['content']){
 
-                                foreach ($pay_log as $item) {
+                                foreach ($pay_log['content'] as $item) {
                                     ?>
                                     <tr>
                                         <td><span><?=$item->recharge_time?></span></td>
@@ -130,6 +130,20 @@
                             </tbody>
                         </table>
                         <hr class="style12">
+                         <?php
+                         $page_links = paginate_links( array(
+                             'base' => add_query_arg( 'page', '%#%'.'#modify_bindingaa2' ),
+                             'format' => '',
+                             'prev_text' => __( '上一页', 'aag' ),
+                             'next_text' => __( '下一页', 'aag' ),
+                             'total' => ceil( $pay_log['count']),
+                             'current' => $pay_log['pagenum']
+                         ) );
+
+                         if ( $page_links ) {
+                             echo '<div class="tablenav"><div class="tablenav-pages" style="margin: 1em 0">' . $page_links . '</div></div>';
+                         }
+                         ?>
                     </div>
                      <div class="table_betting_main table_capital_main" id="modify_bindingaa3">
                          <table class="table_reference">
@@ -144,8 +158,8 @@
                              <tbody class="tbody_referenceb tbody_capital_main">
 
                              <?php
-                             if($cash_log){
-                                 foreach ($cash_log as $item) {
+                             if($cash_log['content']){
+                                 foreach ($cash_log['content'] as $item) {
                                      ?>
                                      <tr>
                                          <td><span><?=$item->cash_record_time?></span></td>
@@ -158,7 +172,7 @@
                              }else{
                                  ?>
                                  <tr class="zanwujl">
-                                    <td colspan="4" style="text-align: center;"><span><i class="iconfont">&#xe60b;</i>没有充值记录</span></td>
+                                    <td colspan="4" style="text-align: center;"><span><i class="iconfont">&#xe60b;</i>没有记录</span></td>
                                 </tr>
                                  <?php
                              }
@@ -166,11 +180,40 @@
                              ?>
                              </tbody>
                          </table>
+
                         <hr class="style12">
+                         <?php
+                         $page_links = paginate_links( array(
+                             'base' => add_query_arg( 'pagenum', '%#%'.'#modify_bindingaa3' ),
+                             'format' => '',
+                             'prev_text' => __( '上一页', 'aag' ),
+                             'next_text' => __( '下一页', 'aag' ),
+                             'total' => ceil( $cash_log['count']),
+                             'current' => $cash_log['pagenum']
+                         ) );
+
+                         if ( $page_links ) {
+                             echo '<div class="tablenav"><div class="tablenav-pages" style="margin: 1em 0">' . $page_links . '</div></div>';
+                         }
+                         ?>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
    </div> 
 </main>
+
+<script>
+    window.onload = function() {
+        var url_status = $.getUrlParam('modify');
+        if(url_status){
+            $(".rig_main_capital a").removeClass("betting_top-active");
+            $('.'+url_status).addClass("betting_top-active");
+            $(".table_capital_main").removeClass("table_betting_active");
+            $(".brigtinh_main_cen").fadeOut(300);
+            $('#modify_'+url_status).delay(300).fadeIn();
+        }
+    };
+</script>

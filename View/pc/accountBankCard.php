@@ -114,6 +114,11 @@
                                     <input type="text" name="wechat_account" value=""  datatype="s4-18"  errormsg="至少4个字符,最多18个字符！"/>
                                     <span class="Validform_checktip"></span>
                                 </li>
+                                <li class="basic_information_b">
+                                    <label for="">真实姓名：</label>
+                                    <input type="text" name="wechat_name" value=""  datatype="s4-18"  errormsg="至少4个字符,最多18个字符！"/>
+                                    <span class="Validform_checktip"></span>
+                                </li>
                                  <li class="basic_information_i">
                                     <label for=""></label>
                                     <button class="modify_sub">绑定微信</button>
@@ -178,6 +183,7 @@
                                                 <dl>
                                                     <dd>
                                                         <span>账号：</span><?=$val->account_number?></dd>
+                                                    <dd><span>名字：</span><?=$val->account_name?></dd>
                                                 </dl>
                                                 <a href="javascript:void(0)" class="take take_bank_manage">设为默认帐户</a>
                                             </div>
