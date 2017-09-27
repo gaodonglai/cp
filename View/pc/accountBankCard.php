@@ -138,7 +138,7 @@
                                             <div class="body">
                                                 <dl>
                                                     <dd>
-                                                        <span>尾号：</span>***<?=substr($val->account_number,'-4')?></dd>
+                                                        <span>卡号：</span>***<?=substr($val->account_number,'-4')?></dd>
                                                     <dd><span>户名：</span><?=$val->account_name?></dd>
                                                 </dl>
                                                 <a href="javascript:void(0)" class="take take_bank_manage">设为默认帐户</a>

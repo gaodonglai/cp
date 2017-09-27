@@ -88,11 +88,7 @@
 		$(this).parents(".bank_manage").addClass("bank_manage_active");
 		$(this).parents(".bank_manage").prependTo(".Bank_card_bind_mainbb");
 	});
-	/*投注侧边栏手风琴*/
-	$(".childTitleaa").on("click",function(){
-		$(this).toggleClass("iconnone")
-		$(".childContentbb").toggleClass("chlidactive");
-	});
+
 	/*招聘手风琴*/
 	$(".childTitle").on("click",function(){
 		if($(this).hasClass("Record_active")){

@@ -79,7 +79,7 @@ html{
   font-size: 12px;
 }
 .color_red_mddd{
-  color: #f46e00;
+  color: #cc0000;
   font-size: 14px;
 }
 .color_red_mddd i{
@@ -102,12 +102,11 @@ html{
 }
 /*提醒*/
 .personal_main_macen .color_red_mddd2 {
-    color: #f46e00;
-    border: 1px solid #f8e2b9;
-    background: #fffdeb;
+    color: #cc0000;
+    background-color: #fdecec;
+    border: 1px solid #ebccd1;
     padding: 10px;
     margin:10px;
-    font-size: 14px;
 }
 .system_Prompt{
   color: #e31e27;
@@ -122,11 +121,6 @@ html{
 }
 .basic_information .bg_tishi{
   padding:10px 20px;
-  margin:0 20px;
-}
-.importanttisi{
-  font-size: 12px;
-  color: #f46e00;
 }
 /*登录框注册*/
 .pop_box{

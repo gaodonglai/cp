@@ -4,8 +4,8 @@
 	<!--左边导航-->
 	<div class="Betting_main_left">
 		<div class="sonal_main_lef_nav Betting_main_lef_nav">
-		<p class="childTitleaa"><span>各地区快三<i class="iconfont iconnonea">&#xe8da;</i><i class="iconfont iconnoneb">&#xe602;</i></span></p>
-			<ul class="childContentbb">
+		<p><span>各地区快三</span></p>
+			<ul>
 				<?php foreach ($lottery as $lv){
 					$url = _get_home_url('fastthree/view/?ks='.$lv['id']);
 					$class = '';
@@ -443,252 +443,6 @@
 									</div>
 		                        </div>
 		                    </div>
-		                    <!--玩法详情介绍-->
-		                    <div class="child">
-		                        <div class="childTitle">
-		                            <div class="childIcon">
-		                                <div class="sub sub1">
-		                                </div>
-		                                <div class="sub sub2">
-		                                </div>
-		                            </div>
-		                            <div class="title">
-		                                <p>玩法详情介绍</p>
-		                            </div>
-		                        </div>
-		                        <div class="childContent" style="display: none;">
-		                            <div class="basic_information">
-										<div class="table_betting_main table_betting_active">
-											 <p class="jiesao_ks">本平台快3开奖结果是根据<span>江苏快三</span>，<span>安徽快三</span>，<span>广西快三</span>，<span>吉林快三</span>，<span>湖北快三</span>，<span>河北快三</span>开奖为依据的。另外会员可以下注单，双，大，小。</p>
-											 <h1 class="title_ks">快三游戏八大解读</h1>
-											 <div class="introduce_ks">
-												<div class="introduce_ks_main">
-													<div class="introduce_left">
-														<div class="center_ks_int">
-															<div class="radio_int">
-																<span class="key_shadow_numint">1</span>
-																<b>+</b>
-																<span class="key_shadow_numint">5</span>
-																<b>+</b>
-																<span class="key_shadow_numint">3</span>
-															</div>
-															<p>和值投注</p>
-														</div>
-													</div>
-													<div class="introduce_right">
-														<div class="center_ks_intb">
-															<p>对三个号码的和值进行投注，包括“和值3”至“和值18”投注</p>
-															<p>最少10元投注</p>
-														</div>
-													</div>
-												</div>
-												<div class="introduce_ks_main">
-													<div class="introduce_left">
-														<div class="center_ks_int">
-															<div class="radio_int">
-																<span class="key_shadow_numint">111</span>
-																<b>+</b>
-																<span class="key_shadow_numint">333</span>
-																<b>+</b>
-																<span class="key_shadow_numint">666</span>
-															</div>
-															<p>三同号通选</p>
-														</div>
-													</div>
-													<div class="introduce_right">
-														<div class="center_ks_intb">
-															<p>对所有相同的三个号码111-666进行投注</p>
-															<p>10元可包全部投注</p>
-														</div>
-													</div>
-												</div>
-												<div class="introduce_ks_main">
-													<div class="introduce_left">
-														<div class="center_ks_int">
-															<div class="radio_int">
-																<span class="key_shadow_numint">111</span>
-																<b>+</b>
-																<span class="key_shadow_numint">333</span>
-																<b>+</b>
-																<span class="key_shadow_numint">666</span>
-															</div>
-															<p>三同号单选</p>
-														</div>
-													</div>
-													<div class="introduce_right">
-														<div class="center_ks_intb">
-															<p>对所有相同的三个号码111-666进行投注</p>
-															<p>10元可中1800元</p>
-														</div>
-													</div>
-												</div>
-												<div class="introduce_ks_main">
-													<div class="introduce_left">
-														<div class="center_ks_int">
-															<div class="radio_int">
-																<span class="key_shadow_numint">2</span>
-																<b>+</b>
-																<span class="key_shadow_numint">2</span>
-																<b>+</b>
-																<span class="key_shadow_numint">3</span>
-															</div>
-															<p>二同号复选</p>
-														</div>
-													</div>
-													<div class="introduce_right">
-														<div class="center_ks_intb">
-															<p>对3个号码中的2个指定的相同号码进行投注</p>
-															<p>10元可中115元</p>
-														</div>
-													</div>
-												</div>
-												<div class="introduce_ks_main">
-													<div class="introduce_left">
-														<div class="center_ks_int">
-															<div class="radio_int">
-																<span class="key_shadow_numint">1</span>
-																<b>+</b>
-																<span class="key_shadow_numint">1</span>
-																<b>+</b>
-																<span class="key_shadow_numint">*</span>
-															</div>
-															<p>二同号单选</p>
-														</div>
-													</div>
-													<div class="introduce_right">
-														<div class="center_ks_intb">
-															<p>对3个号码中的2个指定的相同号码和1个指定的不同号码进行投注</p>
-															<p>10元可中600元</p>
-														</div>
-													</div>
-												</div>
-												<div class="introduce_ks_main">
-													<div class="introduce_left">
-														<div class="center_ks_int">
-															<div class="radio_int">
-																<span class="key_shadow_numint">1</span>
-																<b>+</b>
-																<span class="key_shadow_numint">5</span>
-																<b>+</b>
-																<span class="key_shadow_numint">3</span>
-															</div>
-															<p>三不同号</p>
-														</div>
-													</div>
-													<div class="introduce_right">
-														<div class="center_ks_intb">
-															<p>对3个各不相同的号码进行投注</p>
-															<p>10元可中325元</p>
-														</div>
-													</div>
-												</div>
-												<div class="introduce_ks_main">
-													<div class="introduce_left">
-														<div class="center_ks_int">
-															<div class="radio_int">
-																<span class="key_shadow_numint">5</span>
-																<b>+</b>
-																<span class="key_shadow_numint">4</span>
-																<b>+</b>
-																<span class="key_shadow_numint">*</span>
-															</div>
-															<p>二不同号</p>
-														</div>
-													</div>
-													<div class="introduce_right">
-														<div class="center_ks_intb">
-															<p>对3个号码中的2个指定的不同号码进行投注</p>
-															<p>10元可中65元</p>
-														</div>
-													</div>
-												</div>
-												<div class="introduce_ks_main">
-													<div class="introduce_left">
-														<div class="center_ks_int">
-															<div class="radio_int">
-																<span class="key_shadow_numint">1</span>
-																<b>+</b>
-																<span class="key_shadow_numint">2</span>
-																<b>+</b>
-																<span class="key_shadow_numint">3</span>
-															</div>
-															<p>三连号通选</p>
-														</div>
-													</div>
-													<div class="introduce_right">
-														<div class="center_ks_intb">
-															<p>对3个相连的号码(123,456)进行投注</p>
-															<p>10元可包全部4注</p>
-														</div>
-													</div>
-												</div>
-												<div class="introduce_ks_main">
-													<div class="introduce_left">
-														<div class="center_ks_int">
-															<div class="radio_int">
-																<span class="key_shadow_numint">1</span>
-																<b>+</b>
-																<span class="key_shadow_numint">5</span>
-																<b>+</b>
-																<span class="key_shadow_numint">3</span>
-															</div>
-															<p>和值投注</p>
-														</div>
-													</div>
-													<div class="introduce_right">
-														<div class="center_ks_intb">
-															<p>对3个号码的和值单双不同号码进行投注</p>
-															<p>10元可中18元</p>
-														</div>
-													</div>
-												</div>
-												<div class="introduce_ks_main">
-													<div class="introduce_left">
-														<div class="center_ks_int">
-															<div class="radio_int">
-																<span class="key_shadow_numint">1</span>
-																<b>+</b>
-																<span class="key_shadow_numint">5</span>
-																<b>+</b>
-																<span class="key_shadow_numint">3</span>
-															</div>
-															<p>和值投注</p>
-														</div>
-													</div>
-													<div class="introduce_right">
-														<div class="center_ks_intb">
-															<p>对3个号码的和值大小不同号码进行投注</p>
-															<p>10元可中18元</p>
-														</div>
-													</div>
-												</div>
-											 </div>
-											 <div class="text_main_intr">
-												<p><span>1.</span>快3投注是指以三个号码组合为一注进行单式投注，每个投注号码为1-6共六个自然数中的任意一个，一组三个号码的组合称为一注。购买者可对其选定的投注号码进行多倍投注。单张彩票的投注金额最高无上限。</p>
-												<p><span>2.</span>购买者可在本平台进行投注，投注号码记录为江苏快三开奖凭证，开奖时将结算到账户。</p>
-												<p><span>3.</span>快3游戏根据号码组合共分为"和值"、"三同号"、"二同号"、"三不同号"、"二不同号"、"三连号通选(即全包)"投注方式，具体规定如下：</p>
-												<ul class="text_main_intr_ula">
-													<li>（一）和值投注：是指对三个号码的和值进行投注，包括"和值4"至"和值17"投注。</li>
-													<li>（二）三同号投注：是指对三个相同的号码进行投注，具体分为：</li>
-														<ul>
-															<li>1、三同号通选：是指对所有相同的三个号码（111、222、…、666）进行投注；</li>
-															<li>2、三同号单选：是指从所有相同的三个号码（111、222、…、666）中任意选择一组号码进行投注。</li>
-														</ul>
-													<li>（三）二同号投注：是指对两个指定的相同号码进行投注，具体分为：</li>
-														<ul>
-															<li>1、三同号通选：是指对所有相同的三个号码（111、222、…、666）进行投注；</li>
-															<li>2、三同号单选：是指从所有相同的三个号码（111、222、…、666）中任意选择一组号码进行投注。</li>
-														</ul>
-													<li>（四）三不同号投注：是指对三个各不相同的号码进行投注。</li>
-													<li>（五）二不同号投注：是指对三个号码中两个指定的不同号码和一个任意号码进行投注。</li>
-													<li>（六）三连号通选投注：是指对所有三个相连的号码（仅限：123、234、345、456）进行投注。</li>
-												</ul>
-												<p><span>4.</span>快3游戏每期销售时间为10分钟。销售期号以销售日按每期开奖顺序编排。</p>
-											 </div>
-										</div>
-									</div>
-		                        </div>
-		                    </div>
 		                </div>
 	                </div>
 			</div>
@@ -733,19 +487,19 @@
 		<td><span class="color_red_da">{{v.p_number}}</span></td>
 		<td><span>{{v.sumvalue}}</span></td>
 		<td>
-			<span class="Cl_ico">
+			<span class="Cl_ico da_icoa">
 				{{if v.p_size=='y'}}
-				<i class="da_icoa">大</i>
+				大
 				{{else}}
-				<i class="xiao_icoc">小</i>
+				小
 				{{/if}}
 			</span>
 			|
-			<span class="Cl_ico">
+			<span class="Cl_ico dan_icob">
 				{{if v.p_odd_even=='y'}}
-				<i class="shuang_icod">双</i>
+				双
 				{{else}}
-				<i class="dan_icob">单</i>
+				单
 				{{/if}}
 			</span>
 		</td>
