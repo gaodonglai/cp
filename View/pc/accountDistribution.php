@@ -193,7 +193,7 @@
                                     </div>
                                 </div>
                                 <div class="childContent" style="  display: block;">
-                                  <p class="record_p">暂无记录</p>
+                                 
                                   <div class="basic_information">
                                         <div class="table_betting_main table_betting_active">
                                              <table class="table_reference"> 
@@ -208,8 +208,8 @@
                                                  </thead> 
                                                  <tbody class="tbody_referenceb tbody_referencebc">
                                                  <?php
-                                                 if($CommissionDetail){
-                                                     foreach ($CommissionDetail as $item) {
+                                                 if($CommissionDetail['content']){
+                                                     foreach ($CommissionDetail['content'] as $item) {
                                                          ?>
                                                          <tr class="screen_nowin_a">
                                                              <td><span><?=hideStar($item->user_name)?></span></td>
@@ -226,7 +226,7 @@
                                                      <tr class="screen_nowin_a">
                                                          <td><span></span></td>
                                                          <td><span></span></td>
-                                                         <td><span class="color_red_da">没有明显内容</span></td>
+                                                         <td><span class="color_red_da">没有内容</span></td>
                                                          <td><span></span></td>
                                                          <td><span></span></td>
                                                      </tr>
@@ -238,6 +238,20 @@
                                                 </tbody>
                                               </table>
                                               <hr class="style12">
+                                            <?php
+                                            $page_links = paginate_links( array(
+                                                'base' => add_query_arg( 'detail_page', '%#%'.'#distr_card_binding3' ),
+                                                'format' => '',
+                                                'prev_text' => __( '上一页', 'aag' ),
+                                                'next_text' => __( '下一页', 'aag' ),
+                                                'total' => ceil( $CommissionDetail['count']),
+                                                'current' => $CommissionDetail['pagenum']
+                                            ) );
+
+                                            if ( $page_links ) {
+                                                echo '<div class="tablenav"><div class="tablenav-pages" style="margin: 1em 0">' . $page_links . '</div></div>';
+                                            }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>

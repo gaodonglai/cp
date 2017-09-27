@@ -30,12 +30,13 @@ class Pay
      * 人工充值审核提交
      */
     function setArtificialPay(){
+
         //rand(10,100)
         if(in_array("",$_POST)){
             exit(json_encode(array('status'=>'n','info'=>'请完善信息')));
         }
-        $type = $_POST['type'];
-        if(!in_array($type,array('bank','wechat','alipay'))){
+        $type_id = $_POST['type'];
+        if(!is_numeric($type_id)){
             exit(json_encode(array('status'=>'n','info'=>'请完成支付类型的选择')));
         }
 
@@ -44,10 +45,18 @@ class Pay
             exit(json_encode(array('status'=>'n','info'=>'请填写金额')));
         }
 
+        $user_id = $this->user_info->user_id;
+        $type = $this->model->getAccountBank($user_id,$type_id);
+        if(empty($type)){
+            exit(json_encode(array('status'=>'n','info'=>'充值方式有误')));
+        }
+
+
         //这段代码只是为了做一些简单的防重复，足够用了。
         $flag = 1;
         while($flag <100) {
-            $pay_money = $money.'.'.rand(10,99);
+            $pay_money = $money.'.'.sprintf("%02d",rand(1,30));
+
             $getToday = $this->model->getTodayPayMoney($pay_money);
             if(empty($getToday)){
                 break;
@@ -59,52 +68,51 @@ class Pay
             $flag++;
         }
 
-        $user_id = $this->user_info->user_id;
+
         $args = array(
             'user_id'=>$user_id,
-            'pay_type'=>$type,
+            'pay_type'=>$type_id,
             'pay_money'=>$pay_money,
             'time'=>date('Y-m-d H:i:s',time())
         );
 
         $result = $this->model->insertPyaInfo('artificial_pay',$args);
 
+
         if($result){
 
-            if($type == 'bank'){
-                $pathering_bank = get_option('admin_pathering_bank');//获取银行卡
-                if($pathering_bank){
-                    $count = count($pathering_bank);
+           exit(json_encode(array('status'=>'y','info'=>'提交成功')));
 
-                    if($count == 1){
-                        $rand = 0;
-                    }else{
-                        $rand = rand(0,$count);
-                    }
-                    $pathering_bank = $pathering_bank[$rand];
-
-                }
-                $content = '<div class="blankRemittance"> 
-                                <div class="blankRemittance_bg"> 
-                                    <ul>
-                                         <li><img src="'._get_home_url().'View/pc/image/icon_h_recharge.png"  class="icon_h_recharge"><span class="h_title">充值列表</span></li> 
-                                         <li class=""> <p>银行：<span class="">'.$pathering_bank['bank_name'].'</span></p> </li>
-                                         <li class=""> <p>卡号：<span class="">'.$pathering_bank['bank_card'].'</span></p> </li>
-                                         <li class=""> <p>姓名：<span class="">'.$pathering_bank['bank_nickname'].'</span></p> </li>
-                                         <li class=""> <p>充值金额：<span class="h_title">'.$pay_money.'</span>请按照本次显示的金额往以上的账户进行转账，以便快速确认</p> </li>
-                            
-                                   </ul>
-                                </div>
-                         </div>';
-
-                exit(json_encode(array('status'=>'y','info'=>$content)));
-            }else{
-
-            }
         }else{
             exit(json_encode(array('status'=>'n','info'=>'添加失败，请重试')));
         }
 
+
+
+    }
+
+    /**
+     * 取消本次充值
+     */
+    public function cancelPay(){
+        $pay_id = $_POST['pay_id'];
+        if(!is_numeric($pay_id)){
+            exit(json_encode(array('status'=>'n','info'=>'参数错误')));
+        }
+        $user_id = $this->user_info->user_id;
+        $result = $this->model->getArtificialPayLog($user_id,$pay_id);
+
+
+        if(empty($result)){
+            exit(json_encode(array('status'=>'n','info'=>'没有充值记录')));
+        }
+
+        $result = $this->model->updateArtificialPayLog($user_id,$pay_id);
+        if($result){
+            exit(json_encode(array('status'=>'y','info'=>'取消成功')));
+        }else{
+            exit(json_encode(array('status'=>'n','info'=>'取消失败，请重试')));
+        }
 
 
     }
