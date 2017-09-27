@@ -67,19 +67,17 @@
                         <form action="<?=_get_home_url('pay/setArtificialPay')?>" class="artificial_pay basic_information_form Withdrawals_bind_form registerform">
                             <ul>
                                 <li class="basic_information_d">
-<<<<<<< HEAD
+
                                     <label for="" style="width: 111px;">充值方式：</label>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                                     <label for="">充值方式：</label>
-=======
+
                                     <label for="" style="width: 111px;">充值方式：</label>
->>>>>>> parent of a4c94f6... 添加分页与交互
-=======
+
                                     <label for="" style="width: 111px;">充值方式：</label>
->>>>>>> parent of a4c94f6... 添加分页与交互
->>>>>>> parent of fd6e5b8... Revert "添加分页与交互"
+
+                                    <label for="" style="width: 111px;">充值方式：</label>
+
                                     <select name="type">
                                         <option value="">请选择</option>
                                         <?php
@@ -88,15 +86,9 @@
                                         }
                                         ?>
                                     </select>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
                                     <span class="Validform_checktip" style="    width: 400px;height: 66px;"></span>
->>>>>>> parent of a4c94f6... 添加分页与交互
-=======
->>>>>>> parent of fd6e5b8... Revert "添加分页与交互"
+
                                     <span class="Validform_checktip" style="    width: 400px;height: 66px;"></span>
                                 </li>
                             <li class="basic_information_d">

@@ -13,7 +13,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="accountExtractMoney.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/pc/accountExtractMoney.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="256" column="0" lean-forward="true" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="accountPay.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/View/pc/accountPay.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1136">
+              <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -87,7 +108,6 @@
         <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/model/PayModel.class.php" />
         <option value="$PROJECT_DIR$/ks/wp-content/themes/ks/admin/account/action/PayAction.class.php" />
         <option value="$PROJECT_DIR$/Controller/PayController.class.php" />
-        <option value="$PROJECT_DIR$/View/pc/accountPay.php" />
         <option value="$PROJECT_DIR$/View/pc/accountMy.php" />
         <option value="$PROJECT_DIR$/Model/AccountModel.class.php" />
         <option value="$PROJECT_DIR$/View/pc/accountDistribution.php" />
@@ -96,6 +116,7 @@
         <option value="$PROJECT_DIR$/Model/BankMgModel.class.php" />
         <option value="$PROJECT_DIR$/Controller/BankMgController.class.php" />
         <option value="$PROJECT_DIR$/View/pc/accountExtractMoney.php" />
+        <option value="$PROJECT_DIR$/View/pc/accountPay.php" />
       </list>
     </option>
   </component>
@@ -163,6 +184,24 @@
               <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pc" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="cp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="pc" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="image" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -219,17 +258,18 @@
       <workItem from="1506308308148" duration="20456000" />
       <workItem from="1506396905464" duration="20157000" />
       <workItem from="1506428436903" duration="10255000" />
-      <workItem from="1506483173011" duration="12242000" />
+      <workItem from="1506483173011" duration="12558000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122149000" />
+    <option name="totallyTimeSpent" value="122465000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -623,14 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/accountPay.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="231" column="34" lean-forward="false" selection-start-line="231" selection-start-column="34" selection-end-line="231" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Controller/PayController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="490">
@@ -776,14 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/pc/accountExtractMoney.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1167">
-          <caret line="116" column="33" lean-forward="false" selection-start-line="116" selection-start-column="33" selection-end-line="116" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Model/BankMgModel.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="718">
@@ -814,6 +838,22 @@
           <folding>
             <marker date="1506499554058" expanded="true" signature="14495:14547" ph="DELETE FROM " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/pc/accountExtractMoney.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="256" column="0" lean-forward="true" selection-start-line="256" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/pc/accountPay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1136">
+          <caret line="69" column="0" lean-forward="true" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
