@@ -16,3 +16,5 @@ cp1.zip
 .htaccess
 View/pc/accountExtractMoney.php
 View/pc/accountPay.php
+View/pc/accountExtractMoney.php
+View/pc/accountPay.php
