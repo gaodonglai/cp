@@ -61,23 +61,103 @@
                         </div>
                     </div>
                     <div class="table_betting_main table_betting_active table_capital_main" id="Recharge_tab4">
+                        <?php
+
+                        if($artificial_pay){
+
+                            if($artificial_pa->card_type == 'bank'){
+                                $pathering_bank = get_option('admin_pathering_bank');//获取银行卡
+                                if($pathering_bank){
+                                    $count = count($pathering_bank);
+
+                                    if($count == 1){
+                                        $rand = 0;
+                                    }else{
+                                        $rand = rand(0,$count);
+                                    }
+                                    $pathering_bank = $pathering_bank[$rand];
+
+                                }
+                                echo '<div class="blankRemittance"> 
+                                    <div class="blankRemittance_bg"> 
+                                        <ul>
+                                             <li><img src="'._get_home_url().'View/pc/image/icon_h_recharge.png"  class="icon_h_recharge"><span class="h_title">充值列表</span></li> 
+                                             <li class=""> <p>银行：<span class="">'.$pathering_bank['bank_name'].'</span></p> </li>
+                                             <li class=""> <p>卡号：<span class="">'.$pathering_bank['bank_card'].'</span></p> </li>
+                                             <li class=""> <p>姓名：<span class="">'.$pathering_bank['bank_nickname'].'</span></p> </li>
+                                             <li class=""> <p>充值金额：<span class="h_title">'.$artificial_pay->pay_money.'</span>请按照本次显示的金额往以上的账户进行转账，以便快速确认</p> </li>
+                                             <li class=""> <p><button data-id="'.$artificial_pay->id.'" class="cancel_pay modify_sub">取消本次</button></p> </li>
+                                
+                                       </ul>
+                                    </div>
+                                 </div>';
+                            }else{
+                                echo '<div class="blankRemittance" style="    height: 600px;"> 
+                                    <div class="blankRemittance_bg"> 
+                                        <ul>
+                                             <li><img src="'._get_home_url().'View/pc/image/icon_h_recharge.png"  class="icon_h_recharge"><span class="h_title">充值列表</span></li> 
+                                             <li class=""> <p>公司名称：<span class="">四川成都美誉艺术品</span></p> </li>
+                                             <li class=""><img style="    width: 40%;" src="'._get_home_url().'View/pc/image/支付宝与微信收款.png"  class="icon_h_recharge"> </li>
+                                              
+                                             <li class=""> <p>充值金额：<span class="h_title">'.$artificial_pay->pay_money.'</span>请按照本次显示的金额往以上的账户进行转账，以便快速确认</p> </li>
+                                             <li class=""> <p><button data-id="'.$artificial_pay->id.'" class="cancel_pay modify_sub">取消本次</button></p> </li>
+                                
+                                       </ul>
+                                    </div>
+                                 </div>';
+                            }
+
+                        }else{
+
+                            ?>
                         <div class="basic_information">
                             <p class="color_red_mddd2">提示：该方式为用户转账方式，请完成下面充值金额确认后再进行转账</p>
                         </div>
                         <form action="<?=_get_home_url('pay/setArtificialPay')?>" class="artificial_pay basic_information_form Withdrawals_bind_form registerform">
-                            <ul>
+                            <?php
+
+
+
+                            if($content){
+                                ?>
                                 <li class="basic_information_d">
                                     <label for="" style="width: 111px;">充值方式：</label>
                                     <select name="type">
                                         <option value="">请选择</option>
                                         <?php
-                                        foreach ($recharge_type as $key=> $item) {
-                                            ?><option value="<?=$key?>"><?=$item?></option><?php
-                                        }
-                                        ?>
+                                        if($content){
+                                            foreach ($content as $key=> $item) {
+                                                if($item->card_type == 'bank'){
+                                                    ?>
+                                                    <option value="<?=$item->id?>"> 银行卡 <?=substr($item->account_number,0,3)?>*****<?=substr($item->account_number,'-4')?> <?=$item->account_name ?></option>
+                                                    <?php
+                                                }elseif($item->card_type == 'alipay'){
+                                                    ?>
+                                                    <option value="<?=$item->id?>"> 支付宝 <?=hideStar($item->account_number)?> <?=$item->account_name ?></option>
+                                                    <?php
+                                                }elseif($item->card_type == 'wechat'){
+                                                    ?>
+                                                    <option value="<?=$item->id?>"> 微信   <?=substr($item->account_number,'-4')?> <?=$item->account_name ?></option>
+                                                    <?php
+                                                }
+
+                                            }
+                                        }?>
                                     </select>
+
                                     <span class="Validform_checktip" style="    width: 400px;height: 66px;"></span>
                                 </li>
+                                <?php
+                            }else{
+                                ?>
+
+                                <li class="basic_information_a">
+                                    <span >没有充值账号信息：<a class="color_red_mddd " href="<?=_get_home_url('account/bankCard#Bank_card_binding1')?>">去添加</a></span>
+                                </li>
+                                <?php
+                            }
+
+                            ?>
                             <li class="basic_information_d">
                                 <label for="" style="width: 111px;">充值金额(￥)：</label>
                                 <input type="number" name="pay_money" value="" datatype="n3-11">
@@ -91,6 +171,7 @@
 
                             </ul>
                         </form>
+                        <?php } ?>
                     </div>
 
                 </div>
@@ -111,6 +192,29 @@
         }
     };
 
+    $(".cancel_pay").on("click",function(){
+
+        var _this = $(this);
+        $.ajax({
+            type : 'POST',  //提交方式
+            dataType:'json',
+            url : '<?=_get_home_url('pay/cancelPay')?>',//路径
+            data:{'pay_id':_this.attr('data-id')},//
+            success : function(data) {//返回数据根据结果进行相应的处理
+
+                if ( data.status == 'y') {
+
+                    $.alerts(data.info);
+                    history.go(0);
+                } else {
+
+                    $.alerts(data.info);
+                }
+            }
+        });
+        return false;
+
+    });
 
     $(".artificial_pay").on("submit",function(){
 
@@ -123,9 +227,8 @@
             success : function(data) {//返回数据根据结果进行相应的处理
 
                 if ( data.status == 'y') {
-                    $('#Recharge_tab4').html("");
-                    $('#Recharge_tab4').html(data.info);
-
+                    $.alerts(data.info);
+                    history.go(0);
 
                 } else {
                     $.alerts(data.info)

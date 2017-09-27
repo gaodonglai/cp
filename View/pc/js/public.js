@@ -157,6 +157,9 @@
                  if(data.url){
                      window.location.href = data.url;
                  }
+             }else if(data.status == 's'){
+                 $.alerts(data.info);
+                 history.go(0);
              }
 
          },'json');

@@ -41,5 +41,36 @@ class Pay
     }
 
 
+    /**
+     * 查询银行卡是否存在
+     * @param $data_array
+     * @param $where_clause
+     * @return mixed
+     */
+    public function getAccountBank($user_id,$bank_id){
+        return $this->wpdb->get_var("SELECT card_type FROM `{$this->table}card_binding` WHERE `user_id`= {$user_id} and`id`= {$bank_id}");
 
+    }
+
+    /**
+     * 查询用户提现记录是否存在
+     * @param $data_array
+     * @param $where_clause
+     * @return mixed
+     */
+    public function getArtificialPayLog($user_id,$bank_id){
+        return $this->wpdb->get_row("SELECT * FROM `{$this->table}artificial_pay` WHERE `user_id`= {$user_id} and`id`= {$bank_id} and status='s'");
+
+    }
+
+    /**
+     * 查询用户提现记录是否存在
+     * @param $data_array
+     * @param $where_clause
+     * @return mixed
+     */
+    public function updateArtificialPayLog($user_id,$id){
+        return $this->wpdb->query("UPDATE `{$this->table}artificial_pay` SET `status`= 'n',`remarks`= '用户取消' WHERE `user_id`= {$user_id} and`id`= {$id}");
+
+    }
 }

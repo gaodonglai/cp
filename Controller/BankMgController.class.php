@@ -14,7 +14,8 @@ class BankMg
 {
     public $model;
     public $user_info;
-    public $status = array('1'=>'待处理','2'=>'通过','3'=>'未通过');
+    public $status = array('1'=>'待处理','2'=>'提现成功','3'=>'未通过');
+    public $type = array('bank'=>'银行卡','wechat'=>'微信','alipay'=>'支付宝');
 
     function __construct(){
 
@@ -52,14 +53,23 @@ class BankMg
             exit(json_encode(array('status'=>'n','info'=>'交易密码错误')));
         }
 
-        //最低限制还未设置
-
-
-        if($reward_money  < $money){
-            exit(json_encode(array('status'=>'n','info'=>'提现金额超出限额')));
+        $getAccountBank = $this->model->getAccountBank($user_id,$bankcard);
+        if(empty($getAccountBank)){
+            exit(json_encode(array('status'=>'n','info'=>'卡号信息错误')));
         }
 
-        //还未做限制
+        //最低限制
+        $quota = get_option('withdraw_quota_setting');//提现限额
+
+        if($quota > $money){
+            exit(json_encode(array('status'=>'n','info'=>'提现金额不能低于最低提现额度')));
+        }
+
+        if($reward_money  < $money){
+            exit(json_encode(array('status'=>'n','info'=>'提现金额超出可提现总额')));
+        }
+
+
         $this->model->wpdb->query("BEGIN");
         $extract_money = array(
              'user_id'=>$user_id,
@@ -83,7 +93,7 @@ class BankMg
 
         if(!in_array("",$flag)){
             $this->model->wpdb->query("COMMIT");
-            exit(json_encode(array('status'=>'r','info'=>'提现申请成功')));
+            exit(json_encode(array('status'=>'s','info'=>'提现申请成功')));
         }else{
             $this->model->wpdb->query("ROLLBACK");
             exit(json_encode(array('status'=>'n','info'=>'提现申请失败，请重试')));

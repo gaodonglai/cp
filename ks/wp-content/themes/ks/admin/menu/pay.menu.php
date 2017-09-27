@@ -42,7 +42,7 @@ class pay_calss{
     }
 
     public function fun_menu(){
-        $status = array('y'=>'充值成功','n'=>'失败','s'=>'待确认');
+        $status = array('y'=>'充值成功','n'=>'已取消','s'=>'待确认');
 
         global $wpdb;
         $like = $_GET['like'];
@@ -53,7 +53,8 @@ class pay_calss{
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
         $limit = 10;
         $offset = ( $pagenum - 1 ) * $limit;
-        $entries = $wpdb->get_results( "SELECT a.*,b.user_name,b.nick_name,b.user_money FROM {$wpdb->prefix}artificial_pay as a inner JOIN {$wpdb->prefix}account as b on a.user_id = b.user_id $g_like ORDER BY  `id` DESC   LIMIT $offset, $limit " );
+        $entries = $wpdb->get_results( "SELECT a.*,b.user_name,b.nick_name,b.user_money,d.account_number as bank_account_number,d.account_name as bank_account_name, d.card_type FROM {$wpdb->prefix}artificial_pay as a inner JOIN {$wpdb->prefix}account as b on a.user_id = b.user_id  INNER JOIN {$wpdb->prefix}card_binding as d on a.user_id=d.user_id and a.pay_type = d.id $g_like ORDER BY  a.id DESC   LIMIT $offset, $limit " );
+
         ?>
         <div class="wrap">
             <h1 class="wp-heading-inline">充值申请</h1>
@@ -62,7 +63,7 @@ class pay_calss{
 
             <h2 class="screen-reader-text">过滤用户列表</h2>
             <form action="<?=add_query_arg()?>" method="get">
-                <input type="hidden" id="user-search-input" name="page" value="account">
+                <input type="hidden" id="user-search-input" name="page" value="pay">
                 <p class="search-box">
                     <label class="screen-reader-text" for="user-search-input">搜索用户:</label>
                     <input type="search" id="user-search-input" name="like" value="">
@@ -77,7 +78,7 @@ class pay_calss{
                         <th scope="col" id="username" class="manage-column column-username column-primary sortable desc"><a href="javascipt:;"><span>用户名</span><span class="sorting-indicator"></span></a></th>
                         <th scope="col" id="name" class="manage-column column-name">充值途径</th>
 
-                        <th scope="col" id="role" class="manage-column column-posts num">余额</th>
+                        <th scope="col" id="role" class="manage-column column-posts num">用户当前余额</th>
                         <th scope="col" id="role" class="manage-column column-role">本次充值金额</th>
                         <th scope="col" id="role" class="manage-column column-role">本次充值时间</th>
                         <th scope="col" id="role" class="manage-column column-posts num">状态</th>
@@ -94,9 +95,9 @@ class pay_calss{
                             ?>
                             <tr id="user-1"><th scope="row" class="check-column">
                                 <td class="username column-username has-row-actions column-primary" data-colname="用户名"><strong><a href="javascript:;"><?=$entry->user_name?></a></strong><br><div class="row-actions"><span class="edit"><a href="?page=account&type=edit&user_id=<?=$entry->user_id?>">编辑用户</a> </span></div><button type="button" class="toggle-row"><span class="screen-reader-text">显示详情</span></button></td>
-                                <td class="name column-name" data-colname="姓名"><?=$pay_type[$entry->pay_type]?></a></td>
+                                <td class="name column-name" data-colname="途径"><?=$pay_type[$entry->card_type] .' '. $entry->bank_account_number .' '. $entry->bank_account_name?></a></td>
 
-                                <td class="user_id column-user_id" data-colname="余额"><?=$entry->user_money?></td>
+                                <td class="user_id column-user_id" data-colname="用户当前余额"><?=$entry->user_money?></td>
 
                                 <td class="user_id column-user_id" data-colname="本次充值金额"><?=$entry->pay_money?></td>
                                 <td class="user_id column-user_id" data-colname="注册时间"><?=$entry->time?></td>
@@ -105,8 +106,12 @@ class pay_calss{
                                 <td class="user_id column-user_id" data-colname="操作">
                                     <?php
                                     if($entry->status == 's'){
-                                        ?><a data-money="<?=$entry->pay_money?>" data-type="<?=$pay_type[$entry->pay_type]?>" class="add-verify" href="javascript:;" data-id="<?=$entry->id?>" class="">确认</a> | <a data-money="<?=$entry->pay_money?>" data-type="<?=$pay_type[$entry->pay_type]?>" class="update-verify" href="javascript:;" data-id="<?=$entry->id?>" class="">其他金额</a> | <a data-money="<?=$entry->pay_money?>" href="javascript:;" data-id="<?=$entry->id?>" class="">取消</a><?php
-                                    }
+                                        ?><a data-money="<?=$entry->pay_money?>" data-type="<?=$pay_type[$entry->pay_type]?>" class="add-verify" href="javascript:;" data-id="<?=$entry->id?>" class="">确认</a>
+                                        |
+                                        <a data-money="<?=$entry->pay_money?>" data-type="<?=$pay_type[$entry->pay_type]?>" class="update-verify" href="javascript:;" data-id="<?=$entry->id?>" class="">其他金额</a>
+                                        |
+                                    <?php
+                                        }
                                     ?>
 
                                 </td>
@@ -129,7 +134,7 @@ class pay_calss{
                         <td id="cb" class="manage-column column-cb check-column"><label class="screen-reader-text" for="cb-select-all-1">全选</label><input id="cb-select-all-1" type="checkbox"></td>
                         <th scope="col" id="username" class="manage-column column-username column-primary sortable desc"><a href="http://localhost/cp/ks/wp-admin/users.php?orderby=login&amp;order=asc"><span>用户名</span><span class="sorting-indicator"></span></a></th>
                         <th scope="col" id="name" class="manage-column column-name">充值途径</th>
-                        <th scope="col" id="role" class="manage-column column-posts num">余额</th>
+                        <th scope="col" id="role" class="manage-column column-posts num">用户当前余额</th>
                         <th scope="col" id="role" class="manage-column column-role">本次充值金额</th>
                         <th scope="col" id="role" class="manage-column column-role">本次充值时间</th>
                         <th scope="col" id="role" class="manage-column column-posts num">状态</th>
@@ -211,6 +216,36 @@ class pay_calss{
                     dataType:'json',
                     url :"<?=get_stylesheet_directory_uri().'/admin/ajax.php'?>",//路径
                     data:{'update_money':cancel_content,'id':_this.attr('data-id'),'action':'account/pay/updaTeartificialPay'},//
+                    success : function(data) {//返回数据根据结果进行相应的处理
+
+                        if ( data.status == 'y') {
+                            alert("充值成功");
+                            window.history.go(0);
+                        } else {
+                            alert("充值失败，请重试");
+                        }
+                    }
+                });
+                return false;
+
+            });
+
+            //取消充值申请
+            $(".cancel-verify").on("click",function(){
+
+                var _this = $(this);
+                var cancel_content = prompt("取消用户 "+_this.attr('data-name')+" 本次充值 "+_this.attr('data-money') +" 元的申请，请输入原因", ""); //将输入的内容赋给变量 name ，
+
+                //这里需要注意的是，prompt有两个参数，前面是提示的话，后面是当对话框出来后，在对话框里的默认值
+                if (cancel_content == null || cancel_content == undefined || cancel_content == '') {
+                    return false;
+                }
+
+                $.ajax({
+                    type : 'POST',  //提交方式
+                    dataType:'json',
+                    url :"<?=get_stylesheet_directory_uri().'/admin/ajax.php'?>",//路径
+                    data:{'cancel_content':cancel_content,'user_id':_this.attr('data-user_id'),'pay_id':_this.attr('data-id'),'action':'account/pay/canceleErtificialPay'},//
                     success : function(data) {//返回数据根据结果进行相应的处理
 
                         if ( data.status == 'y') {

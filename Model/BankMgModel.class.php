@@ -57,6 +57,18 @@ class BankMg
         return $this->wpdb->query("UPDATE `{$this->table}account` SET `reward_money`= reward_money - {$money} WHERE `user_id`= {$user_id}");
     }
 
+
+    /**
+     * 获取用户银行卡信息
+     * @param $user_id
+     * @param $money
+     * @return false|int
+     */
+    function getAccountBank($user_id,$id){
+
+        return $this->wpdb->query("SELECT * FROM `{$this->table}card_binding` WHERE user_id ={$user_id} and `id`= {$id} and `card_state`= 'y'");
+    }
+
     /**
      * 获取用户提现记录
      * @param $user_id
@@ -64,7 +76,15 @@ class BankMg
      */
     function getUserWithdrawRecord($user_id){
 
-        return $this->wpdb->get_results("SELECT a.*,b.account_number,b.opening_bank,b.card_type FROM `{$this->table}extract_money_log` as a LEFT JOIN `ks_card_binding` as b on a.bankcard = b.id  WHERE  a.`user_id` = {$user_id} ORDER BY  `a`.`id` DESC ");
+        $limit = 4;
+        $pagenum = isset( $_GET['page'] ) ? absint( $_GET['page'] ) : 1; //获取分页数
+        $offset = ( $pagenum - 1 ) * $limit;
+
+        $content = $this->wpdb->get_results("SELECT SQL_CALC_FOUND_ROWS a.*,b.account_number,b.opening_bank,b.card_type FROM `{$this->table}extract_money_log` as a LEFT JOIN `{$this->table}card_binding` as b on a.bankcard = b.id  WHERE  a.`user_id` = {$user_id} ORDER BY  `a`.`id` DESC limit {$offset},{$limit}");
+
+        $count = $this->wpdb->get_var("SELECT FOUND_ROWS();");
+        return array('content'=>$content,'count'=>$count / $limit,'pagenum'=>$pagenum);
+
     }
 
 }

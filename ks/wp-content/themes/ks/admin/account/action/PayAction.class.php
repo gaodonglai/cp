@@ -125,5 +125,35 @@ class PayAction extends AdminAction
 
     }
 
+    /**
+     * 取消用户申请
+     */
+    public function canceleErtificialPay(){
 
+        $pay_id = $_POST['pay_id'];
+        $user_id = $_POST['user_id'];
+        $cancel_content = $_POST['cancel_content'];
+        if(!is_numeric($pay_id)){
+            exit(json_encode(array('status'=>'n','info'=>'参数错误')));
+        }
+
+        $operation_record = array(
+            'users_id'=>get_current_user_id(),//操作人员id
+            'record'=>'充值取消：user_id='.$user_id,
+            'front'=>'s',
+            'behind'=>'n',
+            'ip'=>'',
+            'time'=>time(),
+        );
+
+
+        $result = $this->model->updateArtificialPayLog($user_id,$pay_id,$cancel_content);
+        if($result){
+            $flag = $this->model->insertDistributionInfo('operation_record',$operation_record);//管理员操作记录
+
+            exit(json_encode(array('status'=>'y','info'=>'取消成功')));
+        }else{
+            exit(json_encode(array('status'=>'n','info'=>'取消失败，请重试')));
+        }
+    }
 }
