@@ -93,7 +93,7 @@ class order_account_calss{
                     <thead>
                         <tr>
                             <td id="cb" class="manage-column column-cb check-column"><label class="screen-reader-text" for="cb-select-all-1">全选</label><input id="cb-select-all-1" type="checkbox"></td>
-                            <th scope="col" id="username" class="manage-column column-username column-primary sortable desc"><a href="javascript:;"><span>用户名</span><span class="sorting-indicator"></span></a></th>
+                            <th scope="col" id="username" class="manage-column column-username column-primary sortable desc"><a href="http://localhost/cp/ks/wp-admin/users.php?orderby=login&amp;order=asc"><span>用户名</span><span class="sorting-indicator"></span></a></th>
                             <th scope="col" id="name" class="manage-column column-name">姓名</th>
                             <th scope="col" id="email" class="manage-column column-email sortable desc"><a href="javascript:;"><span>电子邮件</span><span class="sorting-indicator"></span></a></th>
                             <th scope="col" id="role" class="manage-column column-role">余额</th>
@@ -197,22 +197,18 @@ class order_account_calss{
 
             <form action="<?=get_stylesheet_directory_uri().'/admin/ajax.php'?>" method='post' name="createuser" id="createuser" class="adminAjaxPost validate" novalidate="novalidate">
                 <input type="hidden" name='action' value="account/account/setAccount" />
-                <table class="form-table">
+                <input type="hidden" id="_wpnonce_create-user" name="_wpnonce_create-user" value="6846f1d528"><input type="hidden" name="_wp_http_referer" value="/cp/ks/wp-admin/user-new.php"><table class="form-table">
                     <tbody><tr class="form-field form-required">
                         <th scope="row"><label for="user_login">用户名 <span class="description"></span></label></th>
-                        <td><input name="user_name" type="text" id="user_login" value="" placeholder="" aria-required="true" autocapitalize="none" autocorrect="off" maxlength="60">
-                            <p class="description" id="tagline-description">手机号或邮箱</p></td>
-
+                        <td><input name="user_name" type="text" id="user_login" value="" placeholder="手机号或邮箱" aria-required="true" autocapitalize="none" autocorrect="off" maxlength="60"></td>
                     </tr>
                     <tr class="form-field form-required">
                         <th scope="row"><label for="password">密码 <span class="description"></span></label></th>
-                        <td><input placeholder="" name="user_pass" type="text" id="email" value=""><p class="description" id="tagline-description">6-18位的数字加字母</p></td>
-
+                        <td><input placeholder="6-18位的数字加字母" name="user_pass" type="text" id="email" value=""></td>
                     </tr>
                     <tr class="form-field form-required">
                         <th scope="row"><label for="re_password">重复密码 <span class="description"></span></label></th>
-                        <td><input placeholder="" name="user_rePass" type="text" id="email" value=""> <p class="description" id="tagline-description">6-18位的数字加字母</p></td>
-
+                        <td><input placeholder="6-18位的数字加字母" name="user_rePass" type="text" id="email" value=""></td>
                     </tr>
                     </tbody></table>
                 <p class="submit"><input type="submit" name="createuser" id="createusersub" class="button button-primary" value="添加用户"></p>
@@ -360,7 +356,7 @@ class order_account_calss{
 
                     <tr class="user-first-name-wrap">
                         <th><label for="first_name">充值金额</label></th>
-                        <td><input type="number" name="pay_money" value="" class="regluar-text ltr"></td>
+                        <td><input type="text" name="pay_money" value="" class="regular-text"></td>
                     </tr>
 
                     <table class="form-table">

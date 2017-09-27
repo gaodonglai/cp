@@ -14,7 +14,7 @@
         <p class="lef_header_a"><a href="<?=_get_home_url('account/my')?>"><span><img src="<?=_get_home_url()?>/View/pc/image/headerk3.png" alt=""></span><b><?php echo get_user_info()->user_name?></b></a></p>
         <p class="lef_header_d">
             <span>当前余额</span>
-            <b><?=get_user_info()->user_money ? get_user_info()->user_money : '00'?></b>
+            <b><?=get_user_info()->user_money?></b>
         </p>
     </div>
     <div class="sonal_main_lef_nav">

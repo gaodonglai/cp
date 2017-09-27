@@ -23,4 +23,24 @@ class Distribution
 
     }
 
+    function main(){
+        $user_id = $this->user_info->user_id;
+        $this->model->wpdb->query("BEGIN");
+
+        $result1 = $this->model->setPayLog($user_id,100,20,'wechat');
+
+        $result2 = $this->model->setDistributionProfit($user_id,100);
+
+        if($result1 && $result2){
+            echo '成功';
+            $this->model->wpdb->query("COMMIT");
+        }else{
+            echo '失败';
+            $this->model->wpdb->query("ROLLBACK");
+        }
+    }
+
+
+
+
 }
