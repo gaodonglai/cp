@@ -14,3 +14,5 @@ cp.zip
 functions/gaoxing.function.php
 cp1.zip
 .htaccess
+View/pc/accountExtractMoney.php
+View/pc/accountPay.php
