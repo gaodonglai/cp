@@ -68,7 +68,11 @@
                                 <li class="basic_information_d">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <label for="">充值方式：</label>
+=======
+                                    <label for="" style="width: 111px;">充值方式：</label>
+>>>>>>> parent of a4c94f6... 添加分页与交互
 =======
                                     <label for="" style="width: 111px;">充值方式：</label>
 >>>>>>> parent of a4c94f6... 添加分页与交互
@@ -85,6 +89,10 @@
                                     </select>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+                                    <span class="Validform_checktip" style="    width: 400px;height: 66px;"></span>
+>>>>>>> parent of a4c94f6... 添加分页与交互
 =======
                                     <span class="Validform_checktip" style="    width: 400px;height: 66px;"></span>
 >>>>>>> parent of a4c94f6... 添加分页与交互
