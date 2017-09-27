@@ -99,7 +99,7 @@
                             </ul>
                         </form>
                         <h3>提现记录</h3>
-                        <table class="table_reference">
+                        <table class="table_reference Withdrawals_bind_main">
                             <thead class="tbody_referencea">
                             <tr>
                                 <th><span>操作时间</span></th>
@@ -135,16 +135,8 @@
                                 }
                             }else{
                                 ?>
-                                <tr class="screen_nowin_a">
-                                    <td><span></span></td>
-                                    <td><span></span></td>
-                                    <td><span></span></td>
-                                    <td><span></span></td>
-                                    <td><span></span>没有记录</td>
-                                    <td><span></span></td>
-                                    <td><span class="tdbetting-active-aa"></span></td>
-                                    <td><span></span></td>
-                                    <td><span></span></td>
+                                <tr class="zanwujl">
+                                    <td colspan="9" style="text-align: center;"><span><i class="iconfont"></i>没有充值记录</span></td>
                                 </tr>
                             <?php
                             }
@@ -239,16 +231,8 @@
                                 }
                             }else{
                                 ?>
-                                <tr class="screen_nowin_a">
-                                    <td><span></span></td>
-                                    <td><span></span></td>
-                                    <td><span></span></td>
-
-                                    <td><span></span>没有记录</td>
-                                    <td><span></span></td>
-                                    <td><span class="tdbetting-active-aa"></span></td>
-                                    <td><span></span></td>
-                                    <td><span></span></td>
+                                <tr class="zanwujl">
+                                    <td colspan="9" style="text-align: center;"><span><i class="iconfont"></i>没有充值记录</span></td>
                                 </tr>
                                 <?php
                             }

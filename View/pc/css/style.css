@@ -348,7 +348,8 @@ header{
 }
 /*尾部*/
 footer{
-  background: #dcd4d2;
+  background: #FDFCFA;
+  /*dcd4d2*/
   clear: both;
 }
 .lottery_footer{
@@ -770,6 +771,10 @@ footer{
     display: inline-block;
     background: #fff;
 }
+.basic_information p {
+    text-align: left;
+    padding: 10px 0;
+}
 .lef_header_a a span img{
     border-radius: 50%;
     width: 90px;
@@ -798,9 +803,7 @@ footer{
     margin:0 5px;
 }
 .lef_header_d b{
-    display: inline-block;
     color:#E64E4D;
-    width:100%;
     margin-top: 10px;
 }
 .sonal_main_lef_nav{
@@ -1013,14 +1016,11 @@ footer{
 }
 .tbody_referenceb .zanwujl td{
   text-align: center;
-  color: #cc0000;
+  color: #f46e00;
   padding: 30px;
 }
 .tbody_referenceb .zanwujl td span i{
   margin: 0 5px;
-}
-.tbody_referenceb .zanwujl:hover{
-  background: inherit;
 }
 /*我的投注*/
 .table_betting_main{
@@ -1081,6 +1081,9 @@ hr.style12 {
 .tbody_referenceb tr:not(.nothover):hover{
   background: #e8dbd5;
 }
+.tbody_referenceb .zanwujl:not(.nothover):hover{
+  background: inherit;
+}
 .tbody_referenceb tr td{
   padding: 15px;
   font-size: 12px;  
@@ -1112,6 +1115,7 @@ hr.style12 {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  color: #f46e00;
 }
 /*立即充值*/
 .Recharge_header a,
@@ -1207,9 +1211,15 @@ hr.style12 {
   width: 60%;
   color: #cc0000;
 }
+.chlidactive, .iconnoneb, .iconnone .iconnonea {
+    display: none;
+}
+.iconnone .iconnoneb {
+    display: block;
+}
 /*提现申请*/
 .Withdrawals_bind_form li label{
-  width: 100px;
+  width: 110px;
 }
 .Withdrawals_bind_form .basic_information_c{
   position: relative;
@@ -1223,7 +1233,7 @@ hr.style12 {
   top: 2px;
   left: 104px;
 }
-.Withdrawals_bind_main .table_reference{
+.Withdrawals_bind_main{
   margin-top: 20px;
 }
 .screen_nowin_a a:hover{
@@ -1490,6 +1500,10 @@ hr.style12 {
   color: #fff;
   border-radius: 3px;
   margin:3px;
+}
+.Betting_main_lef_nav p span i {
+    float: right;
+    margin-right: 10px;
 }
 .Betting_main_lef_nav ul li .left-nav-active,
 .Betting_main_lef_nav ul li a:hover{

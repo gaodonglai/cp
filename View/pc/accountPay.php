@@ -36,7 +36,6 @@
                         <p>QQ钱包充值暂未开通，请暂时使用人工充值</p>
                     </div>
                     <div class="table_betting_main table_capital_main" id="Recharge_tab3">
-                        <p>支付宝微信扫码充值暂未开通，请暂时使用人工充值</p>
                         <!--<dl class="auto_in_tab">
                             <dt>尊敬的用户，平台充值系统已升级，请按以下充值流程进行操作：</dt>
                             <dd><img src="View/pc/image/cz_bank.png" class="cz_bank">绑定本人银行卡</dd>
@@ -67,7 +66,7 @@
                         <form action="<?=_get_home_url('pay/setArtificialPay')?>" class="artificial_pay basic_information_form Withdrawals_bind_form registerform">
                             <ul>
                                 <li class="basic_information_d">
-                                    <label for="" style="width: 111px;">充值方式：</label>
+                                    <label for="">充值方式：</label>
                                     <select name="type">
                                         <option value="">请选择</option>
                                         <?php
@@ -76,12 +75,11 @@
                                         }
                                         ?>
                                     </select>
-                                    <span class="Validform_checktip" style="    width: 400px;height: 66px;"></span>
                                 </li>
                             <li class="basic_information_d">
                                 <label for="" style="width: 111px;">充值金额(￥)：</label>
                                 <input type="number" name="pay_money" value="" datatype="n3-11">
-                                <span class="Validform_checktip" style="    width: 400px;height: 66px;">为了尽快确认您的订单，我们会在充值金额后面添加随机小数点。如充值100会有返回的充值金额如100.23。</span>
+                                <span class="importanttisi">为了尽快确认您的订单，我们会在充值金额后面添加随机小数点。如充值100会有返回的充值金额如100.23。</span>
                             </li>
 
                             <li class="basic_information_i">
