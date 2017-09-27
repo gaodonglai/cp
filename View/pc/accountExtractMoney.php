@@ -135,8 +135,21 @@
                                 }
                             }else{
                                 ?>
+<<<<<<< HEAD
                                 <tr class="zanwujl">
                                     <td colspan="9" style="text-align: center;"><span><i class="iconfont"></i>没有充值记录</span></td>
+=======
+                                <tr class="screen_nowin_a">
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span>没有记录</td>
+                                    <td><span></span></td>
+                                    <td><span class="tdbetting-active-aa"></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+>>>>>>> parent of a4c94f6... 添加分页与交互
                                 </tr>
                             <?php
                             }
@@ -231,8 +244,21 @@
                                 }
                             }else{
                                 ?>
+<<<<<<< HEAD
                                 <tr class="zanwujl">
                                     <td colspan="9" style="text-align: center;"><span><i class="iconfont"></i>没有充值记录</span></td>
+=======
+                                <tr class="screen_nowin_a">
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+
+                                    <td><span></span>没有记录</td>
+                                    <td><span></span></td>
+                                    <td><span class="tdbetting-active-aa"></span></td>
+                                    <td><span></span></td>
+                                    <td><span></span></td>
+>>>>>>> parent of a4c94f6... 添加分页与交互
                                 </tr>
                                 <?php
                             }
