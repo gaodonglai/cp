@@ -65,7 +65,8 @@ class order_drp_calss{
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
         $limit = 10;
         $offset = ( $pagenum - 1 ) * $limit;
-        $entries = $wpdb->get_results( "SELECT a.user_id,a.nick_name,a.mobile_phone,a.user_name,sum(b.increase_money) as totel_increase_money FROM {$wpdb->prefix}account as a inner JOIN {$wpdb->prefix}drp_log as b on a.user_id = b.rank_user_id  $g_like group by a.user_id ORDER BY a.user_id DESC   LIMIT $offset, $limit " );
+        $entries = $wpdb->get_results( "SELECT SQL_CALC_FOUND_ROWS a.user_id,a.nick_name,a.mobile_phone,a.user_name,sum(b.increase_money) as totel_increase_money FROM {$wpdb->prefix}account as a inner JOIN {$wpdb->prefix}drp_log as b on a.user_id = b.rank_user_id  $g_like group by a.user_id ORDER BY a.user_id DESC   LIMIT $offset, $limit " );
+        $total = $wpdb->get_var("SELECT FOUND_ROWS();");//SQL_CALC_FOUND_ROWS
         ?>
         <div class="wrap">
             <h1 class="wp-heading-inline">分销用户列表</h1>
@@ -160,9 +161,6 @@ class order_drp_calss{
 
             </form>
             <?php
-
-            $total = $wpdb->get_var( "SELECT COUNT(a.user_id) FROM {$wpdb->prefix}account as a inner JOIN {$wpdb->prefix}drp_log as b on a.user_id = b.rank_user_id  $g_like group by a.user_id" );
-
             $num_of_pages = ceil( $total / $limit );
             $page_links = paginate_links( array(
                 'base' => add_query_arg( 'pagenum', '%#%' ),
@@ -200,8 +198,8 @@ class order_drp_calss{
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
         $limit = 10;
         $offset = ( $pagenum - 1 ) * $limit;
-        $entries = $wpdb->get_results( "SELECT b.user_name,a.money,a.increase_money,a.rank,a.time FROM {$wpdb->prefix}drp_log as a inner join {$wpdb->prefix}account as b on a.user_id = b.user_id WHERE a.rank_user_id = {$user_id} $g_like  LIMIT $offset, $limit " );
-
+        $entries = $wpdb->get_results( "SELECT SQL_CALC_FOUND_ROWS b.user_name,a.money,a.increase_money,a.rank,a.time FROM {$wpdb->prefix}drp_log as a inner join {$wpdb->prefix}account as b on a.user_id = b.user_id WHERE a.rank_user_id = {$user_id} $g_like  LIMIT $offset, $limit " );
+        $total = $wpdb->get_var("SELECT FOUND_ROWS();");//SQL_CALC_FOUND_ROWS
         ?>
 
         <div class="wrap">
@@ -296,8 +294,6 @@ class order_drp_calss{
 
 
             <?php
-
-            $total = $wpdb->get_var( "SELECT COUNT(a.id) FROM {$wpdb->prefix}drp_log as a inner join {$wpdb->prefix}account as b on a.user_id = b.user_id WHERE a.rank_user_id = {$user_id} $g_like" );
             $num_of_pages = ceil( $total / $limit );
             $page_links = paginate_links( array(
                 'base' => add_query_arg( 'pagenum', '%#%' ),
@@ -320,10 +316,8 @@ class order_drp_calss{
         <?php
 
     }
-    public function fun_menu1()
-    {
 
-             //当前用户的分销商列表
+        //当前用户的分销商列表
         function drp_distributor(){
             global $wpdb;
             $like = $_GET['like'];
@@ -341,8 +335,8 @@ class order_drp_calss{
             $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
             $limit = 10;
             $offset = ( $pagenum - 1 ) * $limit;
-            $entries = $wpdb->get_results( "SELECT b.user_name,a.money,a.increase_money,a.rank,a.time FROM {$wpdb->prefix}drp_log as a inner join {$wpdb->prefix}account as b on a.user_id = b.user_id WHERE a.rank_user_id = {$user_id} and a.rank={$grade} $g_like  LIMIT $offset, $limit " );
-
+            $entries = $wpdb->get_results( "SELECT SQL_CALC_FOUND_ROWS b.user_name,a.money,a.increase_money,a.rank,a.time FROM {$wpdb->prefix}drp_log as a inner join {$wpdb->prefix}account as b on a.user_id = b.user_id WHERE a.rank_user_id = {$user_id} and a.rank={$grade} $g_like  LIMIT $offset, $limit " );
+            $count = $wpdb->get_var("SELECT FOUND_ROWS();");//SQL_CALC_FOUND_ROWS
             $get_user_name =  $wpdb->get_var("select user_name from {$wpdb->prefix}account where user_id = {$user_id}");
 
             ?>
@@ -446,8 +440,8 @@ class order_drp_calss{
 
                 <?php
 
-                $total = $wpdb->get_var( "SELECT COUNT(a.id) FROM {$wpdb->prefix}drp_log as a inner join {$wpdb->prefix}account as b on a.user_id = b.user_id WHERE a.rank_user_id = {$user_id} $g_like" );
-                $num_of_pages = ceil( $total / $limit );
+
+                $num_of_pages = ceil( $count / $limit );
                 $page_links = paginate_links( array(
                     'base' => add_query_arg( 'pagenum', '%#%' ),
                     'format' => '',
@@ -551,8 +545,8 @@ class order_drp_calss{
 
             </div>
                 <?php
-                }
     }
+
 
 }
 new order_drp_calss();

@@ -63,8 +63,8 @@ class order_account_calss{
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
         $limit = 10;
         $offset = ( $pagenum - 1 ) * $limit;
-        $entries = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}account  $g_like ORDER BY  `ks_account`.`user_id` DESC   LIMIT $offset, $limit " );
-
+        $entries = $wpdb->get_results( "SELECT SQL_CALC_FOUND_ROWS * FROM {$wpdb->prefix}account  $g_like ORDER BY  `ks_account`.`user_id` DESC   LIMIT $offset, $limit " );
+        $total = $wpdb->get_var("SELECT FOUND_ROWS();");//SQL_CALC_FOUND_ROWS
         ?>
         <div class="wrap">
             <h1 class="wp-heading-inline">用户列表</h1>
@@ -164,7 +164,6 @@ class order_account_calss{
             </form>
             <?php
 
-            $total = $wpdb->get_var( "SELECT COUNT(`user_id`) FROM {$wpdb->prefix}account {$g_like}" );
             $num_of_pages = ceil( $total / $limit );
             $page_links = paginate_links( array(
                 'base' => add_query_arg( 'pagenum', '%#%' ),

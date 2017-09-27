@@ -60,10 +60,11 @@ class withdraw_calss{
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
         $limit = 10;
         $offset = ( $pagenum - 1 ) * $limit;
-        $entries = $wpdb->get_results( "SELECT a.*,b.user_name,b.nick_name,b.user_money,d.account_number,d.account_name,d.opening_bank,d.card_type FROM {$wpdb->prefix}extract_money_log as a 
+        $entries = $wpdb->get_results( "SELECT SQL_CALC_FOUND_ROWS a.*,b.user_name,b.nick_name,b.user_money,d.account_number,d.account_name,d.opening_bank,d.card_type FROM {$wpdb->prefix}extract_money_log as a 
                                                     inner JOIN {$wpdb->prefix}account as b on a.user_id = b.user_id  
                                                     INNER JOIN {$wpdb->prefix}card_binding as d on a.bankcard = d.id
                                                     $g_like ORDER BY  `id` DESC   LIMIT $offset, $limit " );
+        $total = $wpdb->get_var("SELECT FOUND_ROWS();");//SQL_CALC_FOUND_ROWS
         ?>
         <div class="wrap">
             <h1 class="wp-heading-inline">提现用户列表</h1>
@@ -173,7 +174,6 @@ class withdraw_calss{
             </form>
             <?php
 
-            $total = $wpdb->get_var( "SELECT COUNT(`id`) FROM {$wpdb->prefix}extract_money_log {$g_like}" );
             $num_of_pages = ceil( $total / $limit );
             $page_links = paginate_links( array(
                 'base' => add_query_arg( 'pagenum', '%#%' ),

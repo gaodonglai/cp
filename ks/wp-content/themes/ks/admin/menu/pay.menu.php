@@ -53,8 +53,8 @@ class pay_calss{
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
         $limit = 10;
         $offset = ( $pagenum - 1 ) * $limit;
-        $entries = $wpdb->get_results( "SELECT a.*,b.user_name,b.nick_name,b.user_money,d.account_number as bank_account_number,d.account_name as bank_account_name, d.card_type FROM {$wpdb->prefix}artificial_pay as a inner JOIN {$wpdb->prefix}account as b on a.user_id = b.user_id  INNER JOIN {$wpdb->prefix}card_binding as d on a.user_id=d.user_id and a.pay_type = d.id $g_like ORDER BY  a.id DESC   LIMIT $offset, $limit " );
-
+        $entries = $wpdb->get_results( "SELECT SQL_CALC_FOUND_ROWS a.*,b.user_name,b.nick_name,b.user_money,d.account_number as bank_account_number,d.account_name as bank_account_name, d.card_type FROM {$wpdb->prefix}artificial_pay as a inner JOIN {$wpdb->prefix}account as b on a.user_id = b.user_id  INNER JOIN {$wpdb->prefix}card_binding as d on a.user_id=d.user_id and a.pay_type = d.id $g_like ORDER BY  a.id DESC   LIMIT $offset, $limit " );
+        $total = $wpdb->get_var("SELECT FOUND_ROWS();");//SQL_CALC_FOUND_ROWS
         ?>
         <div class="wrap">
             <h1 class="wp-heading-inline">充值申请</h1>
@@ -150,8 +150,6 @@ class pay_calss{
 
             </form>
             <?php
-
-            $total = $wpdb->get_var( "SELECT COUNT(`id`) FROM {$wpdb->prefix}artificial_pay {$g_like}" );
             $num_of_pages = ceil( $total / $limit );
             $page_links = paginate_links( array(
                 'base' => add_query_arg( 'pagenum', '%#%' ),
@@ -257,12 +255,8 @@ class pay_calss{
                     }
                 });
                 return false;
-
             });
-
         </script>
-
-
         <?php
 
     }
@@ -279,7 +273,8 @@ class pay_calss{
         $pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
         $limit = 10;
         $offset = ( $pagenum - 1 ) * $limit;
-        $entries = $wpdb->get_results( "SELECT a.*,b.user_name,b.nick_name,b.user_money FROM {$wpdb->prefix}recharge as a inner JOIN {$wpdb->prefix}account as b on a.user_id = b.user_id $g_like ORDER BY  `id` DESC   LIMIT $offset, $limit " );
+        $entries = $wpdb->get_results( "SELECT SQL_CALC_FOUND_ROWS a.*,b.user_name,b.nick_name,b.user_money FROM {$wpdb->prefix}recharge as a inner JOIN {$wpdb->prefix}account as b on a.user_id = b.user_id $g_like ORDER BY  `id` DESC   LIMIT $offset, $limit " );
+        $total = $wpdb->get_var("SELECT FOUND_ROWS();");//SQL_CALC_FOUND_ROWS
         ?>
         <div class="wrap">
             <h1 class="wp-heading-inline">充值记录</h1>
@@ -362,7 +357,6 @@ class pay_calss{
             </form>
             <?php
 
-            $total = $wpdb->get_var( "SELECT COUNT(`id`) FROM {$wpdb->prefix}recharge {$g_like}" );
             $num_of_pages = ceil( $total / $limit );
             $page_links = paginate_links( array(
                 'base' => add_query_arg( 'pagenum', '%#%' ),
