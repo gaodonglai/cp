@@ -357,6 +357,147 @@
                           	</ul>
                         </div>
 					</div>
+					<!--追号-->
+					<div class="choose_list_box choose_list_boxb">
+						<div class="chose_list">
+						<!--追号选择-->
+							<div class="zhuiTop">
+							    <label class="checkbox"> 
+							    <input id="chaseStopCondition" value="0" checked="checkbox" type="checkbox">
+									<div class="ripple-container">
+									  <div class="check-off"></div>
+									  <div class="check-on"><i class="iconfont">&#xe628;</i></div>
+									</div>
+							    </label> 
+							    <span id="Span2"> 
+							        <label for="chaseStopCondition"> 中奖</label>
+							        <select id="bingoPrize" name="bingoPrize">
+							            <option value="1">1</option>
+							            <option value="2">2</option>
+							            <option value="3">3</option>
+							            <option value="4">4</option>
+							            <option value="5">5</option>
+							        </select>
+							        <label>次停止追号。</label>
+							    </span>
+							    <label>
+							    选择所追期数：
+							    </label>
+							    <select id="chaseCountSelect" name="chaseCountSelect">
+							        <option value="5">==追5期==</option>
+							        <option value="10">==追10期==</option>
+							        <option value="15">==追15期==</option>
+							        <option value="20">==追20期==</option>
+							        <option value="25">==追25期==</option>
+							        <option value="30">==追30期==</option>
+							        <option value="35">==追35期==</option>
+							        <option value="40">==追40期==</option>
+							        <option value="45">==追45期==</option>
+							        <option value="50">==追50期==</option>
+							    </select> 
+							    <label for="allSelect" class="checkbox"> 
+							    	<input checked="checked" id="allSelect" value="全选" type="checkbox">全选
+							    	<div class="ripple-container">
+									  <div class="check-off"></div>
+									  <div class="check-on"><i class="iconfont">&#xe628;</i></div>
+									</div>
+							    </label>
+							</div>
+							<!--追号内容详情-->
+							<table class="table_reference">
+								<thead class="tbody_referencea">
+	                                <tr>
+	                                    <th><span>序号</span></th>
+	                                    <th><span>期数</span></th>
+	                                    <th><span>类型</span></th>
+	                                    <th><span>投注金额</span></th>
+										<th><span>累计金额</span></th>
+										<th><span>盈利金额</span></th>
+	                                </tr>
+	                            </thead>
+							</table>
+							<div class="table_zhuihao">
+								<table class="table_reference">
+		                            
+		                            <tbody class="tbody_referenceb tbody_capital_main">
+										<tr>
+			                                <td><span>1</span></td>
+			                                <td>
+			                                	<span class="checkbox checkbox2">
+			                                		<input class="checkNum checktime_0" name="checktime" type="checkbox" checked="checked">
+			                                		<div class="ripple-container">
+													  <div class="check-off"></div>
+													  <div class="check-on"><i class="iconfont">&#xe628;</i></div>
+													</div>
+			                                	</span>
+			                                	<span>89610</span>
+			                                </td>
+			                                <td><span>8</span></td>
+			                                <td>
+			                                	<span >
+			                                		<input class="zhuiEachPrice zhuihaoInput_0" value="" name="zhuihaoNumLeader"  type="text" data-odd="9.5">
+			                                	</span>
+			                                </td>
+			                                <td>100.00</td>
+			                                <td>0.00</td>
+			                            </tr>
+			                            <tr>
+			                                <td><span>1</span></td>
+			                                <td>
+			                                	<span class="checkbox checkbox2">
+			                                		<input class="checkNum checktime_0" name="checktime" type="checkbox" checked="checked">
+			                                		<div class="ripple-container">
+													  <div class="check-off"></div>
+													  <div class="check-on"><i class="iconfont">&#xe628;</i></div>
+													</div>
+			                                	</span>
+			                                	<span>89610</span>
+			                                </td>
+			                                <td><span>8</span></td>
+			                                <td><span><input class="zhuiEachPrice zhuihaoInput_0" value="" name="zhuihaoNumLeader"  type="text" data-odd="9.5"></span></td>
+			                                <td>100.00</td>
+			                                <td>0.00</td>
+			                            </tr>
+			                            <tr>
+			                                <td><span>1</span></td>
+			                                <td>
+			                                	<span class="checkbox checkbox2">
+			                                		<input class="checkNum checktime_0" name="checktime" type="checkbox" checked="checked">
+			                                		<div class="ripple-container">
+													  <div class="check-off"></div>
+													  <div class="check-on"><i class="iconfont">&#xe628;</i></div>
+													</div>
+			                                	</span>
+			                                	<span>89610</span>
+			                                </td>
+			                                <td><span>8</span></td>
+			                                <td><span><input class="zhuiEachPrice zhuihaoInput_0" value="" name="zhuihaoNumLeader"  type="text" data-odd="9.5"></span></td>
+			                                <td>100.00</td>
+			                                <td>0.00</td>
+			                            </tr>
+			                            <tr>
+			                                <td><span>1</span></td>
+			                                <td>
+			                                	<span class="checkbox checkbox2">
+			                                		<input class="checkNum checktime_0" name="checktime" type="checkbox" checked="checked">
+			                                		<div class="ripple-container">
+													  <div class="check-off"></div>
+													  <div class="check-on"><i class="iconfont">&#xe628;</i></div>
+													</div>
+			                                	</span>
+			                                	<span>89610</span>
+			                                </td>
+			                                <td><span>8</span></td>
+			                                <td><span><input  class="zhuiEachPrice zhuihaoInput_0" value="" name="zhuihaoNumLeader" type="text" data-odd="9.5"></span></td>
+			                                <td>100.00</td>
+			                                <td>0.00</td>
+			                            </tr>	
+		                            </tbody>
+		                        </table>
+	                        </div>	
+						</div>
+						<hr class="style12">
+					</div>
 				</div>
 				<!--提示-->
 				<p class="system_Prompt"><?=$ks->each_time?> 分钟一期，返奖率<?=$ks->return_rate?>% 销售时间：<?=$ks->start_time?>-<?=$ks->end_time?></p>
@@ -696,6 +837,12 @@
 	</div>
 </div>
 </main>
+<!--倒计时提醒-->
+<div class="tip" id="trustmsgin">
+	<p>请您注意，距离下一期开始还剩下<span id="warningSecond">10</span>秒</p>
+</div>
+<!--遮罩层-->
+<div class="mask-rea"></div>
 <script id="Recent_bets" type="text/html">
 {{each info as v}}
 	<tr class="screen_nowin_a">
@@ -758,4 +905,17 @@
 			最近12小时无开奖记录
 		</td>
 	</tr>
+</script>
+<script>
+  $('#allSelect').click(function(event) { 
+    if(this.checked) {
+        $('.checktime_0').each(function() { 
+            this.checked = true;         
+        });
+    }else{
+        $('.checktime_0').each(function() { 
+            this.checked = false;                   
+        });         
+    }
+});
 </script>

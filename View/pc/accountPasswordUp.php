@@ -34,18 +34,16 @@
                             <ul>
                                 <li class="basic_information_a"> 
                                     <label for="">登录密码：</label>
-                                    <input type="password" name="password" value="" datatype="*5-15" nullmsg="请输入登录密码" errormsg="密码范围在5~15位之间！"/>
-                                    <span class="Validform_checktip"></span>
+                                    <input type="password" name="password" value=""/>
                                 </li>
                                 <li class="basic_information_b">
                                     <label for="">新登录密码：</label>
-                                    <input type="password" value="" name="new_password" nullmsg="请输入新的登录密码"  datatype="*6-18" errormsg="密码至少6个字符,最多18个字符！" />
-                                    <span class="Validform_checktip">密码至少6个字符,最多18个字符！</span>
+                                    <input type="password" value="" name="new_password" />
+                                    <span class="leftdd keftddc">密码至少6个字符,最多18个字符！</span>
                                 </li>
                                 <li class="basic_information_c">
                                     <label for="">再次输入新密码：</label>
-                                    <input type="password" value="" name="re_new_password"  recheck="new_password" nullmsg="请输入新的登录密码" datatype="*6-18" errormsg="两次输入的密码不一致！" />
-                                    <span class="Validform_checktip"></span>
+                                    <input type="password" value="" name="re_new_password"  recheck="new_password"/>
                                 </li>
                                 <li class="basic_information_i">
                                     <label for=""></label>
@@ -56,27 +54,24 @@
                     </div>
                     <div class="table_betting_main table_capital_main" id="password_modify_binding2">
                         <p class="color_red_mddd"><i class="iconfont">&#xe60b;</i>为确保您的账户财产安全，请牢记您的交易密码且不要轻易泄漏给他人</p>
-                        <form action="<?=_get_home_url('account/updatePaymentPassword')?>" class="postAjax basic_information_form  password_modify_form registerform" >
+                        <form action="<?=_get_home_url('account/updatePaymentPassword')?>" class="postAjax basic_information_form  password_modify_form" >
                             <ul>
                                 <li class="basic_information_a">
                                     <label for="">登录密码：</label>
-                                    <input type="password" name="password" value="" datatype="*5-15"  nullmsg="请输入登录密码" errormsg="密码范围在5~15位之间！"/>
-                                    <span class="Validform_checktip"></span>
+                                    <input type="password" name="password" value=""/>
                                 </li>
                                 <li class="basic_information_a">
                                     <label for="">交易密码</label>
-                                    <input type="password" name="payment_password" value=""  datatype="*5-15" nullmsg="请输入交易密码" errormsg="密码范围在5~15位之间！"/>
-                                    <span class="Validform_checktip"></span>
+                                    <input type="password" name="payment_password" value="" />
                                 </li>
                                 <li class="basic_information_a">
                                     <label for="">新交易密码：</label>
-                                    <input type="password" value="" name="new_payment_password" nullmsg="请输入新的交易密码"  datatype="*6-18" errormsg="密码至少6个字符,最多18个字符！" />
-                                    <span class="Validform_checktip">交易密码是在进行交易时需要输入的密码，不同于登录密码</span>
+                                    <input type="password" value="" name="new_payment_password"/>
+                                    <span class="leftdd keftddc">交易密码是在进行交易时需要输入的密码，不同于登录密码</span>
                                 </li>
                                 <li class="basic_information_a">
                                     <label for="">再次输入新交易密码：</label>
-                                    <input type="password" value="" name="re_new_payment_password"  recheck="new_payment_password" nullmsg="请输入新的交易密码" datatype="*6-18" errormsg="两次输入的密码不一致！" />
-                                    <span class="Validform_checktip"></span>
+                                    <input type="password" value="" name="re_new_payment_password"  recheck="new_payment_password"/>
                                 </li>
                                 <li class="basic_information_i">
                                     <label for=""></label>

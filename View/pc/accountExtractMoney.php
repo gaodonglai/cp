@@ -34,7 +34,6 @@
                             <ul>
                                 <li class="basic_information_a">
                                     <label for="">银行卡号：</label>
-
                                     <select name="bank" class="loginValue">
                                         <?php
                                         $flag = true;
@@ -71,22 +70,21 @@
                                 <li class="basic_information_d">
                                     <label for="">提现金额(￥)：</label>
                                     <input type="number" name="money" value="" datatype="n3-11" nullmsg="请输入提现金额" errormsg="最少提现金额为￥<?=$quota?>"//>
-                                    <span class="Validform_checktip">最少提现金额为￥<?=$quota?></span>
+                                    <span class="leftdd">最少提现金额为￥<?=$quota?></span>
                                 </li>
                                 <li class="basic_information_e">
                                     <label for="">交易密码：</label>
                                     <input type="password" name="deal_password" value=""  datatype="*5-15" nullmsg="请填写密码！" errormsg="密码范围在5~15位之间！"/>
-                                    <span class="Validform_checktip"></span>
                                 </li>
                                 <li class="basic_information_c">
                                     <label for="">到账时间：</label>
                                     <div class="basic_information_c_main">
                                     <label class="basic_radio_label">
-                                        <input class="mui-checkbox checkbox-s checkbox-orange"  id="type-1" type="radio" name="paymen_type" value = "2" />
+                                        <input class="mui-checkbox checkbox-s checkbox-orange"  id="type-1" type="radio" name="paymentype" value = "2" />
                                         <i class="iconfont checkbox-i">&#xe628;</i> 极速提现（9:00——18:00时间段 1时内到账，其他时间段 12小时内到账） 
                                     </label>
                                     <label class="basic_radio_label">
-                                        <input class="mui-checkbox checkbox-s checkbox-orange" id="type-2" type="radio" name="payment_ype" value = "1" checked="1"/>
+                                        <input class="mui-checkbox checkbox-s checkbox-orange" id="type-2" type="radio" name="paymentype" value = "1" checked="1"/>
                                          快速提现   （正常24小时内到账，具体到账时间因收款银行略有不同，节假日会略有延迟）
                                         <i class="iconfont checkbox-i">&#xe628;</i>
                                     </label>

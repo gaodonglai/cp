@@ -63,24 +63,20 @@
                             </li>
                             <li class="basic_information_b">
                                 <label for="">姓名：</label>
-                                <input type="text" value="<?=get_user_info()->nick_name?>" name="nick_name"  datatype="s4-8"  errormsg="昵称至少4个字符,最多8个字符！" />
-                                <span class="Validform_checktip"></span>
+                                <input type="text" value="<?=get_user_info()->nick_name?>" name="nick_name"/>
                             </li>
 
                             <li class="basic_information_d">
                                 <label for="">手机：</label>
-                                <input type="number" name="mobile_phone" value="<?=get_user_info()->mobile_phone?>" id="phone"  datatype="m" errormsg="请输入您的手机号码！"/>
-                                <span class="Validform_checktip"></span>
+                                <input type="number" name="mobile_phone" value="<?=get_user_info()->mobile_phone?>" id="phone"/>
                             </li>
                             <li class="basic_information_e">
                                 <label for="">QQ：</label>
-                                <input type="number" name="qq" value="<?=get_user_info()->qq?>"   datatype="n6-11" errormsg="请输入您的QQ号码！"/>
-                                <span class="Validform_checktip"></span>
+                                <input type="number" name="qq" value="<?=get_user_info()->qq?>"/>
                             </li>
                             <li class="basic_information_f">
                                 <label for="">Email：</label>
-                                <input type="text" name="email" value="<?=get_user_info()->email?>"   datatype="e" errormsg="请输入您的Email！"/>
-                                <span class="Validform_checktip"></span>
+                                <input type="text" name="email" value="<?=get_user_info()->email?>"/>
                             </li>
                             <li class="basic_information_g">
                                 <label for=""></label>

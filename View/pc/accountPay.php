@@ -114,10 +114,8 @@
                             <p class="color_red_mddd2">提示：该方式为用户转账方式，请完成下面充值金额确认后再进行转账</p>
                         </div>
                         <form action="<?=_get_home_url('pay/setArtificialPay')?>" class="artificial_pay basic_information_form Withdrawals_bind_form registerform">
+                        <ul>
                             <?php
-
-
-
                             if($content){
                                 ?>
                                 <li class="basic_information_d">
@@ -144,31 +142,25 @@
                                             }
                                         }?>
                                     </select>
-
-                                    <span class="Validform_checktip" style="    width: 400px;height: 66px;"></span>
                                 </li>
                                 <?php
                             }else{
                                 ?>
-
                                 <li class="basic_information_a">
                                     <span >没有充值账号信息：<a class="color_red_mddd " href="<?=_get_home_url('account/bankCard#Bank_card_binding1')?>">去添加</a></span>
                                 </li>
                                 <?php
                             }
-
                             ?>
-                            <li class="basic_information_d">
+                            <li class="basic_information_d czjeyutixin">
                                 <label for="" style="width: 111px;">充值金额(￥)：</label>
                                 <input type="number" name="pay_money" value="" datatype="n3-11">
-                                <span class="Validform_checktip" style="    width: 400px;height: 66px;">为了尽快确认您的订单，我们会在充值金额后面添加随机小数点。如充值100会有返回的充值金额如100.23。</span>
+                                <span  class="czjetixin">为了尽快确认您的订单，我们会在充值金额后面添加随机小数点。如充值100会有返回的充值金额如100.23。</span>
                             </li>
-
                             <li class="basic_information_i">
                                 <label for=""></label>
                                 <button class="modify_sub">确认充值</button>
                             </li>
-
                             </ul>
                         </form>
                         <?php } ?>

@@ -120,6 +120,15 @@
     clipboard.on('error', function(e) {
         console.log(e);
     });
+    /*弹出提示*/
+    $(".bettThe_otteryb").click(function(){
+    	$(".mask-re").addClass("mask-reb");
+    	$(".tip").addClass("tipaa");
+    });
+    $(".mask-re").click(function(){
+    	$(".mask-re").removeClass("mask-reb");
+    	$(".tip").removeClass("tipaa");
+    })
 	/*返回顶部*/
 	showScroll();
 	function showScroll(){
