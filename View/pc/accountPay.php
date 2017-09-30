@@ -30,13 +30,13 @@
                 </p>
                 <div class="basic_information">
                     <div class="table_betting_main  table_capital_main" id="Recharge_tab1">
-                        <p>支付宝微信扫码充值暂未开通，请暂时使用人工充值</p>
+                        <p class="color_red_mddd2">支付宝微信扫码充值暂未开通，请暂时使用人工充值</p>
                     </div>
                     <div class="table_betting_main table_capital_main" id="Recharge_tab2">
-                        <p>QQ钱包充值暂未开通，请暂时使用人工充值</p>
+                        <p class="color_red_mddd2">QQ钱包充值暂未开通，请暂时使用人工充值</p>
                     </div>
                     <div class="table_betting_main table_capital_main" id="Recharge_tab3">
-                        <p>支付宝微信扫码充值暂未开通，请暂时使用人工充值</p>
+                        <p class="color_red_mddd2">支付宝微信扫码充值暂未开通，请暂时使用人工充值</p>
                         <!--<dl class="auto_in_tab">
                             <dt>尊敬的用户，平台充值系统已升级，请按以下充值流程进行操作：</dt>
                             <dd><img src="View/pc/image/cz_bank.png" class="cz_bank">绑定本人银行卡</dd>
@@ -92,7 +92,7 @@
                                     </div>
                                  </div>';
                             }else{
-                                echo '<div class="blankRemittance" style="    height: 600px;"> 
+                                echo '<div class="blankRemittance blankRemittanceaa"> 
                                     <div class="blankRemittance_bg"> 
                                         <ul>
                                              <li><img src="'._get_home_url().'View/pc/image/icon_h_recharge.png"  class="icon_h_recharge"><span class="h_title">充值列表</span></li> 

@@ -1159,6 +1159,18 @@ hr.style12 {
   padding-top: 30px;
   position: relative;
 }
+.blankRemittanceaa{
+  height: 600px;
+}
+.blankRemittanceaa .blankRemittance_bg ul{
+  margin-top: 15px;
+}
+.blankRemittanceaa .blankRemittance_bg ul li p{
+  text-align: center;
+}
+.blankRemittanceaa .blankRemittance_bg ul li .h_title{
+  margin-right: 5px;
+}
 .blankRemittance_bg {
     background: url(../image/blankRemittance_bgc.png)no-repeat center;
     background-size: 100% 100%;
